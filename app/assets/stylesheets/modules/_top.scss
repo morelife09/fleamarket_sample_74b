@@ -1,10 +1,16 @@
 * {
   box-sizing: border-box;
 }
-.wrapper {
-  display: flex;
-}
-
-.header {
-  display: block;
+.headerTop {
+  padding: 0 60px;
+  &_inner {
+    padding: 15px 0 0;
+    width: 100%;
+    max-width: 1040px;
+    min-height: 82px;
+    margin: 0 auto;
+  }
+    &_main {
+      
+    }
 }
