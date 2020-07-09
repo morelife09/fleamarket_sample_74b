@@ -11,6 +11,17 @@
     margin: 0 auto;
   }
     &_main {
-      
+      display: flex;
+      position: relative;
+      align-items: center;
     }
+      h1 {
+        margin-right: 30px;
+        padding-bottom: 10px;
+        border-radius: 4px;
+        a {
+          width: 140px;
+          display: block;
+        }
+      }
 }
