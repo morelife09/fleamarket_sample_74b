@@ -1,18 +1,23 @@
 .headerTop_inner
   .headerTop_main
     %h1.icon
-      = link_to image_tag('logo.png')
+      = link_to image_tag'logo.png', size: "140x40"
     .box
-
-  .headerbottom
+      = form_with url: root_path do |f| 
+        .box_search 
+          = f.text_field :name, class: 'box_search', placeholder: 'キーワードから探す'
+          %button{type: "submit"}
+            .box_search-icon
+              = link_to image_tag'icon-search 1.png', size: "19x19"
+              
+  .headerTop_bottom
     %ul.left
       %li.leftitem
-      カテゴリー
-      %le.leftitem-b
-      ブランド
-    %ul.raght 
-      %li.rightitem
-      ログイン
-      %le.rightitem-b
-      新規会員登録
-    
+        = link_to "カテゴリー"
+      %li.leftitem-b
+        = link_to "ブランド"
+    %ul.right
+      %li.rightitem-c
+        = link_to "ログイン"
+      %li.rightitem-d
+        = link_to "新規会員登録"
