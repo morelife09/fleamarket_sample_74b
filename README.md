@@ -19,8 +19,8 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |id                             |string|null: false|
-|delivery_information_id        |references|null: false , foreign_key: true|
-|credit_card_id                 |references|null: false , foreign_key: true|
+|delivery_information_id        |references|null: false|
+|credit_card_id                 |references|null: false|
 |nickname                       |string|null: false|
 |email                          |string|null: false , unique: true|
 |password                       |string|null: false , unique: true|
@@ -33,8 +33,9 @@ Things you may want to cover:
 |updated_at                     |timestanp||
 ### Association
 - has_many :items
-- has_many :delivery_information
-- has_many :credit_cards
+- has_many :credit_cards , dependent: :destroy
+- has_many :delivery_information , dependent: :destroy
+- has_many :items_purchases
 
 
 ## delivery_informationテーブル
@@ -42,7 +43,7 @@ Things you may want to cover:
 |------|----|-------|
 |id                             |string|null: false|
 |user_id                        |references|null: false , foreign_key: true|
-|prefecture_id                  |references|null: false , foreign_key: true|
+|prefecture_id(acitve_hash)     |references|null: false|
 |delivery_family_name           |string|null: false|
 |delivery_first_name            |string|null: false|
 |delivery_family_name_furigana  |string|null: false|
@@ -76,14 +77,13 @@ Things you may want to cover:
 |------|----|-------|
 |id                             |string|null: false|
 |user_id                        |references|null: false , foreign_key: true|
-|credit_card_id                 |references|foreign_key: true|
 |image_id                       |references|null: false , foreign_key: true|
 |categories_id                  |references|null: false , foreign_key: true|
-|size_id                        |references|foreign_key: true|
-|prefecture_id                  |references|null: false , foreign_key: true|
-|condition_id                   |references|null: false , foreign_key: true|
-|shipping_fee_id                |references|null: false , foreign_key: true|
-|delivery_days_id               |references|null: false , foreign_key: true|
+|size_id(acitve_hash)           |references||
+|prefecture_id(acitve_hash)     |references|null: false|
+|condition_id(acitve_hash)      |references|null: false|
+|shipping_fee_id(acitve_hash)   |references|null: false|
+|delivery_days_id(acitve_hash)  |references|null: false|
 |item_name                      |string|null: false|
 |price                          |string|null: false|
 |description                    |text|null: false|
@@ -92,11 +92,23 @@ Things you may want to cover:
 |updated_at                     |timestanp||
 ### Association
 - belongs_to :user
-- belongs_to :credit_card
+- belongs_to :items_purchases
 - has_many :images
-- has_many :categories
+- belongs_to :categories
 - has_many :brands
 
+## items_purchasesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|id                             |string|null: false|
+|item_id                        |references|null: false , foreign_key: true|
+|user_id                        |references|null: false , foreign_key: true|
+|purchase_status_id(active_hash)|references||
+|created_at                     |timestanp|null: false|
+|updated_at                     |timestanp||
+### Association
+- belongs_to :user
+- belongs_to :item
 
 ## imagesテーブル
 |Column|Type|Options|
@@ -114,22 +126,22 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |id                             |string|null: false|
-|category_name                  |string|null: false|
+|name                  |string|null: false|
 |ancestry_path                  |string||
 |created_at                     |timestanp|null: false|
 |updated_at                     |timestanp||
 ### Association
-- belongs_to :item
+- has_many :categories
 
 ## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |id                             |string|null: false|
-|brand_name                     |string|null: false|
+|name                           |string|null: false|
 |created_at                     |timestanp|null: false|
 |updated_at                     |timestanp||
 ### Association
-- belongs_to :item
+- has_many :item
 
 
 * Database initialization
