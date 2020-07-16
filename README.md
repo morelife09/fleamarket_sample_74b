@@ -19,20 +19,18 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |id                             |string|null: false|
-|delivery_information_id        |string|null: false , foreign_key: true|
-|credit_card_id                 |string|null: false , foreign_key: true|
-|nickname                       |string|null: false , foreign_key: true|
-|email                          |text|null: false , unique: true|
-|password                       |text|null: false , unique: true|
-|first_name                     |text|null: false|
-|family_name                    |text|null: false|
-|first_name_furigana            |text|null: false|
-|family_name_furigana           |text|null: false|
-|year_id                        |string|null: false , foreign_key: true|
-|month_id                       |string|null: false , foreign_key: true|
-|date_id                        |string|null: false , foreign_key: true|
+|delivery_information_id        |references|null: false , foreign_key: true|
+|credit_card_id                 |references|null: false , foreign_key: true|
+|nickname                       |string|null: false|
+|email                          |string|null: false , unique: true|
+|password                       |string|null: false , unique: true|
+|first_name                     |string|null: false|
+|family_name                    |string|null: false|
+|first_name_furigana            |string|null: false|
+|family_name_furigana           |string|null: false|
+|birth_date                     |date|null: false|
 |created_at                     |timestanp|null: false|
-|update_at                      |timestanp||
+|updated_at                     |timestanp||
 ### Association
 - has_many :items
 - has_many :delivery_information
@@ -43,19 +41,19 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |id                             |string|null: false|
-|user_id                        |string|null: false , foreign_key: true|
-|prefecture_id                  |string|null: false , foreign_key: true|
-|delivery_family_name           |text|null: false|
-|delivery_first_name            |text|null: false|
-|delivery_family_name_furigana  |text|null: false|
-|delivery_first_name_furigana   |text|null: false|
+|user_id                        |references|null: false , foreign_key: true|
+|prefecture_id                  |references|null: false , foreign_key: true|
+|delivery_family_name           |string|null: false|
+|delivery_first_name            |string|null: false|
+|delivery_family_name_furigana  |string|null: false|
+|delivery_first_name_furigana   |string|null: false|
 |postal_code                    |string|null: false|
-|city                           |text|null: false|
-|address                        |text|null: false|
-|building_room_number           |text||
-|phone_number                   |text||
+|city                           |string|null: false|
+|address                        |string|null: false|
+|building_room_number           |string||
+|phone_number                   |string||
 |created_at                     |timestanp|null: false|
-|update_at                      |timestanp||
+|updated_at                     |timestanp||
 ### Association
 - belongs_to :user
 
@@ -64,38 +62,34 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |id                             |string|null: false|
-|user_id                        |string|null: false , foreign_key: true|
-|credit_card_holder             |text|null: false|
-|card_number                    |string|null: false|
-|year_id                        |string|null: false , foreign_key: true|
-|month_id                       |string|null: false , foreign_key: true|
-|security_code                  |string|null: false|
+|user_id                        |references|null: false , foreign_key: true|
+|customer_id                    |string|null: false|
+|card_id                        |string|null: false|
 |created_at                     |timestanp|null: false|
-|update_at                      |timestanp||
+|updated_at                     |timestanp||
 ### Association
 - belongs_to :user
-- has_many :credit_cards
 
 
 ## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |id                             |string|null: false|
-|user_id                        |string|null: false , foreign_key: true|
-|credit_card_id                 |string|foreign_key: true|
-|image_id                       |string|null: false , foreign_key: true|
-|categories_id                  |string|null: false , foreign_key: true|
-|size_id                        |string|foreign_key: true|
-|prefecture_id                  |string|null: false , foreign_key: true|
-|condition_id                   |string|null: false , foreign_key: true|
-|shipping_fee_id                |string|null: false , foreign_key: true|
-|delivery_days_id               |string|null: false , foreign_key: true|
-|item_name                           |text|null: false|
+|user_id                        |references|null: false , foreign_key: true|
+|credit_card_id                 |references|foreign_key: true|
+|image_id                       |references|null: false , foreign_key: true|
+|categories_id                  |references|null: false , foreign_key: true|
+|size_id                        |references|foreign_key: true|
+|prefecture_id                  |references|null: false , foreign_key: true|
+|condition_id                   |references|null: false , foreign_key: true|
+|shipping_fee_id                |references|null: false , foreign_key: true|
+|delivery_days_id               |references|null: false , foreign_key: true|
+|item_name                      |string|null: false|
 |price                          |string|null: false|
 |description                    |text|null: false|
-|brand_id                       |string|foreign_key: true|
+|brand_id                       |references|foreign_key: true|
 |created_at                     |timestanp|null: false|
-|update_at                      |timestanp||
+|updated_at                     |timestanp||
 ### Association
 - belongs_to :user
 - belongs_to :credit_card
@@ -108,19 +102,10 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |id                             |string|null: false|
-|item_id                        |string|null: false , foreign_key: true|
-|image_1                        |string|null: false|
-|image_2                        |string||
-|image_3                        |string||
-|image_4                        |string||
-|image_5                        |string||
-|image_6                        |string||
-|image_7                        |string||
-|image_8                        |string||
-|image_9                        |string||
-|image_10                       |string||
+|item_id                        |references|null: false , foreign_key: true|
+|image               　         |string|null: false|
 |created_at                     |timestanp|null: false|
-|update_at                      |timestanp||
+|updated_at                     |timestanp||
 ### Association
 - belongs_to :item
 
@@ -129,10 +114,10 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |id                             |string|null: false|
-|category_name                  |text|null: false|
+|category_name                  |string|null: false|
 |ancestry_path                  |string||
 |created_at                     |timestanp|null: false|
-|update_at                      |timestanp||
+|updated_at                     |timestanp||
 ### Association
 - belongs_to :item
 
@@ -140,9 +125,9 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |id                             |string|null: false|
-|brand_name                     |text|null: false|
+|brand_name                     |string|null: false|
 |created_at                     |timestanp|null: false|
-|update_at                      |timestanp||
+|updated_at                     |timestanp||
 ### Association
 - belongs_to :item
 
