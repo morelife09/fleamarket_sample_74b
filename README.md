@@ -32,10 +32,10 @@ Things you may want to cover:
 |created_at                     |timestanp|null: false|
 |updated_at                     |timestanp||
 ### Association
-- has_many :items
+- has_many :items , dependent: :destroy
 - has_many :credit_cards , dependent: :destroy
 - has_many :delivery_information , dependent: :destroy
-- has_many :items_purchases
+- has_many :items_purchases , dependent: :destroy
 
 
 ## delivery_informationテーブル
@@ -77,7 +77,6 @@ Things you may want to cover:
 |------|----|-------|
 |id                             |string|null: false|
 |user_id                        |references|null: false , foreign_key: true|
-|image_id                       |references|null: false , foreign_key: true|
 |categories_id                  |references|null: false , foreign_key: true|
 |size_id(acitve_hash)           |references||
 |prefecture_id(acitve_hash)     |references|null: false|
@@ -92,9 +91,9 @@ Things you may want to cover:
 |updated_at                     |timestanp||
 ### Association
 - belongs_to :user
-- belongs_to :items_purchases
-- has_many :images
-- belongs_to :categories
+- belongs_to :items_purchase
+- has_many :images , dependent: :destroy
+- belongs_to :category
 - has_many :brands
 
 ## items_purchasesテーブル
@@ -131,7 +130,7 @@ Things you may want to cover:
 |created_at                     |timestanp|null: false|
 |updated_at                     |timestanp||
 ### Association
-- has_many :categories
+- has_many :items
 
 ## brandsテーブル
 |Column|Type|Options|
@@ -141,7 +140,7 @@ Things you may want to cover:
 |created_at                     |timestanp|null: false|
 |updated_at                     |timestanp||
 ### Association
-- has_many :item
+- has_many :items
 
 
 * Database initialization
