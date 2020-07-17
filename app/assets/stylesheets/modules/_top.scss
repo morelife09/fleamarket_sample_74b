@@ -30,10 +30,22 @@
       .box {
         margin-left: auto;
         width: 100%;
-        &_search {
-          width: calc(100% - 26px);
-          display: flex;
+        form {
+          margin-bottom: 5px;
+          width: 100%;
         }
+          &_search {
+            width: calc(100% - 26px);
+            display: flex;
+            height: 36px;
+            padding: 0 0 0 5px;
+            &-icon {
+              background-color: #3CCACE;
+              border: 0;
+              cursor: pointer;
+
+            }
+          }
       }
     }
     &_bottom {
@@ -46,14 +58,28 @@
         &item {
           text-decoration: none;
           padding: 0;
-          line-height: 38px;
           a {
             text-decoration: none;
+            color: #333;
+            line-height: 32px;
+            padding-right: 30px;
+            background-position: center right;
+            background-repeat: no-repeat;
+            background-size: 18px;
           }
         &-b {
           display: flex;
           padding: 0 0 0 16px;
           line-height: 38px;
+          a {
+            text-decoration: none;
+            color: #333;
+            line-height: 32px;
+            padding-right: 30px;
+            background-position: center right;
+            background-repeat: no-repeat;
+            background-size: 18px;
+          }
         }
         }
       }
@@ -63,13 +89,60 @@
         &item-c {
           padding: 0 0 0 16px;
           line-height: 38px;
-          color: #333;
+          a {
+            text-decoration: none;
+            color: #333;
+            line-height: 32px;
+            padding-right: 30px;
+            background-position: center right;
+            background-repeat: no-repeat;
+            background-size: 18px;
+          }
         }
         &item-d {
           padding: 0 0 0 16px;
           line-height: 38px;
-          color: #333;
+          a {
+            text-decoration: none;
+            color: #333;
+            line-height: 32px;
+            padding-right: 30px;
+            background-position: center right;
+            background-repeat: no-repeat;
+            background-size: 18px;
+          }
         }
       }
     }
 }
+
+.visual {
+  background-image: url(bg-mainVisual-pict_pc.jpg);
+  width: 100%;
+  height: 560px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  padding: 0 60px;
+  display: flex;
+  align-items: center;
+}
+  .content {
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 35px 0 0 0 ;
+    &_sub {
+      font-size: 60px;
+      color: white;
+      line-height: 1.2;
+      text-shadow: 0 0 5px rgba($color: #000400, $alpha: 1.0);
+    }
+    &_text {
+      color: white;
+      font-size: 18px;
+      margin: 16px 0 0 0;
+      line-height: 1.77778;
+      text-shadow: 0 0 5px rgba($color: #000000, $alpha: 1.0);
+    }
+  }

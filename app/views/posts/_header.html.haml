@@ -6,7 +6,7 @@
       = form_with url: root_path do |f| 
         .box_search 
           = f.text_field :name, class: 'box_search', placeholder: 'キーワードから探す'
-          %button{type: "submit"}
+          %button{type: "submit", class:'box_search-icon'}
             .box_search-icon
               = link_to image_tag'icon-search 1.png', size: "19x19"
               
