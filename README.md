@@ -43,7 +43,7 @@ Things you may want to cover:
 |------|----|-------|
 |id                             |string|null: false|
 |user_id                        |references|null: false , foreign_key: true|
-|prefecture_id(acitve_hash)     |references|null: false|
+|prefecture_id(acitve_hash)     |integer|null: false|
 |delivery_family_name           |string|null: false|
 |delivery_first_name            |string|null: false|
 |delivery_family_name_furigana  |string|null: false|
@@ -78,11 +78,11 @@ Things you may want to cover:
 |id                             |string|null: false|
 |user_id                        |references|null: false , foreign_key: true|
 |categories_id                  |references|null: false , foreign_key: true|
-|size_id(acitve_hash)           |references||
-|prefecture_id(acitve_hash)     |references|null: false|
-|condition_id(acitve_hash)      |references|null: false|
-|shipping_fee_id(acitve_hash)   |references|null: false|
-|delivery_days_id(acitve_hash)  |references|null: false|
+|size_id(acitve_hash)           |integer||
+|prefecture_id(acitve_hash)     |integer|null: false|
+|condition_id(acitve_hash)      |integer|null: false|
+|shipping_fee_id(acitve_hash)   |integer|null: false|
+|delivery_days_id(acitve_hash)  |integer|null: false|
 |item_name                      |string|null: false|
 |price                          |string|null: false|
 |description                    |text|null: false|
@@ -102,7 +102,7 @@ Things you may want to cover:
 |id                             |string|null: false|
 |item_id                        |references|null: false , foreign_key: true|
 |user_id                        |references|null: false , foreign_key: true|
-|purchase_status_id(active_hash)|references||
+|purchase_status_id(active_hash)|integer||
 |created_at                     |timestanp|null: false|
 |updated_at                     |timestanp||
 ### Association
