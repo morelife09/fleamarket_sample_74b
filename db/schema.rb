@@ -10,9 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_13_230959) do
+ActiveRecord::Schema.define(version: 2020_07_18_023411) do
+
+  create_table "delivery_informations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.integer "prefecture_id", null: false
+    t.string "delivery_family_name", null: false
+    t.string "delivery_first_name", null: false
+    t.string "delivery_family_name_furigana", null: false
+    t.string "delivery_first_name_furigana", null: false
+    t.integer "postal_code", null: false
+    t.string "city", null: false
+    t.string "address", null: false
+    t.string "building_room_number"
+    t.string "phone_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_delivery_informations_on_user_id"
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "nickname", null: false
+    t.string "first_name", null: false
+    t.string "family_name", null: false
+    t.string "first_name_furigana", null: false
+    t.string "family_name_furigana", null: false
+    t.date "birth_date", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -20,7 +43,6 @@ ActiveRecord::Schema.define(version: 2020_07_13_230959) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "nickname"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
