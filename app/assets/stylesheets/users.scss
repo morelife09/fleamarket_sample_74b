@@ -1,3 +1,236 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+* {
+  box-sizing: border-box;
+}
+
+.wrapper {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.side {
+  background-color: #2f3e51;
+  height: 100%;
+  width: 300px;
+
+  &__header {
+    background-color: #253141;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+
+    &__user {
+      height: 20px;
+      width: 260px;
+      margin: 0 20px;
+      display: flex;
+      align-items: center;
+
+      &__name {
+        font-size: 16px;
+        color: #ffffff;
+        width: 260px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      &__icons {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &__icon1 {
+          font-size: 20px;
+
+        .CREATE {
+          color: #ffffff;
+        }
+        }
+
+        &__icon2 {
+          margin-left: 5px;
+          font-size: 20px;
+
+          .EDIT {
+            color: #ffffff;
+          }
+        }
+      }
+    }
+  }
+
+  &__groups {
+    height: calc( 100% - 100px);
+    width: 260px;
+    align-items: center;
+    margin: 0 auto;
+    margin-bottom: 40px;
+
+    .hoge{
+      height: 100px;
+      width: 300px;
+    }
+
+    .groups{
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+
+    &__titles {
+      font-size: 15px bold;
+      color: #ffffff;
+      // margin-top: 20px;
+      margin-bottom: 5px;
+      text-decoration: none;
+    }
+
+    &__notices {
+      font-size: 11px bold;
+      color: #ffffff;
+      text-decoration: none;
+    }
+  }
+}
+
+.main {
+
+
+  &__header {
+    background-color: #ffffff;
+    height: 100px;
+    border-bottom: 1px solid #eeeeee;
+
+    &__group {
+      margin: 0 40px;
+      height: 100px;
+      justify-content: space-between;
+      display: flex;
+
+      &__title {
+        margin-top: 35px;
+
+        &__name {
+          color: #333333;
+          font-size: 20px;
+        }
+
+        &__member {
+          font-size: 12px;
+          color: #999999;
+          padding-top: 15px;
+        }
+      }
+
+      &__edit-btn {
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        height: 40px;
+        width: 72px;
+        margin-top: 28px;
+        padding: 0 20px;
+        border: 1px solid #38aef0;
+        cursor: pointer;
+
+        a {
+          color: #38aef0;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  &__chats {
+    background-color: #fafafa;
+    height: calc(100vh - 190px);
+    width: calc(100vw - 300px);
+    padding-top: 35px;
+    padding-left: 40px;
+    overflow: scroll;
+
+    &__message {
+      display: flex;
+
+      &__poster {
+        font-size: 16px;
+        color: #333333;
+      }
+
+      &__date {
+        font-size: 12px;
+        color: #999999;
+        margin-left: 5px;
+      }
+    }
+
+    &__comment {
+      font-size: 14px;
+      color: #434A54;
+      margin-top: 12px;
+      margin-bottom: 46px;
+    }
+  }
+
+  &__form {
+    background-color: #d2d2d2;
+    height: 90px;
+    padding: 20px 40px;
+
+    &__posts {
+      display: flex;
+
+      &__text {
+        height: 50px;
+        width: 100%;
+        width: 100%;
+
+        &__input-box {
+          height: 50px;
+          width: 100%;
+          position: relative;
+          left: 0px;
+
+          .input_text {
+            height: 50px;
+            width: 100%;
+            padding: 0 40px 0 10px;
+          }
+
+          .input_image {
+            font-size: 20px;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            cursor: pointer;
+          }
+
+          .image {
+            display: none;
+          }
+        }
+      }
+
+      &__submit {
+        margin-left: 15px;
+
+        .submit_btn {
+          background-color: #38aef0;
+          color: white;
+          height: 50px;
+          width: 100px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
