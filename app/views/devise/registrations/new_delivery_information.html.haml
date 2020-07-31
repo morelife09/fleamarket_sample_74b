@@ -1,0 +1,56 @@
+%h2 商品送付先住所情報
+= form_for @delivery_information do |f|
+  = render "devise/shared/error_messages", resource: @user
+
+  .field
+    = f.label :送付先氏名（名字）
+    %span.form-group_require 必須
+    %br/
+    = f.text_field :delivery_family_name, {autofocus: true, placeholder: "例）木本", class:"field__name"}
+    = f.text_field :delivery_first_name, {autofocus: true, placeholder: "例）洋一郎", class:"field__name"}
+
+  .field
+    = f.label :送付先氏名（カナ）
+    %span.form-group_require 必須
+    %br/
+    = f.text_field :delivery_family_name_furigana, {autofocus: true, placeholder: "例）キモト", class:"field__name"}
+    = f.text_field :delivery_first_name_furigana, {autofocus: true, placeholder: "例）ヨウイチロウ", class:"field__name"}
+
+  .field
+    = f.label :郵便番号
+    %span.form-group_require 必須
+    %br/
+    = f.text_field :postal_code, {autofocus: true, placeholder: "ハイフンなしの半角数字７桁", class:"field__input"}
+
+  .field
+    = f.label :都道府県
+    %span.form-group_require 必須
+    %br/
+    = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt:"選択してください"}, {class:"pref"}
+
+  .field
+    = f.label :市区町村
+    %span.form-group_require 必須
+    %br/
+    = f.text_field :city, {autofocus: true, placeholder: "例）港区", class:"field__input"}
+
+  .field
+    = f.label :住所
+    %span.form-group_require 必須
+    %br/
+    = f.text_field :address, {autofocus: true, placeholder: "例）六本木１−１−１", class:"field__input"}
+
+  .field
+    = f.label :建物名称と部屋番号（任意）
+    %br/
+    = f.text_field :building_room_number, {autofocus: true, placeholder: "例）テックマンション１０１", class:"field__input"}
+
+  .field
+    = f.label :電話番号
+    %br/
+    = f.text_field :phone_number, {autofocus: true, placeholder: "ハイフン無し", class:"field__input"}
+
+  .actions
+    = f.submit "登録", class:"actions__submit_btn"
+
+= render "devise/shared/links"

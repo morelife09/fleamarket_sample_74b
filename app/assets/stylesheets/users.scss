@@ -1,0 +1,82 @@
+h2{
+  text-align: center;
+  color: #333;
+}
+
+h3{
+  font-size: 10px;
+  color: #888;
+}
+
+.field{
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+  &__input{
+    height: 30px;
+    width: 200px;
+    border-radius: 5px;
+  }
+  &__name{
+    height: 30px;
+    width: 95px;
+    border-radius: 5px;
+  }
+}
+
+.birthdate{
+  font-size: 10px;
+  height: 30px;
+  width: calc(200px / 3);
+  border-radius: 5px;
+}
+
+.pref{
+  font-size: 10px;
+  height: 30px;
+  width: 200px;
+  border-radius: 5px; 
+}
+
+.form-group_require{
+  background-color: #ea3525;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  color: #ffffff;
+  font-size: 12px;
+  border-radius: 1px;
+  vertical-align: top;
+}
+
+.actions{
+  text-align: center;
+  &__submit_btn{
+    background-color: #3ccace;
+    color: #ffffff;
+    font-weight: bold;
+    height: 30px;
+    width: 200px;
+    border-radius: 5px;
+  }
+}
+
+.forgot{
+  font-size: 12px;
+  color: blue;
+  display: block;
+  
+}
+
+a{
+  text-decoration: none;
+  text-align: center;
+}
+
+.header__right--btn{
+  font-size: 14px;
+  color: #333;
+  margin-left: 10px;
+}
