@@ -9,7 +9,6 @@ Rails.application.routes.draw do
     post 'delivery_informations', to: 'users/registrations#create_delivery_information'
   end
   root to: 'posts#index'
-  root to: 'items#index'
   get 'items', to: 'items#index'
   
 end
