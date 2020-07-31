@@ -1,19 +1,5 @@
 # README
-<<<<<<< HEAD
-=======
-こっち
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
 <!-- active_hashで作成するデータ郡については以下判断で処理 -->
 <!-- テーブルは作成しない／Associationにも記述しない／Colum,Type,Optionは記述する -->
 
@@ -143,8 +129,6 @@ Things you may want to cover:
 |updated_at                     |timestanp||
 ### Association
 - has_many :items
-
->>>>>>> 51335a1cf420b3029a289ea01562e6c47c1d4e8e
 
 * Database initialization
 
