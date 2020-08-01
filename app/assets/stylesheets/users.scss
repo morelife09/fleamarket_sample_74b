@@ -1,4 +1,7 @@
 h2{
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   text-align: center;
   color: #333;
 }
@@ -10,17 +13,20 @@ h3{
 
 .field{
   color: #333;
+  margin-top: 20px;
   margin-bottom: 20px;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: bold;
   text-align: center;
   font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
   &__input{
+    font-size: 10px;
     height: 30px;
     width: 200px;
     border-radius: 5px;
   }
   &__name{
+    font-size: 10px;
     height: 30px;
     width: 95px;
     border-radius: 5px;
@@ -60,6 +66,7 @@ h3{
     height: 30px;
     width: 200px;
     border-radius: 5px;
+    font-size: 12px;
   }
 }
 
