@@ -1,0 +1,156 @@
+.main
+.showMain
+  .contentLeftqq
+  .contentRight
+    .topContent
+      .itemBox
+        %h2.itemBox__name ee
+        .itemBox__body
+          %ul
+            %li
+              %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG"}/
+              %ul
+                %li
+                  %img{:height => "75", :src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG", :width => "75"}/
+                %li
+                  %img{:height => "75", :src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/17/IMG_9069.JPG", :width => "75"}/
+        .itemBox__price
+          %span
+            ¥1000
+          .itemBox__price-detail
+            %span
+              (税込)
+            %span
+              送料込み
+        .itemDetail eee
+        .table
+          %table
+            %tbody
+              %tr
+                %th 出品者
+                %td ss
+              %tr
+                %th カテゴリー
+                %td
+                  %a{:href => "#"} ベビー・キッズ
+                  %br/
+                  %a{:href => "#"} ベビー服(男の子用)  ~95cm
+                  %br/
+                  %a{:href => "#"} アウター
+              %tr
+                %th ブランド
+                %td
+              %tr
+                %th 商品のサイズ
+                %td
+              %tr
+                %th 商品の状態
+                %td 新品/未使用
+              %tr
+                %th 配送料の負担
+                %td 送料込み（出品者負担）
+              %tr
+                %th 発送元の地域
+                %td
+                  %a{:href => "#"} 北海道
+              %tr
+                %th 発送日の目安
+                %td 1-2日で発送
+        .optionalArea
+          %ul
+            %li#likeBtn.optionalBtn.likeBtn
+              %i.fa.fa-star
+              お気に入り 0
+          %ul.optional
+            %li.optionalBtn
+              %a{:href => "#"}
+                %i.fa.fa-flag
+                不適切な商品の通報
+      .commentBox
+        %ul.commentContents
+        %form#new_comment.new_comment{"accept-charset" => "UTF-8", :action => "#", :method => "post"}
+          %input{:name => "utf8", :type => "hidden", :value => "✓"}/
+          %input{:name => "authenticity_token", :type => "hidden", :value => "m9tIlurqCSf6XCjvMwJBxiC0z/HPJqCRQPxQHsFZNqTAH18tpsx5cxO9mKOPBt/IdD8xTYq043IIxJESKjDPXQ=="}/
+          %textarea#comment_body{:name => "comment[body]", :required => "required"}
+          %p.noticeMsg
+            相手のことを考え丁寧なコメントを心がけましょう。
+            %br/
+            不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          %br/
+          %button.commentBtn{:name => "button", :type => "submit"}
+            %i.fa.fa-comment
+            コメントする
+    %ul.links
+      %li
+        %a{:href => "#"}
+          %i.fa.fa-angle-left
+          %span
+          前の商品
+      %li
+        %a{:href => "#"}
+          %span 後ろの商品
+          %i.fa.fa-angle-right
+    .relatedItems
+      %a{:href => "#"} ベビー・キッズをもっと見る
+      .productLists
+        .productList
+          %a{:href => "/products/3"}
+            %figure.productList--img
+              %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"}/
+            .productList--body
+              %h3.name product3
+              .details
+                %ul
+                  %li 30000円
+                  %li
+                    %i.fa.fa-star.likeIcon
+                    0
+                %p (税込)
+%aside.appBanner
+.inner
+  %h2.inner__title だれでもかんたん、人生を変えるフリマアプリ
+  %p.inner__text 今すぐ無料ダウンロード！
+  .inner__icon
+    %a{:href => "#"}
+      %img.linkIcon.aBtn{:src => "/assets/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg"}/
+    %a{:href => "#"}
+      %img.linkIcon.gBtn{:src => "/assets/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg"}/
+.footer
+%ul.contents
+  %li.content
+    %h2.content__head FURIMAについて
+    %ul
+      %li
+        %a{:href => "#"} 会社概要（運営会社）
+      %li
+        %a{:href => "#"} プライバシーポリシー
+      %li
+        %a{:href => "#"} FURIMA利用規約
+      %li
+        %a{:href => "#"} ポイントに関する特約
+  %li.content
+    %h2.content__head FURIMAを見る
+    %ul
+      %li
+        %a{:href => "#"} カテゴリー一覧
+      %li
+        %a{:href => "#"} ブランド一覧
+  %li.content
+    %h2.content__head ヘルプ＆ガイド
+    %ul
+      %li
+        %a{:href => "#"} FURIMAガイド
+      %li
+        %a{:href => "#"} FURIMAロゴ利用ガイドライン
+      %li
+        %a{:href => "#"} お知らせ
+.footer__logo
+  %a{:href => "/"}
+    %img{:src => "/assets/logo-white-f61961ed5170064c5f33dd4524bdceeb5a5df2c83eb76fba31143f63fbab2c5e.svg"}/
+%p © FURIMA
+%a{:href => "#"}
+.purchaseBtn
+  %span.purchaseBtn__text 出品する
+  %img.purchaseBtn__icon{:src => "/assets/icon_camera-968c5ebaa05319bf1e2ad7508f852dd712504a4d26a1930d8bd87ec03ebcc37a.svg"}/
+%iframe#buffer_tpc_check{"data-info" => "The Buffer extension uses this iframe to automatically detect the browser's third-party cookies settings and offer the best experience based on those", :src => "chrome-extension://noojglkidnpfjbincgijbaiedldjfbhh/data/shared/tpc-check.html", :style => "display: none;"}
+%span#buffer-extension-hover-button{:style => "display: none; position: absolute; z-index: 8675309; width: 100px; height: 25px; background-image: url(\"chrome-extension://noojglkidnpfjbincgijbaiedldjfbhh/data/shared/img/buffer-hover-icon@2x.png\"); background-size: 100px 25px; opacity: 0.9; cursor: pointer; top: 686.547px; left: 645.5px;"}

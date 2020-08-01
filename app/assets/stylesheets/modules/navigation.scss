@@ -1,0 +1,20 @@
+nav {
+  display: block;
+  width: 100%;
+  height: 55px;
+
+  .breadCrumbs{
+    border-top: 1px solid #eee;
+    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+    position: relative;
+    padding: 0 60px;
+
+    &u{
+      padding: 17px 0 16px;
+      width: 100%;
+      max-width: 1040px;
+      font-size: 14px;
+      margin: 0 auto;
+    }
+  }
+}
