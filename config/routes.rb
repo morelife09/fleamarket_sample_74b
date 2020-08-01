@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     get 'delivery_informations', to: 'users/registrations#new_delivery_information'
     post 'delivery_informations', to: 'users/registrations#create_delivery_information'
   end
-  root to: 'items#index'
+
+  root to: 'posts#index'
   get 'items', to: 'items#index'
+  resources :items, only: [:new, :create]
 end

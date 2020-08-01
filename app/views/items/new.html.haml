@@ -1,0 +1,45 @@
+.products
+  -# = form_for [@item] do |f|
+  = form_for(@item, url: "") do |f|
+    .products_posts
+      商品名
+      = f.text_field :name, class: 'products_name', placeholder: 'Type a products name'
+    .products_explain
+      商品説明
+      = f.text_field :description, placeholder: '商品を説明してください'
+    .price
+      販売価格    
+      = f.text_field :price, placeholder: '300円〜999,999円'
+    .image
+      出品画像
+      
+    .category
+      カテゴリー 
+      = f.collection_select :category_id, Category.all, :id, :name, {prompt:"選択してください"}, {class:"condition"}
+    .brand
+      ブランド 
+      = f.text_field :name, class: 'brand_name', placeholder: 'Type a Brand'
+    .size
+      サイズ
+      = f.collection_select :size_id, Size.all, :id, :name, {prompt:"選択してください"}, {class:"size"}
+    .status
+      商品の状態 
+      = f.collection_select :condition_id, Condition.all, :id, :name, {prompt:"選択してください"}, {class:"condition"}
+    .fee
+      配送料の負担
+      = f.collection_select :shipping_fee_id, ShippingFee.all, :id, :name, {prompt:"選択してください"}, {class:"fee"}
+    .region
+      発送元の地域
+      = f.label :都道府県
+      = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt:"選択してください"}, {class:"pref"}
+    .date
+      発送までの日数
+      = f.collection_select :delivery_days_id, DeliveryDays.all, :id, :name, {prompt:"選択してください"}, {class:"pref"}
+    .submit
+      投稿する
+      = f.submit 'Send', class: 'form__submit'
+      
+ 
+
+    
+    
