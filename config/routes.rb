@@ -10,9 +10,5 @@ Rails.application.routes.draw do
   end
 
   root to: 'posts#index'
-<<<<<<< Updated upstream
   get 'items', to: 'items#items'
-=======
-  get 'items', to: 'items#item'
->>>>>>> Stashed changes
 end
