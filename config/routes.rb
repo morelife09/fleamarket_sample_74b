@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   end
 
   root to: 'posts#index'
-  get 'index', to: 'items#item'
+  get 'items', to: 'items#item'
 end
