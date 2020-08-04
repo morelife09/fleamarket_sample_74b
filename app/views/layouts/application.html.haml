@@ -2,22 +2,22 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title FUIRMA
+    %title FleamarketSample74b
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
 
-    %span.image
-    =image_tag src="/assets/logo.png", size: "100x29"
-    .header__right
-    - if user_signed_in?
-      = link_to "マイページ", "", class: "header__right--btn"
-      = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__right--btn"
-    - else
-      = link_to "ログイン", new_user_session_path, class: "header__right--btn"
-      = link_to "新規会員登録", new_user_registration_path, class: "header__right--btn"
-      = link_to 'Facebookで登録/ログイン', user_facebook_omniauth_authorize_path, method: :post, class: "header__right--btn"
-      = link_to 'Googleで登録/ログイン', user_google_oauth2_omniauth_authorize_path, method: :post, class: "header__right--btn"
+    -# %span.image
+    -# =image_tag src="/assets/logo.png", size: "100x29"
+    -# .header__right
+    -# - if user_signed_in?
+    -#   = link_to "マイページ", "", class: "header__right--btn"
+    -#   = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__right--btn"
+    -# - else
+    -#   = link_to "ログイン", new_user_session_path, class: "header__right--btn"
+    -#   = link_to "新規会員登録", new_user_registration_path, class: "header__right--btn"
+    -#   = link_to 'Facebookで登録/ログイン', user_facebook_omniauth_authorize_path, method: :post, class: "header__right--btn"
+    -#   = link_to 'Googleで登録/ログイン', user_google_oauth2_omniauth_authorize_path, method: :post, class: "header__right--btn"
     = yield
