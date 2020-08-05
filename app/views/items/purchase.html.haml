@@ -2,6 +2,62 @@
   = render "layouts/subheader"
 
   .purchase__body
+    .purchase__body__box
+      %section.purchase__body__box__content-first
+        %h2.purchase__body__box__content-first__title
+          購入内容の確認
+      %section.purchase__body__box__content-second
+        .purchase__body__box__content-second__left-block
+          = image_tag 'product.jpg', class: "purchase__body__box__content-second__left-block__img", alt:"商品画像"
+        .purchase__body__box__content-second__right-block
+          %p.purchase__body__box__content-second__right-block__item-name
+            product
+          %p.purchase__body__box__content-second__right-block__price-title
+            %span.purchase__body__box__content-second__right-block__price-title__postage-included
+              送料込み (税込)
+            %span.purchase__body__box__content-second__right-block__price-title__item-price
+              ¥5.000
+      %section.purchase__body__box__content-third
+        .purchase__body__box__content-third__payment-title
+          %span
+            支払い金額
+          %span.purchase__body__box__content-third__payment-title__price
+            ¥5.000
+      %section.purchase__body__box__content-fourth
+        .purchase__body__box__content-fourth__register-title
+          .purchase__body__box__content-fourth__register-title__upper
+            %h3.purchase__body__box__content-fourth__register-title__upper__text
+              支払い方法
+          = link_to "#", class: "purchase__body__box__content-fourth__register-title__link" do
+            = icon("fas", "plus-circle", class: "purchase__body__box__content-fourth__register-title__link__icon")
+            %span.purchase__body__box__content-fourth__register-title__link__text
+              登録してください
+      %section.purchase__body__box__content-fifth
+        .purchase__body__box__content-fifth__delivery-title
+          .purchase__body__box__content-fifth__delivery-title__upper
+            %h3.purchase__body__box__content-fifth__delivery-title__upper__text
+              配送方法
+            = link_to "変更する  >", '#', class: "purchase__body__box__content-fifth__delivery-title__upper__link"
+          .purchase__body__box__content-fifth__delivery-title__destination
+            %p.purchase__body__box__content-fifth__delivery-title__destination__postal
+              〒106-0045
+            %p.purchase__body__box__content-fifth__delivery-title__destination__address
+              東京都 港区 麻布十番1-16 麻布十番ステーション400
+            %p.purchase__body__box__content-fifth__delivery-title__destination__name
+              河合 晴彦
+      %section.purchase__body__box__content-sixth
+        .purchase__body__box__content-sixth__title
+          %p.purchase__body__box__content-sixth__title__upper
+            郵便局/コンビニ受取をご希望の方は、購入後に
+            %b.purchase__body__box__content-sixth__title__upper__bold
+              取引画面
+            から受取場所を変更をすることが可能です。出品者が発送作業を開始した後は受取場所の変更ができませんので、早めに変更を行ってください。
+          %p.purchase__body__box__content-sixth__title__notice
+            支払い方法の入力を完了してください。
+          .purchase__body__box__content-sixth__title__btn
+            = button_to "購入する", "#", class: "purchase__body__box__content-sixth__title__btn--able"
+            -# = button_to "購入する", "#", disabled: true, class: "purchase__body__box__content-sixth__title__btn--disable"
+            -# 購入機能実装時に条件分岐を追加
 
 
   = render "layouts/subfooter"
