@@ -11,4 +11,10 @@ Rails.application.routes.draw do
 
   root to: 'posts#index'
   get 'items', to: 'items#index'
+
+  resources :items do
+    member do
+      get 'purchase'
+    end
+  end
 end

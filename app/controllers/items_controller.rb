@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
 
   end
 
-  # params.require(:store).permit(:name, :address, :image, :image_cache)
+  def purchase
+  end
 
 end
