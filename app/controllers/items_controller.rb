@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
   end
 
   def purchase
+    @d_info = DeliveryInformation.find(current_user.id)
   end
 
 end

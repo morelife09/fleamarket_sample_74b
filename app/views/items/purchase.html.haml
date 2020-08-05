@@ -40,11 +40,17 @@
             = link_to "変更する  >", '#', class: "purchase__body__box__content-fifth__delivery-title__upper__link"
           .purchase__body__box__content-fifth__delivery-title__destination
             %p.purchase__body__box__content-fifth__delivery-title__destination__postal
-              〒106-0045
+              〒
+              %span<>
+              = @d_info.postal_code.to_s.insert(3, "-")
             %p.purchase__body__box__content-fifth__delivery-title__destination__address
-              東京都 港区 麻布十番1-16 麻布十番ステーション400
+              = @d_info.prefecture.name
+              = @d_info.city
+              = @d_info.address
+              = @d_info.building_room_number
             %p.purchase__body__box__content-fifth__delivery-title__destination__name
-              河合 晴彦
+              = current_user.family_name
+              = current_user.first_name
       %section.purchase__body__box__content-sixth
         .purchase__body__box__content-sixth__title
           %p.purchase__body__box__content-sixth__title__upper
