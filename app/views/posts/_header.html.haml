@@ -44,6 +44,7 @@
               = link_to "その他"
       %li.leftitem-b
         = link_to "ブランド"
+        %ul.brandsPulldown.displayNone
     %ul.right
       - if user_signed_in?
         = link_to "マイページ", "", class: "header__right--btn"
