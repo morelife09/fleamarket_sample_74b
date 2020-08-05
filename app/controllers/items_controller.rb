@@ -4,6 +4,8 @@ class ItemsController < ApplicationController
     render "items/item"
   end
 
-  # params.require(:store).permit(:name, :address, :image, :image_cache)
+  def purchase
+    @d_info = DeliveryInformation.find(current_user.id)
+  end
 
 end
