@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   end
 
   root to: 'posts#index'
-  get 'items', to: 'items#index'
+  resources :items, only: [:index]
 end
