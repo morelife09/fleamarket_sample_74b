@@ -10,9 +10,7 @@ Rails.application.routes.draw do
   end
 
   root to: 'posts#index'
-  get 'items', to: 'items#index'
-
-  resources :items do
+  resources :items, only: [:index] do
     member do
       get 'purchase'
     end
