@@ -11,21 +11,26 @@
   &__content {
     height: 100%;
     width: 1020px;
-    background-color: #2f3e51;
     display: flex;
     clear: both;
+    position: relative;
+    margin-top: 64px;
 
     &__maintab {
       height: 100%;
       width: 700px;
-      // position: absolute;
+      position: absolute;
+      left: 32%;
       background-color: burlywood;
+      float: right;
     }
 
     &__sidetab {
       height: 100%;
       width: 280px;
       background-color: cyan;
+      float: left;
+      position: absolute;
     }
   }
 
