@@ -1,0 +1,108 @@
+.main
+  .showMain
+    .contentLeftqq
+    .contentRight
+      .topContent
+        .itemBox
+          %h2.itemBox__name ee
+          .itemBox__body
+            %ul
+              %li
+                = image_tag '/assets/IMG_9072.jpeg'
+                %ul
+                  %li
+                    = image_tag '/assets/IMG_9072.jpeg'
+                  %li
+                    = image_tag '/assets/IMG_9069.jpeg'
+          .itemBox__price
+            %span
+              ¥1000
+            .itemBox__price-detail
+              %span
+                (税込)
+              %span
+                送料込み
+          .itemDetail eee
+          .table
+            %table
+              %tbody
+                %tr
+                  %th 出品者
+                  %td ss
+                %tr
+                  %th カテゴリー
+                  %td
+                    =link_to "ベビー・キッズ"
+                    %br/
+                    =link_to "ベビー服(男の子用)  ~95cm"
+                    %br/
+                    =link_to "アウター"
+                %tr
+                  %th ブランド
+                  %td
+                %tr
+                  %th 商品のサイズ
+                  %td
+                %tr
+                  %th 商品の状態
+                  %td 新品/未使用
+                %tr
+                  %th 配送料の負担
+                  %td 送料込み（出品者負担）
+                %tr
+                  %th 発送元の地域
+                  %td
+                    =link_to "北海道"
+                %tr
+                  %th 発送日の目安
+                  %td 1-2日で発送
+          .optionalArea
+            %ul
+              %li#likeBtn.optionalBtn.likeBtn
+                %i.fa.fa-star
+                お気に入り 0
+            %ul.optional
+              %li.optionalBtn
+                = link_to "" do
+                  %i.fa.fa-flag
+                  不適切な商品の通報
+        .commentBox
+          %ul.commentContents
+          %form#new_comment.new_comment{ "accept-charset": "UTF-8", action: "#", method: "post"}
+            %input{name: "utf8", type: "hidden", value: "✓"}/
+            %input{name: "authenticity_token", type: "hidden", value: "dzgtOn5XbsgDkpl/yKnG5CcdM6/4LZlSRSlKC0c5vfos/DqBMnEenOpzKTN0rVjqc5bNE72/2rENEYsHrFBEAw=="}/
+            %textarea#comment_body{name: "comment[body]", required: "required"}
+            %p.noticeMsg
+              相手のことを考え丁寧なコメントを心がけましょう。
+              %br/
+              不快な言葉遣いなどは利用制限や退会処分となることがあります。
+            %br/
+            %button.commentBtn{name: "button", type: "submit"}
+              %i.fa.fa-comment
+              コメントする
+      %ul.links
+        %li
+          = link_to "" do
+            %i.fa.fa-angle-left
+            %span
+            前の商品
+        %li
+          = link_to "" do
+            %span 後ろの商品
+            %i.fa.fa-angle-right
+      .relatedItems
+        = link_to "ベビー・キッズをもっと見る"
+        .productLists
+          .productList
+            = link_to "" do
+              %figure.productList--img
+                = image_tag '/assets/a007.png'
+              .productList--body
+                %h3.name product3
+                .details
+                  %ul
+                    %li 30000円
+                    %li
+                      %i.fa.fa-star.likeIcon
+                      0
+                  %p (税込)

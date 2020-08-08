@@ -1,0 +1,22 @@
+.subfooter {
+  background-color: $light_gray;
+  height: 220px;
+  width: 100%;
+  @include flex;
+  flex-direction: column;
+  &__logo {
+    &__link {
+      &__img {
+        -webkit-filter: invert(30%);
+        filter: invert(30%);
+        height: 45px;
+        margin-bottom: 8px;
+        width: auto;
+        vertical-align: middle;
+      }
+    }
+  }
+  &__copy-light {
+    font-size: 12px;
+  }
+}

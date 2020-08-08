@@ -1,0 +1,197 @@
+.purchase {
+  margin: 0;
+  padding: 0;
+  background-color: $light_gray;
+  min-height: 100vh;
+  width: 100%;
+
+  &__body {
+    height: auto;
+    width: 700px;
+    margin: 0 auto;
+    &__box {
+      height: 100%;
+      width: 100%;
+      background-color: $white;
+      section {
+        width: 375px;
+        padding-top: 32px;
+        padding-left: 16px;
+        padding-right: 16px;
+        margin: 0 auto;
+      }
+      &__content-first {
+        padding-bottom: 32px;
+        height: 97px;
+        border-bottom: solid 2px $light_gray;
+        @include flex;
+        &__title {
+          text-align: center;
+          font-weight: bold;
+          font-size: 24px;
+        }
+      }
+      &__content-second {
+        padding-bottom: 32px;
+        height: auto;
+        border-bottom: solid 2px $light_gray;
+        @include flex;
+        &__left-block {
+          height: 80px;
+          width: 80px;
+          &__img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 4px;
+          }
+        }
+        &__right-block {
+          width: 100%;
+          margin-left: 16px;
+          &__item-name {
+            font-size: 14px;
+            line-height: 1.4em;
+            margin-bottom: 8px;
+          }
+          &__price-title {
+            text-align: right;
+            &__postage-included {
+              font-size: 12px;
+            }
+            &__item-price {
+              font-size: 15px;
+              font-weight: bold;
+              margin-left: 8px;
+            }
+          }
+        }
+      }
+      &__content-third {
+        padding-bottom: 32px;
+        height: 132px;
+        border-bottom: solid 2px $light_gray;
+        &__payment-title {
+          line-height: 68px;
+          @include flex($justify: space-between);
+          font-size: 18px;
+          font-weight: bold;
+
+          &__price {
+            font-size: 24px;
+          }
+        }
+      }
+      &__content-fourth {
+        padding-bottom: 32px;
+        height: auto;
+        border-bottom: solid 2px $light_gray;
+        &__register-title {
+          &__upper {
+            margin-bottom: 16px;
+            &__text {
+              color: #000000;
+              font-size: 14px;
+              font-weight: bold;
+              margin: 0px;
+            }
+          }
+          &__link {
+            height: 16px;
+            color: #0095ee;
+            display: flex;
+            align-items: center;
+            opacity: 1;
+            text-decoration: none;
+
+            &__icon {
+              width: 16px;
+              height: 16px;
+            }
+            &__text {
+              margin-left: 4px;
+              font-size: 14px;
+            }
+          }
+        }
+      }
+      &__content-fifth {
+        padding-bottom: 32px;
+        height: auto;
+        border-bottom: solid 2px $light_gray;
+        &__delivery-title {
+          font-size: 14px;
+          &__upper {
+            @include flex($justify: space-between);
+            &__text {
+              color: #000000;
+              font-size: 14px;
+              font-weight: bold;
+              margin-bottom: 8px;
+            }
+            &__link {
+              align-items: center;
+              color: #0095ee;
+              display: inline-flex;
+              text-decoration: none;
+              &:hover {
+                text-decoration: underline;
+                opacity: 0.7;
+              }
+            }
+          }
+        }
+      }
+      &__content-sixth {
+        padding-bottom: 56px;
+        height: auto;
+        &__title {
+          &__upper {
+            color: #888888;
+            line-height: 1.5;
+            margin-bottom: 24px;
+            font-size: 14px;
+          }
+          &__notice {
+            color: #ff0211;
+            line-height: 1.5;
+            margin-bottom: 24px;
+            font-size: 14px;
+          }
+          &__btn {
+            &--able {
+              color: $white;
+              background-color: $main_color_green;
+              font-size: 18px;
+              height: 48px;
+              width: 100%;
+              border-radius: 4px;
+              border: 1px solid transparent;
+              display: inline-block;
+              line-height: 48px;
+              text-align: center;
+              text-decoration: none;
+              cursor: pointer;
+              &:hover {
+                filter: brightness(95%);
+              }
+            }
+            &--disable {
+              color: #888888;
+              background-color: #cccccc;
+              font-size: 18px;
+              height: 48px;
+              width: 100%;
+              border-radius: 4px;
+              border: 1px solid transparent;
+              display: inline-block;
+              line-height: 48px;
+              text-align: center;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
