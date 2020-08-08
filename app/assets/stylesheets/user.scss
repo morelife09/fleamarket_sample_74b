@@ -7,6 +7,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+
+
 
   &__content {
     height: 100%;
@@ -16,22 +20,6 @@
     position: relative;
     margin-top: 64px;
 
-    &__maintab {
-      height: 100%;
-      width: 700px;
-      position: absolute;
-      left: 32%;
-      background-color: #eeeeee;
-      float: right;
-
-      &__user-icon {
-        height: 200px;
-        width: 100%;
-        background: grey; 
-        background-image: url(2036394_s.jpg);
-      }
-    }
-
     &__sidetab {
       height: 100%;
       width: 280px;
@@ -39,7 +27,80 @@
       float: left;
       position: absolute;
     }
+
+    &__maintab {
+      height: 100%;
+      width: 700px;
+      position: absolute;
+      left: 32%;
+      // background-color: #eeeeee;
+      float: right;
+
+      &__user {
+        height: 200px;
+        width: 100%;
+        background: grey; 
+        background-image: url(2036394_s.jpg);
+        position: relative;
+        cursor: pointer;
+
+        .hoge {
+          height: 111px;
+          width: 100%;
+          position: absolute;
+          top: 45px;
+
+          &__icon {
+            display: flex;
+            justify-content: center;
+          }
+
+          .icon {
+            border-radius: 50%;
+            height: 60px;
+            width: 60px;
+          }
+
+          &__name {
+            font-size: 14px;
+            color: #333;
+            height: 19px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: 8px;
+          }
+        }
+      }
+
+      .tab-head {
+        height: 100%;
+        width: 100%;
+        background-color: #fafafa;
+        margin-top: 50px;
+
+        &__head {
+          line-height: 72px;
+          width: 100%;
+          background-color: #fafafa;
+          border-bottom: solid 1px;
+          box-sizing: border-box;
+          padding: 0px 16px;
+          font-size: 16px;
+          font-weight: bold;
+          color: #333;
+        }
+
+        &__item-list {
+          height: 100%;
+          width: 100%;
+          background: url(logo-white.png) no-repeat;
+          background-color:#eee;
+          background-size: 50% auto;
+          background-position: 170px 100px;
+        }
+
+      }
+    }
   }
-
-
 }

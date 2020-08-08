@@ -114,7 +114,7 @@ Things you may want to cover:
 |------|----|-------|
 |id                             |string|null: false|
 |item_id                        |references|null: false , foreign_key: true|
-|image               　         |string|null: false|
+|image                          |string|null: false|
 |created_at                     |timestanp|null: false|
 |updated_at                     |timestanp||
 ### Association
