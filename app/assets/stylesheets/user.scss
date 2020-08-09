@@ -35,6 +35,8 @@
         padding: 0px 16px;
         margin-bottom: 1px;
         background-color: #ffffff;
+        cursor: pointer;
+
       }
 
 
@@ -107,6 +109,7 @@
           font-size: 16px;
           font-weight: bold;
           color: #333;
+          cursor: pointer;
         }
 
         &__item-list {
