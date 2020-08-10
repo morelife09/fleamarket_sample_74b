@@ -13,6 +13,7 @@
       %h4 メール/パスワード
       %h4 クレジットカード登録/変更
       %h4 ログアウト
+        %a = link_to "ログアウト", destroy_user_session_path, method: :delete
 
     .wrapper__content__maintab
       .wrapper__content__maintab__user
