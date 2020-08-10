@@ -1,45 +1,74 @@
 .products
-  -# = form_for [@item] do |f|
-  = form_for(@item, url: "") do |f|
-    .products_posts
+  = form_for(@item) do |f|
+    .products__posts
       商品名
-      = f.text_field :name, class: 'products_name', placeholder: 'Type a products name'
-    .products_explain
+      %span.form-group_require 必須
+      %br
+      = f.text_field :name, class: 'products__name', placeholder: '40文字まで'
+    .products__explain
       商品説明
-      = f.text_field :description, placeholder: '商品を説明してください'
+      %span.form-group_require 必須
+      %br
+      = f.text_field :description, class: 'products__exp', placeholder: '商品を説明してください'
     .price
-      販売価格    
-      = f.text_field :price, placeholder: '300円〜999,999円'
-    .image
+      販売価格
+      %span.form-group_require 必須
+      %br
+      = f.number_field :price, class: 'products__p', placeholder: '300円〜999,999円'
+    #image-box
       出品画像
-      
+      %span.form-group_require 必須
+      %br
+      .previews
+        - if @item.persisted?
+          - @item.images.each_with_index do |image, i|
+            = image_tag "#{image.image}", data: { index: i}, width: "100", height: '100'
+      = f.fields_for :images do |image|
+        .js-file_group{"data-index" => "#{image.index}"}
+          = image.file_field :src, class: 'js-file'
+          %span.js-remove 削除
+        - if @item.persisted?
+          = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+      - if @item.persisted?
+        .js-file_group{"data-index" => "#{@item.item_images.count}"}
+          = file_field_tag :src, name: "item[item_images_attributes][#{@item.item_images.count}][src]", class: 'js-file'
+          .js-remove 削除
+
     .category
-      カテゴリー 
-      = f.collection_select :category_id, Category.all, :id, :name, {prompt:"選択してください"}, {class:"condition"}
+      カテゴリー
+      %span.form-group_require 必須
+      %br
+      = f.collection_select :category_id, Category.all, :id, :name, {prompt:"選択してください"}, {class:"products__condition"}
     .brand
-      ブランド 
-      = f.text_field :name, class: 'brand_name', placeholder: 'Type a Brand'
+      ブランド
+      %br
+      = f.fields_for :brand do |brand|
+        = brand.text_field :name, class: 'products__brandname', placeholder: '例）ユニクロ'
     .size
       サイズ
-      = f.collection_select :size_id, Size.all, :id, :name, {prompt:"選択してください"}, {class:"size"}
+      %span.form-group_require 必須
+      %br
+      = f.collection_select :size_id, Size.all, :id, :name, {prompt:"選択してください"}, {class:"products__size"}
     .status
-      商品の状態 
-      = f.collection_select :condition_id, Condition.all, :id, :name, {prompt:"選択してください"}, {class:"condition"}
+      商品の状態
+      %span.form-group_require 必須
+      %br
+      = f.collection_select :condition_id, Condition.all, :id, :name, {prompt:"選択してください"}, {class:"products__condition"}
     .fee
       配送料の負担
-      = f.collection_select :shipping_fee_id, ShippingFee.all, :id, :name, {prompt:"選択してください"}, {class:"fee"}
+      %span.form-group_require 必須
+      %br
+      = f.collection_select :shipping_fee_id, ShippingFee.all, :id, :name, {prompt:"選択してください"}, {class:"products__fee"}
     .region
       発送元の地域
-      = f.label :都道府県
-      = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt:"選択してください"}, {class:"pref"}
+      %span.form-group_require 必須
+      %br
+      = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt:"選択してください"}, {class:"products__pref"}
     .date
       発送までの日数
-      = f.collection_select :delivery_days_id, DeliveryDays.all, :id, :name, {prompt:"選択してください"}, {class:"pref"}
+      %span.form-group_require 必須
+      %br
+      = f.collection_select :delivery_days_id, DeliveryDays.all, :id, :name, {prompt:"選択してください"}, {class:"products__date"}
     .submit
-      投稿する
-      = f.submit 'Send', class: 'form__submit'
-      
- 
-
-    
+      = f.submit '出品する', class: 'form__submit'
     
