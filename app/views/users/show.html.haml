@@ -1,0 +1,13 @@
+.wrapper
+  .wrapper__content
+
+    .wrapper__content__sidetab
+
+    .wrapper__content__maintab
+      .wrapper__content__maintab__user
+        .hoge
+          .hoge__icon
+            = image_tag 'member_photo_noimage_thumb2.png', size: "60x60", class: 'icon'
+          .hoge__name
+            = current_user.nickname
+      .tab-head

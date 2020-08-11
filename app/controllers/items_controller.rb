@@ -1,23 +1,12 @@
 class ItemsController < ApplicationController
 
-  def new
-    @item = Item.new
+
+  def index
+    render "items/item"
   end
 
-  def create
-    @item = Item.new(item_params)
-    # if @item.save
-  #     redirect_to root_path
-  #  　else
-  #     redirect_to new_items_path
-  #  　end
-
-  end
-  # params.require(:store).permit(:name, :address, :image, :image_cache)
- 
-  private
-  def item_params
-    params.require(:item).permit(:name, :price, :description, :prefecture_id, :condition_id, :user_id, :category_id, :size_id, :shipping_id, :delivery_days_id, :price, :brand_id,)
+  def purchase
+    @d_info = DeliveryInformation.find(current_user.id)
   end
 
 end

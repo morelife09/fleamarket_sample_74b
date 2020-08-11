@@ -1,0 +1,52 @@
+%header.pcHeader
+  .headerInner
+    .mainHeader
+      %h1.icon
+        = link_to image_tag'logo.png',class:"logo"
+      .searchBox
+        = form_with url: root_path do |f| 
+          .searchBox--input 
+            = f.text_field :name, class: 'searchBox--input', placeholder: 'キーワードから探す'
+            %button{type: "submit", class:'searchBox--input-icon'}
+              .box_search-icon
+                = link_to image_tag'icon-search 1.png',class:"serch-icon"
+    .nav
+      %ul.listsLeft
+        %li.listsLeft__item--first
+          = link_to "カテゴリー"
+          .tree.displayNone
+            %ul.categoryTree
+              %li.categoryTree--item
+                = link_to "レディース"
+              %li.categoryTree--item
+                = link_to "メンズ"
+              %li.categoryTree--item
+                = link_to "ベビー・キッズ"
+              %li.categoryTree--item
+                = link_to "インテリア・住まい・小物"
+              %li.categoryTree--item
+                = link_to "本・音楽・ゲーム"
+              %li.categoryTree--item
+                = link_to "おもちゃ・ホビー・グッズ"
+              %li.categoryTree--item
+                = link_to "コスメ・香水・美容"
+              %li.categoryTree--item
+                = link_to "家電・スマホ・カメラ"
+              %li.categoryTree--item
+                = link_to "スポーツ・レジャー"
+              %li.categoryTree--item
+                = link_to "ハンドメイド"
+              %li.categoryTree--item
+                = link_to "チケット"
+              %li.categoryTree--item
+                = link_to "自動車・オートバイ"
+              %li.categoryTree--item
+                = link_to "その他"
+        %li.listsLeft__item
+          = link_to "ブランド"
+          %ul.brandsPulldown.displayNone
+      %ul.listsRight
+        %li.listsRight__item.listsRight__item--login
+          = link_to "ログイン"
+        %li.listsRight__item.listsRight__item--new
+          = link_to "新規会員登録"
