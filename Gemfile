@@ -80,3 +80,6 @@ gem 'carrierwave'
 gem 'fog-aws'
 gem 'haml-rails'
 gem 'erb2haml'
+gem 'jquery-rails'
+gem 'rubocop', require: false
+

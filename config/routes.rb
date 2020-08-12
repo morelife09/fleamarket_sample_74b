@@ -9,5 +9,5 @@ Rails.application.routes.draw do
 
   root to: 'posts#index'
   get 'items', to: 'items#index'
-  resources :items, only: [:new, :create]
+  resources :items, only: [:index, :new, :create, :show]
 end
