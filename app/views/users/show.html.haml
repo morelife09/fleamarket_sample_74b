@@ -2,7 +2,8 @@
   .wrapper__content
 
     .wrapper__content__sidetab
-      %h4 マイページ
+      %h4
+        = link_to "マイページ", user_path(current_user), class: "#"
       %h4 出品する
       %h4 出品した商品-出品中
       %h4 出品した商品-売却済み
@@ -12,8 +13,8 @@
       %h4 本人情報
       %h4 メール/パスワード
       %h4 クレジットカード登録/変更
-      %h4 ログアウト
-        %a = link_to "ログアウト", destroy_user_session_path, method: :delete
+      %h4
+        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "#"
 
     .wrapper__content__maintab
       .wrapper__content__maintab__user
