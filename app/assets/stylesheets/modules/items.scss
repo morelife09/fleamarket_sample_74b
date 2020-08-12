@@ -1,3 +1,93 @@
-// Place all the styles related to the items controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.products{
+  font-size: 15px;
+  font-weight: bold;
+  margin-left: calc((100vw - 500px) / 2);
+  &__posts{
+    margin-top: 20px;
+  }
+  &__name{
+    height: 50px;
+    width: 500px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+  }
+  &__exp{
+    height: 100px;
+    width: 500px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+  }
+  &__p{
+    height: 30px;
+    width: 150px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+  }
+  &__image-box{
+    height: 50px;
+    width: 500px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+  }
+  &__condition{
+    height: 50px;
+    width: 500px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+  }
+  &__brandname{
+    height: 50px;
+    width: 500px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+  }
+  &__size{
+    height: 50px;
+    width: 500px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+  }
+  &__condition{
+    height: 50px;
+    width: 500px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+  }
+  &__fee{
+    height: 50px;
+    width: 500px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+  }
+  &__pref{
+    height: 50px;
+    width: 500px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+  }
+  &__date{
+    height: 50px;
+    width: 500px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+  }
+}
+.form-group_require{
+  background-color: #EA3525;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  color: #FFFFFF;
+  font-size: 12px;
+  border-radius: 1px;
+  vertical-align: top;
+}
+.form__submit{
+  font-size: 15px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #3CCACE;
+  height: 50px;
+  width: 500px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
