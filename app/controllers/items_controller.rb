@@ -29,4 +29,9 @@ class ItemsController < ApplicationController
      images_attributes: [:src, :_destroy, :id]).merge(seller_id: current_user.id)
   end
 
+  def purchase
+    @d_info = DeliveryInformation.find(current_user.id)
+
+  end
+
 end
