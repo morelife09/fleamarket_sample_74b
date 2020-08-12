@@ -65,13 +65,13 @@
 |------|----|-------|
 |id                             |string|null: false|
 |user_id                        |references|null: false , foreign_key: true|
-|categories_id                  |references|null: false , foreign_key: true|
+|category_id                  |references|null: false , foreign_key: true|
 |size_id(acitve_hash)           |integer||
 |prefecture_id(acitve_hash)     |integer|null: false|
 |condition_id(acitve_hash)      |integer|null: false|
 |shipping_fee_id(acitve_hash)   |integer|null: false|
 |delivery_days_id(acitve_hash)  |integer|null: false|
-|item_name                      |string|null: false|
+|name                      |string|null: false|
 |price                          |string|null: false|
 |description                    |text|null: false|
 |brand_id                       |references|foreign_key: true|

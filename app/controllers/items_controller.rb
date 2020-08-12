@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
 
+
   def index
     render "items/item"
   end
