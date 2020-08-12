@@ -31,7 +31,7 @@
           = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
       - if @item.persisted?
         .js-file_group{"data-index" => "#{@item.item_images.count}"}
-          = file_field_tag :src, name: "item[item_images_attributes][#{@item.item_images.count}][src]", class: 'js-file'
+          = file_field_tag :src, name: "item[images_attributes][#{@item.item_images.count}][src]", class: 'js-file'
           .js-remove 削除
 
     .category
@@ -42,11 +42,9 @@
     .brand
       ブランド
       %br
-      = f.fields_for :brand do |brand|
-        = brand.text_field :name, class: 'products__brandname', placeholder: '例）ユニクロ'
+        = f.collection_select :brand_id, Brand.all, :id, :name, {prompt:"選択してください"}, {class:"products__brandname"}
     .size
       サイズ
-      %span.form-group_require 必須
       %br
       = f.collection_select :size_id, Size.all, :id, :name, {prompt:"選択してください"}, {class:"products__size"}
     .status

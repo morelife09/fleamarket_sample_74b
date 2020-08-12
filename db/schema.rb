@@ -11,6 +11,11 @@
 # It's strongly recommended that you check this file into your version control system.
 
 
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 ActiveRecord::Schema.define(version: 2020_07_29_103033) do
 
   create_table "delivery_informations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -30,12 +35,30 @@ ActiveRecord::Schema.define(version: 2020_07_29_103033) do
     t.index ["user_id"], name: "index_delivery_informations_on_user_id"
   end
 
-  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "item_id"
+    t.string "src", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
   end
 
+  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "buyer_id"
+    t.integer "seller_id"
+    t.bigint "category_id"
+    t.string "name", null: false
+    t.string "price", null: false
+    t.text "description", null: false
+    t.integer "size_id"
+    t.integer "condition_id", null: false
+    t.integer "prefecture_id", null: false
+    t.integer "shipping_fee_id", null: false
+    t.integer "delivery_days_id", null: false
+    t.integer "brand_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_items_on_category_id"
   create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "provider"
     t.string "uid"
