@@ -10,6 +10,22 @@
   overflow: hidden;
   font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
 
+a {
+  color: #333;
+  text-decoration:none;
+}
+
+a:link { /*アクセスしたことのないリンク*/
+}
+
+a:visited { /*アクセスしたことのあるリンク*/
+}
+a:hover {/*マウスが上に乗っている状態*/
+  color:#FF0099;
+}
+
+a:active {/*クリック中*/
+}
 
 
   &__content {
@@ -36,7 +52,21 @@
         margin-bottom: 1px;
         background-color: #ffffff;
         cursor: pointer;
+        text-decoration: inherit;
+      }
 
+      h4:active {
+        animation: flash 1s;
+      }
+
+      @keyframes flash {
+        0% { background: #fafafa; }
+        10% { background: #f5f5f5; }
+        100% { background: #eee; }
+      }
+
+      h4:hover {
+        background-color: #fafafa;
       }
 
 
