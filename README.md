@@ -76,7 +76,8 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |id                             |string|null: false|
-|user_id                        |references|null: false , foreign_key: true|
+|seller_id                        |references|null: false , foreign_key: true|
+|buyer_id                        |references|null: false , foreign_key: true|
 |category_id                  |references|null: false , foreign_key: true|
 |size_id(acitve_hash)           |integer||
 |prefecture_id(acitve_hash)     |integer|null: false|
@@ -90,11 +91,12 @@ Things you may want to cover:
 |created_at                     |timestanp|null: false|
 |updated_at                     |timestanp||
 ### Association
-- belongs_to :user
-- belongs_to :items_purchase
+<!-- - belongs_to :items_purchase -->
+- belongs_to :seller, class_name: "User"
+- belongs_to :buyer, class_name: "User"
 - has_many :images , dependent: :destroy
 - belongs_to :category
-- has_many :brands
+<!-- - has_many :brands -->
 
 ## items_purchasesテーブル
 |Column|Type|Options|
@@ -114,7 +116,7 @@ Things you may want to cover:
 |------|----|-------|
 |id                             |string|null: false|
 |item_id                        |references|null: false , foreign_key: true|
-|image               　         |string|null: false|
+|src               　         |string|null: false|
 |created_at                     |timestanp|null: false|
 |updated_at                     |timestanp||
 ### Association
