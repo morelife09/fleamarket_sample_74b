@@ -1,0 +1,193 @@
+.main
+  %section.visual
+    .content
+      %h2.content_sub
+        %br 人生を変えるフリマアプリ
+      %p.content_text
+        FURIMAはだれでもかんたんに出品・購入できる
+        %br フリマアプリです
+      .content_btn
+        = link_to image_tag 'app-store.svg', class: "abtn", size: "180x53"
+        = link_to image_tag 'google-playsvg.svg', class: "bbtn", size: "180x53"
+  %section.introduction
+    %h2.subtitle
+      FURIMAが選ばれる3つの理由
+    %ul.lists
+      %li.list
+        .list_1
+          %span.number 1
+          = image_tag 'pict-reason-01.jpg', size: "306x306"
+        %h3.list_text
+          %span 3分
+          ですぐに出品
+        %p.list_description スマホで入力するだけで簡単に出品できる！
+      %li.list
+        .list_2
+          %span.number 2
+          = image_tag 'pict-reason-02.jpg', size: "306x306"
+        %h3.list_text
+          %span シンプル
+          で使いやすい
+        %p.list_description めんどくさい入力は必要なく、検索も購入もスムーズ！
+      %li.list
+        .list_3
+          %span.number 3
+          = image_tag 'pict-reason-03.jpg', size: "306x306"
+        %h3.list_text 
+          手数料
+          %span 
+            業界最安
+        %p.list_description 最大3%でお得に出品&購入！
+  %section.middle
+    .middle_inner
+      %h2.subtitle 会員数日本一位
+      %p.text
+        FURIMAは、フリマアプリで最も人気  
+        %br 出品・購入回数も業界最多です！
+        ほしかったあの商品に出会えるかもしれません。
+      .btn
+        = link_to image_tag 'app-store.svg', class: "abtn", size: "180x53"
+        = link_to image_tag 'google-playsvg.svg', class: "bbtn", size: "180x53"
+  %section.key-features
+    %h2.head 
+      FURIMAの特徴
+    .items
+      %section.item
+        %figure.item_1
+          = image_tag 'icon-01.png', size: "220x337"
+        %h3.item_1-1
+          簡単に売り買いできる
+        %p.item_1-2
+          スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+      %section.item
+        %figure.item_1
+          = image_tag 'icon-03.png', size: "220x337"
+        %h3.item_1-1
+          売上金は即日振込みに対応
+        %p.item_1-2
+          午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
+      %section.item
+        %figure.item_1
+          = image_tag 'icon-04.png', size: "220x337"
+        %h3.item_1-1
+          様々な支払いに対応
+        %p.item_1-2
+          お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+  %section.pickup
+    %h2.head ピックアップカテゴリー
+    .p-box
+      .p-head
+        =link_to "#" do
+          %h3.title 新規投稿商品
+      .pLists
+        .pList
+          = link_to "#" do
+            %figure.pList_img
+              = image_tag 'IMG_9072.jpeg', size: "220x150"
+            .pList_body
+              %h3.name ee
+              .data
+                %ul
+                  %li 1000円
+                  %li
+                    = icon('fas', 'star')
+                    0
+                %p (税込)
+        .pList
+          = link_to "#" do
+            %figure.pList_img
+              = image_tag 'a007.png', size: "220x150"
+            .pList_body
+              %h3.name product3
+              .data
+                %ul
+                  %li 30000円
+                  %li
+                    = icon('fas', 'star')
+                    0
+                %p (税込)
+        .pList
+          = link_to "#" do
+            %figure.pList_img
+              = image_tag 'a004.png', size: "220x150"
+            .pList_body
+              %h3.name product2
+              .data
+                %ul
+                  %li 20000円
+                  %li
+                    = icon('fas', 'star')
+                    0
+                %p (税込)
+        .pList
+          = link_to "#" do
+            %figure.pList_img
+              = image_tag 'a001.png', size: "220x150"
+            .pList_body
+              %h3.name product1
+              .data
+                %ul
+                  %li 10000円
+                  %li
+                    = icon('fas', 'star')
+                    1
+                %p (税込)
+  %section.pickup
+    %h2.head ピックアップブランド
+    .p-box
+      .p-head
+        =link_to "#" do
+          %h3.title アーカイバ
+      .pLists
+        .pList
+          = link_to "#" do
+            %figure.pList_img
+              = image_tag 'IMG_9072.jpeg', size: "220x150"
+            .pList_body
+              %h3.name ee
+              .data
+                %ul
+                  %li 1000円
+                  %li
+                    = icon('fas', 'star')
+                    0
+                %p (税込)
+        .pList
+          = link_to "#" do
+            %figure.pList_img
+              = image_tag 'a007.png', size: "220x150"
+            .pList_body
+              %h3.name product3
+              .data
+                %ul
+                  %li 30000円
+                  %li
+                    = icon('fas', 'star')
+                    0
+                %p (税込)
+        .pList
+          = link_to "#" do
+            %figure.pList_img
+              = image_tag 'a004.png', size: "220x150"
+            .pList_body
+              %h3.name product2
+              .data
+                %ul
+                  %li 20000円
+                  %li
+                    = icon('fas', 'star')
+                    0
+                %p (税込)
+        .pList
+          = link_to "#" do
+            %figure.pList_img
+              = image_tag 'a001.png', size: "220x150"
+            .pList_body
+              %h3.name product1
+              .data
+                %ul
+                  %li 10000円
+                  %li
+                    = icon('fas', 'star')
+                    1
+                %p (税込)

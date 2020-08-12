@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   def index
+    render "items/item"
   end
 
   def new
@@ -22,5 +23,9 @@ class ItemsController < ApplicationController
     :buyer_id, :condition_id, :category_id, :size_id, :shipping_fee_id,
      :delivery_days_id, :brand_id,  
      images_attributes: [:src, :_destroy, :id]).merge(seller_id: current_user.id)
+
+
+  def purchase
+    @d_info = DeliveryInformation.find(current_user.id)
   end
 end

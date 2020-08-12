@@ -1,0 +1,12 @@
+.subheader {
+  background-color: $light_gray;
+  height: 128px;
+  &__logo {
+    height: 100%;
+    @include flex;
+    &__img {
+      height: 49px;
+      width: 185px;
+    }
+  }
+}
