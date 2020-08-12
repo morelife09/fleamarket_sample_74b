@@ -16,7 +16,11 @@ class ItemsController < ApplicationController
        render :new
     end
   end
- 
+
+  def purchase
+    @d_info = DeliveryInformation.find(current_user.id)
+  end
+
   private
   def item_params
     params.require(:item).permit(:name, :price, :description, :prefecture_id, :seller_id, 
@@ -25,8 +29,4 @@ class ItemsController < ApplicationController
      images_attributes: [:src, :_destroy, :id]).merge(seller_id: current_user.id)
   end
 
-
-  def purchase
-    @d_info = DeliveryInformation.find(current_user.id)
-  end
 end
