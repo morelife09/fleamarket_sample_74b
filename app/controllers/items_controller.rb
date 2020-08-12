@@ -16,7 +16,11 @@ class ItemsController < ApplicationController
        render :new
     end
   end
- 
+
+  def purchase
+    @d_info = DeliveryInformation.find(current_user.id)
+  end
+
   private
   def item_params
     params.require(:item).permit(:name, :price, :description, :prefecture_id, :seller_id, 
@@ -27,5 +31,7 @@ class ItemsController < ApplicationController
 
   def purchase
     @d_info = DeliveryInformation.find(current_user.id)
+
   end
+
 end
