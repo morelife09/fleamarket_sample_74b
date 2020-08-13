@@ -33,7 +33,6 @@
         .js-file_group{"data-index" => "#{@item.item_images.count}"}
           = file_field_tag :src, name: "item[images_attributes][#{@item.item_images.count}][src]", class: 'js-file'
           .js-remove 削除
-
     .category
       カテゴリー
       %span.form-group_require 必須
