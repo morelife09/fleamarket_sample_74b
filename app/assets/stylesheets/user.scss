@@ -1,1 +1,157 @@
+.wrapper {
+  border-top: solid 1px black;
+  background-color: #f5f5f5;
+  height: 100vh;
+  width: 100vw;
+  cursor: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
 
+a {
+  color: #333;
+  text-decoration:none;
+}
+
+a:link { /*アクセスしたことのないリンク*/
+}
+
+a:visited { /*アクセスしたことのあるリンク*/
+}
+a:hover {/*マウスが上に乗っている状態*/
+  color:#FF0099;
+}
+
+a:active {/*クリック中*/
+}
+
+
+  &__content {
+    height: 100%;
+    width: 1020px;
+    display: flex;
+    clear: both;
+    position: relative;
+    margin-top: 64px;
+
+    &__sidetab {
+      height: 100%;
+      width: 280px;
+      background-color: #f5f5f5;
+      float: left;
+      position: absolute;
+      overflow: hidden;
+
+      h4 {
+        line-height: 48px;
+        width: 280px;
+        font-size: 14px;
+        padding: 0px 16px;
+        margin-bottom: 1px;
+        background-color: #ffffff;
+        cursor: pointer;
+        text-decoration: inherit;
+      }
+
+      h4:active {
+        animation: flash 1s;
+      }
+
+      @keyframes flash {
+        0% { background: #fafafa; }
+        10% { background: #f5f5f5; }
+        100% { background: #eee; }
+      }
+
+      h4:hover {
+        background-color: #fafafa;
+      }
+
+
+      h3 {
+        width: 100%;
+        margin-top: 40px;
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+    }
+
+    &__maintab {
+      height: 100%;
+      width: 700px;
+      position: absolute;
+      left: 32%;
+      float: right;
+
+      &__user {
+        height: 200px;
+        width: 100%;
+        background: grey; 
+        background-image: url(2036394_s.jpg);
+        position: relative;
+        cursor: pointer;
+
+        &__top {
+          height: 111px;
+          width: 100%;
+          position: absolute;
+          top: 45px;
+
+          &__icon {
+            display: flex;
+            justify-content: center;
+          }
+
+          .icon {
+            border-radius: 50%;
+            height: 60px;
+            width: 60px;
+          }
+
+          &__name {
+            font-size: 14px;
+            color: #333;
+            height: 19px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: 8px;
+          }
+        }
+      }
+
+      &__head {
+        height: 100%;
+        width: 100%;
+        background-color: #fafafa;
+        margin-top: 50px;
+
+        &__title {
+          line-height: 72px;
+          width: 100%;
+          background-color: #fafafa;
+          border-bottom: solid 1px;
+          box-sizing: border-box;
+          padding: 0px 16px;
+          font-size: 16px;
+          font-weight: bold;
+          color: #333;
+          cursor: pointer;
+        }
+
+        &__item-list {
+          height: 100%;
+          width: 100%;
+          background: url(logo-white.png) no-repeat;
+          background-color:#eee;
+          background-size: 50% auto;
+          background-position: 170px 100px;
+        }
+
+      }
+    }
+  }
+}
