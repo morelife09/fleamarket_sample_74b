@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
 
   root to: 'posts#index'
-  resources :items, only: [:index] do
+  resources :items, only: [:index, :new, :create, :show] do
     member do
       get 'purchase'
     end
