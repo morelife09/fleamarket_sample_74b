@@ -44,10 +44,21 @@ ActiveRecord::Schema.define(version: 2020_08_01_024715) do
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "buyer_id"
+    t.integer "seller_id"
+    t.bigint "category_id"
+    t.string "name", null: false
+    t.string "price", null: false
+    t.text "description", null: false
+    t.integer "size_id"
+    t.integer "condition_id", null: false
+    t.integer "prefecture_id", null: false
+    t.integer "shipping_fee_id", null: false
+    t.integer "delivery_days_id", null: false
+    t.integer "brand_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_items_on_category_id"
-    t.string "image"
   end
 
   create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
