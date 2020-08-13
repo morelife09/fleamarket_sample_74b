@@ -16,4 +16,6 @@ Rails.application.routes.draw do
       get 'purchase'
     end
   end
+
+  resources :credit_cards, only: [:new, :create, :show]
 end
