@@ -3,7 +3,7 @@
 
     .wrapper__content__sidetab
       %h4
-        = link_to "マイページ", user_path(current_user), class: "#"
+        = link_to "マイページ", user_path(current_user), class: "tab"
       %h4 出品する
       %h4 出品した商品-出品中
       %h4 出品した商品-売却済み
@@ -14,7 +14,7 @@
       %h4 メール/パスワード
       %h4 クレジットカード登録/変更
       %h4
-        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "#"
+        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout-tab"
 
     .wrapper__content__maintab
       .wrapper__content__maintab__user
