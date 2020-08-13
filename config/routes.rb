@@ -14,5 +14,6 @@ Rails.application.routes.draw do
     member do
       get 'purchase'
     end
+  get 'logout', to: 'users#logout'
   end
 end
