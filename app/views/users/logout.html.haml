@@ -13,8 +13,7 @@
       %h4 本人情報
       %h4 メール/パスワード
       %h4 クレジットカード登録/変更
-      %h4
-        = link_to "ログアウト",  user_registration_path
+      %h4 ログアウト
 
     .wrapper__content__maintab
       .wrapper__content__maintab__user
@@ -25,5 +24,5 @@
             = current_user.nickname
       .wrapper__content__maintab__head
         .wrapper__content__maintab__head__title
-          購入した商品
-        .wrapper__content__maintab__head__item-list
+          ログアウト
+          = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "#"

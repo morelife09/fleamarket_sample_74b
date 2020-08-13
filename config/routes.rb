@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   end
   root to: 'items#index'
   get 'items', to: 'items#index'
+  get 'logout', to: 'users#logout'
 end
