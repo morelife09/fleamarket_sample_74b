@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.build
+    @parents = Category.roots
   end
 
   def create

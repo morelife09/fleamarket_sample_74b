@@ -309,7 +309,6 @@ etc_grandchild_array = [
   []
 ]
 
-
 parent = Category.find_by(name: "その他", ancestry: nil)
 etc_child_array.each_with_index do |child, i|
   child = parent.children.find_or_create_by(name: child)
