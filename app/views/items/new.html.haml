@@ -37,7 +37,9 @@
       カテゴリー
       %span.form-group_require 必須
       %br
-      = f.collection_select :category_id, @parents, :id, :name, {prompt:"選択してください"}, {class:"products__condition"}
+      .category__form
+        .category__form__box
+          = f.collection_select :category_id, @parents, :id, :name, {prompt:"選択してください"}, {class:"products__condition", id:"parents_category"}
     .brand
       ブランド
       %br

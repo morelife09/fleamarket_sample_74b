@@ -22,6 +22,18 @@ class ItemsController < ApplicationController
     @d_info = DeliveryInformation.find(current_user.id)
   end
 
+  def get_category
+    if params[:parent_id]
+      @children = Category.find(params[:parent_id]).children
+    elsif params[:child_id]
+      @grandchildren = Category.find(params[:child_id]).children
+    end
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
   private
   def item_params
     params.require(:item).permit(:name, :price, :description, :prefecture_id, :seller_id,
