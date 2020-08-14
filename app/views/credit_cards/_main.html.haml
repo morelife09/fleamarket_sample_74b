@@ -2,7 +2,7 @@
   %section.new-card__body__box
     %h2.new-card__body__box__title
       支払い方法
-    = form_with url: credit_cards_path, class: "new-card__body__box__form-group", local: true do |f|
+    = form_with url: credit_cards_path, class: "new-card__body__box__form-group", id: "card_form", local: true do |f|
       .new-card__body__box__form-group__content
         .new-card__body__box__form-group__content__card-number
           = f.label "カード番号", class: "new-card__label"
@@ -44,4 +44,4 @@
           %span.new-card__require><
             必須
           = f.text_field "cvc", class: "new-card__input", placeholder: "カード背面4桁もしくは3桁の番号"
-        = f.submit "登録する", class: "new-card__body__box__form-group__content__btn"
+        = f.submit "登録する", class: "new-card__body__box__form-group__content__btn", id: "regist_card"
