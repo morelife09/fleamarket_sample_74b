@@ -1,91 +1,100 @@
-.products{
+.products {
   font-size: 15px;
   font-weight: bold;
   margin-left: calc((100vw - 500px) / 2);
-  &__posts{
+  &__posts {
     margin-top: 20px;
   }
-  &__name{
+  &__name {
     height: 50px;
     width: 500px;
     margin-bottom: 20px;
     border-radius: 10px;
   }
-  &__exp{
+  &__exp {
     height: 100px;
     width: 500px;
     margin-bottom: 20px;
     border-radius: 10px;
   }
-  &__p{
+  &__p {
     height: 30px;
     width: 150px;
     margin-bottom: 20px;
     border-radius: 10px;
   }
-  &__image-box{
+  &__image-box {
     height: 50px;
     width: 500px;
     margin-bottom: 20px;
     border-radius: 10px;
   }
-  &__condition{
+  &__condition {
     height: 50px;
     width: 500px;
     margin-bottom: 20px;
     border-radius: 10px;
   }
-  &__brandname{
+  &__brandname {
     height: 50px;
     width: 500px;
     margin-bottom: 20px;
     border-radius: 10px;
   }
-  &__size{
+  &__size {
     height: 50px;
     width: 500px;
     margin-bottom: 20px;
     border-radius: 10px;
   }
-  &__condition{
+  &__condition {
     height: 50px;
     width: 500px;
     margin-bottom: 20px;
     border-radius: 10px;
   }
-  &__fee{
+  &__fee {
     height: 50px;
     width: 500px;
     margin-bottom: 20px;
     border-radius: 10px;
   }
-  &__pref{
+  &__pref {
     height: 50px;
     width: 500px;
     margin-bottom: 20px;
     border-radius: 10px;
   }
-  &__date{
+  &__date {
     height: 50px;
     width: 500px;
     margin-bottom: 20px;
     border-radius: 10px;
+  }
+  .category {
+    &__form {
+      height: 50px;
+      width: 500px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+    }
   }
 }
-.form-group_require{
-  background-color: #EA3525;
+
+.form-group_require {
+  background-color: #ea3525;
   margin: 0 0 0 8px;
   padding: 2px 4px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 12px;
   border-radius: 1px;
   vertical-align: top;
 }
-.form__submit{
+.form__submit {
   font-size: 15px;
   font-weight: bold;
   color: #fff;
-  background-color: #3CCACE;
+  background-color: #3ccace;
   height: 50px;
   width: 500px;
   margin-bottom: 20px;
