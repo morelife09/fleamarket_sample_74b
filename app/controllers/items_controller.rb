@@ -6,10 +6,11 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.build
-    @parents = Category.roots
+    @parents = Category.where(ancestry: nil)
   end
 
   def create
+    @parents = Category.where(ancestry: nil)
     @item = Item.new(item_params)
     if  @item.save
        redirect_to items_path
