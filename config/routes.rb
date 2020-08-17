@@ -18,4 +18,6 @@ Rails.application.routes.draw do
       get 'get_category', defaults: { format: 'json' }
     end
   end
+
+  resources :credit_cards, only: [:new, :create]
 end

@@ -1,0 +1,47 @@
+.new-card__body
+  %section.new-card__body__box
+    %h2.new-card__body__box__title
+      支払い方法
+    = form_with url: credit_cards_path, class: "new-card__body__box__form-group", id: "card_form", local: true do |f|
+      .new-card__body__box__form-group__content
+        .new-card__body__box__form-group__content__card-number
+          = f.label "カード番号", class: "new-card__label"
+          %span.new-card__require><
+            必須
+          = f.text_field "number", class: "new-card__input", placeholder: "半角数字のみ", maxlength: "16"
+          %ul.new-card__body__box__form-group__content__card-number__list
+            %li
+              = image_tag "visa.svg", class: "new-card__body__box__form-group__content__card-number__list__icon", size:"49x20"
+            %li
+              = image_tag "mastercard.svg", class: "new-card__body__box__form-group__content__card-number__list__icon",size: "34x20"
+            %li
+              = image_tag "saison.svg", class: "new-card__body__box__form-group__content__card-number__list__icon",size: "30x20"
+            %li
+              = image_tag "jcb.svg", class: "new-card__body__box__form-group__content__card-number__list__icon", size:"32x20"
+            %li
+              = image_tag "american_express.svg", class:"new-card__body__box__form-group__content__card-number__list__icon", size: "21x20"
+            %li
+              = image_tag "dinersclub.svg", class: "new-card__body__box__form-group__content__card-number__list__icon",size: "32x20"
+            %li
+              = image_tag "discover.svg", class: "new-card__body__box__form-group__content__card-number__list__icon",size: "32x20"
+        .new-card__body__box__form-group__content__expire
+          = f.label "有効期限", class: "new-card__label"
+          %span.new-card__require><
+            必須
+          .new-card__body__box__form-group__content__expire__block
+            .new-card__body__box__form-group__content__expire__block__half
+              = f.select "exp_month", [["01", 1], ["02", 2], ["03", 3], ["04", 4], ["05", 5], ["06", 6], ["07", 7], ["08", 8], ["09", 9],["10", 10], ["11", 11], ["12", 12]], {selected: 1 }, { class: "new-card__select"}
+              = icon("fas", "chevron-down", class: "new-card__select__icon")
+              %span.new-card__date
+                月
+            .new-card__body__box__form-group__content__expire__block__half
+              = f.select "exp_year", [["20", 2020], ["21", 2021], ["22", 2022], ["23", 2023], ["24", 2024], ["25", 2025], ["26", 2026],["27", 2027], ["28", 2028], ["29", 2029], ["30", 2030]], { selected: 1 }, { class: "new-card__select"}
+              = icon("fas", "chevron-down", class: "new-card__select__icon")
+              %span.new-card__date
+                年
+        .new-card__body__box__form-group__content__security
+          = f.label "セキュリティコード", class: "new-card__label"
+          %span.new-card__require><
+            必須
+          = f.text_field "cvc", class: "new-card__input", placeholder: "カード背面4桁もしくは3桁の番号", maxlength: "4"
+        = f.submit "登録する", class: "new-card__body__box__form-group__content__btn", id: "regist_card"
