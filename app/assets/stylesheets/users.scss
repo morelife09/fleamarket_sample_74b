@@ -6,9 +6,9 @@ h2{
   color: #333;
 }
 
-h3{
+h5{
   font-size: 10px;
-  color: #888;
+  color: #333;
 }
 
 .field{
@@ -160,7 +160,7 @@ a:active {/*クリック中*/
       }
 
 
-      h3 {
+      h5 {
         width: 100%;
         margin-top: 40px;
         font-size: 16px;
@@ -178,11 +178,12 @@ a:active {/*クリック中*/
 
       &__user {
         height: 200px;
-        width: 100%;
-        background: grey; 
-        background-image: url(2036394_s.jpg);
+        width: 100%; 
+        background-image: url(3810005_s.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
         position: relative;
-        cursor: pointer;
 
         &__top {
           height: 111px;
@@ -207,16 +208,21 @@ a:active {/*クリック中*/
             height: 19px;
             width: 100%;
             display: flex;
+            align-items: center;
             justify-content: center;
             margin-top: 8px;
+
+            .name-btn {
+              align-items: center;
+              justify-content: center;
+            }
           }
         }
       }
 
-      &__head {
+      &__headline {
         height: 100%;
         width: 100%;
-        background-color: #fafafa;
         margin-top: 50px;
 
         &__title {
@@ -233,14 +239,37 @@ a:active {/*クリック中*/
         }
 
         &__item-list {
-          height: 100%;
+          height: 500px;
           width: 100%;
-          background: url(logo-white.png) no-repeat;
-          background-color:#eee;
+          background: url(logo.png) no-repeat;
+          background-color:#fafafa;
           background-size: 50% auto;
           background-position: 170px 100px;
+          overflow: scroll;
         }
+      }
 
+      &__logout {
+        height: 179px;
+        width: 100%;
+        background-color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+
+      .logout-btn {
+        font-size: 15px;
+        font-weight: bold;
+        color: #fff;
+        background-color: #3CCACE;
+        height: 50px;
+        width: 320px;
+        border-radius: 10px;
+        line-height: 50px;
+        justify-content: center;
+        cursor: pointer;
+      }
       }
     }
   }

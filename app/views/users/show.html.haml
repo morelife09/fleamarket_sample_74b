@@ -1,19 +1,20 @@
+.wrapper
   .wrapper__content
-
     .wrapper__content__sidetab
       %h4
-        = link_to "マイページ", user_path(current_user), class: "tab"
+        = link_to "マイページ", "/users/#{current_user.id}", class: "tab"
+          -# %i.icon-arrow-right
       %h4 出品する
       %h4 出品した商品-出品中
       %h4 出品した商品-売却済み
       %h4 購入した商品-取引中
       %h4 購入した商品-過去の取引
-      %h3 設定
+      %h5 設定
       %h4 本人情報
       %h4 メール/パスワード
       %h4 クレジットカード登録/変更
       %h4
-        = link_to "ログアウト",  user_registration_path
+        = link_to "ログアウト", "/users/#{current_user.id}/logout"
 
     .wrapper__content__maintab
       .wrapper__content__maintab__user
@@ -21,8 +22,9 @@
           .wrapper__content__maintab__user__top__icon
             = image_tag 'member_photo_noimage_thumb2.png', size: "60x60", class: 'icon'
           .wrapper__content__maintab__user__top__name
-            = current_user.nickname
-      .wrapper__content__maintab__head
-        .wrapper__content__maintab__head__title
+            .wrapper__content__maintab__user__top__name__nametab
+            = link_to current_user.nickname, "/users/#{current_user.id}", class: "name-btn"
+      .wrapper__content__maintab__headline
+        .wrapper__content__maintab__headline__title
           購入した商品
-        .wrapper__content__maintab__head__item-list
+        .wrapper__content__maintab__headline__item-list

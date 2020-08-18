@@ -47,7 +47,7 @@
         %ul.brandsPulldown.displayNone
     %ul.right
       - if user_signed_in?
-        = link_to "マイページ", user_path(current_user), class: "header__right--btn"
+        = link_to "マイページ", "/users/#{current_user.id}", class: "header__right--btn"
         = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__right--btn"
       - else
         = link_to "ログイン", new_user_session_path, class: "header__right--btn"
