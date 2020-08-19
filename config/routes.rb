@@ -19,5 +19,8 @@ Rails.application.routes.draw do
     member do
       get 'purchase'
     end
+    collection do
+      get 'get_category', defaults: { format: 'json' }
+    end
   end
 end
