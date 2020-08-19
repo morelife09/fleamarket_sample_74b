@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: :show do
+    get 'credit', to: 'users#credit'
     get 'logout', to: 'users#logout'
   end
 

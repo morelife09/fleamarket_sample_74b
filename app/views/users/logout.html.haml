@@ -1,3 +1,5 @@
+= render "posts/header"
+
 .wrapper
   .wrapper__content
     .wrapper__content__sidetab
@@ -11,7 +13,8 @@
       %h5 設定
       %h4 本人情報
       %h4 メール/パスワード
-      %h4 クレジットカード登録/変更
+      %h4
+        = link_to "クレジットカード登録/変更", "/users/#{current_user.id}/credit"
       %h4
         = link_to "ログアウト", "/users/#{current_user.id}/logout"
 
@@ -26,3 +29,5 @@
       .wrapper__content__maintab__logout
         .wrapper__content__maintab__logout-btn
         = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout-btn"
+
+= render "posts/footer"
