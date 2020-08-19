@@ -26,8 +26,8 @@
           .wrapper__content__maintab__user__top__name
             .wrapper__content__maintab__user__top__name__nametab
             = link_to current_user.nickname, "/users/#{current_user.id}", class: "name-btn"
-      .wrapper__content__maintab__logout
-        .wrapper__content__maintab__logout-btn
+      .wrapper__content__maintab__bottons
+        .wrapper__content__maintab__bottons__logout-btn
         = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout-btn"
 
 = render "posts/footer"

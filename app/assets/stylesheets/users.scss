@@ -158,7 +158,7 @@
         }
       }
 
-      &__logout {
+      &__bottons {
         height: 179px;
         width: 100%;
         background-color: #ffffff;
@@ -179,9 +179,20 @@
         justify-content: center;
         cursor: pointer;
       }
+
+      .credit-btn {
+        font-size: 15px;
+        font-weight: bold;
+        color: #fff;
+        background-color: #3CCACE;
+        height: 50px;
+        width: 320px;
+        border-radius: 10px;
+        line-height: 50px;
+        justify-content: center;
+        cursor: pointer;
+      }
       }
     }
   }
 }
-
-
