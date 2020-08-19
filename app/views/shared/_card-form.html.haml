@@ -30,12 +30,12 @@
             必須
           .new-card__body__box__form-group__content__expire__block
             .new-card__body__box__form-group__content__expire__block__half
-              = f.select "exp_month", [["01", 1], ["02", 2], ["03", 3], ["04", 4], ["05", 5], ["06", 6], ["07", 7], ["08", 8], ["09", 9],["10", 10], ["11", 11], ["12", 12]], {selected: 1 }, { class: "new-card__select"}
+              = f.select "exp_month", [["01", 1], ["02", 2], ["03", 3], ["04", 4], ["05", 5], ["06", 6], ["07", 7], ["08", 8], ["09", 9],["10", 10], ["11", 11], ["12", 12]], {}, { class: "new-card__select"}
               = icon("fas", "chevron-down", class: "new-card__select__icon")
               %span.new-card__date
                 月
             .new-card__body__box__form-group__content__expire__block__half
-              = f.select "exp_year", [["20", 2020], ["21", 2021], ["22", 2022], ["23", 2023], ["24", 2024], ["25", 2025], ["26", 2026],["27", 2027], ["28", 2028], ["29", 2029], ["30", 2030]], { selected: 1 }, { class: "new-card__select"}
+              = f.select "exp_year", [["20", 2020], ["21", 2021], ["22", 2022], ["23", 2023], ["24", 2024], ["25", 2025], ["26", 2026],["27", 2027], ["28", 2028], ["29", 2029], ["30", 2030]], {}, { class: "new-card__select"}
               = icon("fas", "chevron-down", class: "new-card__select__icon")
               %span.new-card__date
                 年

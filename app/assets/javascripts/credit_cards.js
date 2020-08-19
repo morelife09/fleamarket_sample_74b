@@ -1,7 +1,7 @@
 $(document).on("turbolinks:load", function () {
   if (!$("#regist_card")[0]) return false;
 
-  Payjp.setPublickey("pk_test_7359c79f1304d35944f10fbb");
+  Payjp.setPublicKey("pk_test_7359c79f1304d35944f10fbb");
 
   $("#regist_card").on("click", function (e) {
     e.preventDefault();
