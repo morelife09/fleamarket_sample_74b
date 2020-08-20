@@ -9,6 +9,11 @@ Rails.application.routes.draw do
     post 'delivery_informations', to: 'users/registrations#create_delivery_information'
   end
 
+  resources :users, only: :show do
+    get 'credit', to: 'users#credit'
+    get 'logout', to: 'users#logout'
+  end
+
   root to: 'posts#index'
   resources :items, only: [:index, :new, :create, :show] do
     member do

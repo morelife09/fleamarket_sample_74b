@@ -13,7 +13,7 @@
       %h5 設定
       %h4 本人情報
       %h4 メール/パスワード
-      %h4 
+      %h4
         = link_to "クレジットカード登録/変更", "/users/#{current_user.id}/credit"
       %h4
         = link_to "ログアウト", "/users/#{current_user.id}/logout"
@@ -26,9 +26,8 @@
           .wrapper__content__maintab__user__top__name
             .wrapper__content__maintab__user__top__name__nametab
             = link_to current_user.nickname, "/users/#{current_user.id}", class: "name-btn"
-      .wrapper__content__maintab__headline
-        .wrapper__content__maintab__headline__title
-          マイページ
-        .wrapper__content__maintab__headline__item-list
+      .wrapper__content__maintab__bottons
+        .wrapper__content__maintab__bottons__credit-btn
+        = link_to "クレジットカード登録/変更", destroy_user_session_path, method: :delete, class: "credit-btn"
 
 = render "posts/footer"
