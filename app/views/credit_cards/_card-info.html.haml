@@ -1,0 +1,21 @@
+.index-card__info
+  %section.index-card__info__box
+    %h2.index-card__info__box__title
+      支払い方法
+  .index-card__info__main
+    %section.index-card__info__main__container
+      %h3.index-card__info__main__container__title
+        クレジットカード
+      - if @card.present?
+        .index-card__info__main__container__contents
+          .index-card__info__main__container__contents__left
+            = image_tag @card_image, alt: 'no image', height: '20', width: '34', class:  'index-card__info__main__container__contents__left__img'
+            %p.index-card__info__main__container__contents__left__number
+              = "**** **** **** " + @default_card_info.last4
+            %p.index-card__info__main__container__contents__left__exp
+              = @exp_month + " / " + @exp_year
+          .index-card__info__main__container__contents__right
+            = button_to "削除する", "#", method: :delete, class:"index-card__info__main__container__contents__right__btn"
+      - else
+        .index-card__info__main__container__regist
+          = link_to "新規カードを登録", new_credit_card_path, class:"index-card__info__main__container__regist__btn"
