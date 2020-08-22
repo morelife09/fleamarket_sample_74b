@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     post 'delivery_informations', to: 'users/registrations#create_delivery_information'
   end
 
-  root to: 'posts#index'
+  root to: 'items#index' 
   resources :items, only: [:index, :new, :create, :show] do
     member do
       get 'purchase'

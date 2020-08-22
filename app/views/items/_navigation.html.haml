@@ -5,16 +5,18 @@
     %li
       %i.fa.fa-angle-right
     %li
-      = link_to "ベビー・キッズ"
+      = link_to @item.category.root.name
     %li
       %i.fa.fa-angle-right
     %li
-      = link_to "ベビー服(男の子用)  ~95cm"
+      = link_to @item.category.parent.name
     %li
       %i.fa.fa-angle-right
     %li
-      = link_to "アウター"
+      = link_to @item.category.name
     %li
       %i.fa.fa-angle-right
     %li
-      %p ee
+      %p= @item.name
+
+      

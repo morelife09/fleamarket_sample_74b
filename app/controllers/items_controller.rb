@@ -1,6 +1,8 @@
 class ItemsController < ApplicationController
+  before_action :set_items, only: [:show]
+
   def index
-    render "items/item"
+    @parents = Category.where(ancestry: nil)
   end
 
   def new
@@ -16,6 +18,10 @@ class ItemsController < ApplicationController
     else
        render :new
     end
+  end
+
+  def show
+    @parents = Category.where(ancestry: nil)
   end
 
   def purchase
@@ -41,8 +47,9 @@ class ItemsController < ApplicationController
      :delivery_days_id, :brand_id,
      images_attributes: [:src, :_destroy, :id]).merge(seller_id: current_user.id)
   end
-
-
-
-
+  
+  def set_items
+    @item = Item.includes(:seller,:category).find(params[:id])
+    @image= Image.find(params[:id])
+  end
 end

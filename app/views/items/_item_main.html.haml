@@ -4,58 +4,55 @@
     .contentRight
       .topContent
         .itemBox
-          %h2.itemBox__name ee
+          %h2.itemBox__name= @item.name
           .itemBox__body
             %ul
               %li
-                = image_tag 'IMG_9072.jpeg'
+                =image_tag(@item.images[0].src.url)
                 %ul
-                  %li
-                    = image_tag 'IMG_9072.jpeg'
-                  %li
-                    = image_tag 'IMG_9069.jpeg'
+                  - @item.images.each_with_index do |image, i|
+                    %li
+                      = image_tag "#{image.src}"
           .itemBox__price
-            %span
-              ¥1000
+            %span="¥#{@item.price}"
             .itemBox__price-detail
               %span
                 (税込)
               %span
                 送料込み
-          .itemDetail eee
+          .itemDetail= @item.description
           .table
             %table
               %tbody
                 %tr
                   %th 出品者
-                  %td ss
+                  %td=@item.seller.nickname
                 %tr
                   %th カテゴリー
                   %td
-                    =link_to "ベビー・キッズ"
-                    %br/
-                    =link_to "ベビー服(男の子用)  ~95cm"
-                    %br/
-                    =link_to "アウター"
+                    =link_to @item.category.root.name
+                    %br
+                    =link_to @item.category.parent.name
+                    %br
+                    =link_to @item.category.name
                 %tr
                   %th ブランド
-                  %td
+                  %td=@item.brand.name
                 %tr
                   %th 商品のサイズ
-                  %td
+                  %td=@item.size.name
                 %tr
                   %th 商品の状態
-                  %td 新品/未使用
+                  %td=@item.condition.name
                 %tr
                   %th 配送料の負担
-                  %td 送料込み（出品者負担）
+                  %td=@item.shipping_fee.name
                 %tr
                   %th 発送元の地域
-                  %td
-                    =link_to "北海道"
+                  %td=link_to @item.prefecture.name
                 %tr
                   %th 発送日の目安
-                  %td 1-2日で発送
+                  %td=@item.delivery_days.name
           .optionalArea
             %ul
               %li#likeBtn.optionalBtn.likeBtn
@@ -80,6 +77,11 @@
             %button.commentBtn{name: "button", type: "submit"}
               %i.fa.fa-comment
               コメントする
+            - if user_signed_in? && current_user.id ==@item.seller_id
+              %button.commentBtn
+                = link_to "削除する"
+              %button.commentBtn
+                = link_to "編集する"
       %ul.links
         %li
           = link_to "" do
@@ -91,7 +93,7 @@
             %span 後ろの商品
             %i.fa.fa-angle-right
       .relatedItems
-        = link_to "ベビー・キッズをもっと見る"
+        = link_to "#{@item.category.root.name}をもっとみる"
         .productLists
           .productList
             = link_to "" do
