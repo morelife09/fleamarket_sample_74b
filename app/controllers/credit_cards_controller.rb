@@ -56,4 +56,13 @@ class CreditCardsController < ApplicationController
       end
     end
   end
+
+  def destroy
+    @card = CreditCard.where(user_id: current_user.id).first
+    Payjp.api_key = Rails.application.credentials[:payjp][:secret_key]
+    customer = Payjp::Customer.retrieve(@card.customer_id)
+    customer.delete
+    @card.destroy
+    redirect_to action: "index"
+  end
 end

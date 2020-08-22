@@ -15,7 +15,7 @@
             %p.index-card__info__main__container__contents__left__exp
               = @exp_month + " / " + @exp_year
           .index-card__info__main__container__contents__right
-            = button_to "削除する", "#", method: :delete, class:"index-card__info__main__container__contents__right__btn"
+            = button_to "削除する", credit_card_path(@card.id), method: :delete, class:"index-card__info__main__container__contents__right__btn"
       - else
         .index-card__info__main__container__regist
           = link_to "新規カードを登録", new_credit_card_path, class:"index-card__info__main__container__regist__btn"
