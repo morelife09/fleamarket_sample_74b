@@ -1,7 +1,8 @@
 .headerTop_inner
   .headerTop_main
     %h1.icon
-      = link_to image_tag'logo.png', size: "140x40"
+      =link_to root_path do
+        =image_tag'logo.png', size: "140x40"
     .box
       = form_with url: root_path do |f| 
         .box_search 
@@ -42,9 +43,24 @@
               = link_to "自動車・オートバイ"
             %li.categoryTree--item
               = link_to "その他"
-      %li.leftitem-b
+      %li.leftitem
         = link_to "ブランド"
-        %ul.brandsPulldown.displayNone
+        .tree.displayNone
+          %ul.categoryTree
+            %li.categoryTree--item
+              = link_to "シャネル"
+            %li.categoryTree--item
+              = link_to "グッチ"
+            %li.categoryTree--item
+              = link_to "Tiffany＆Co"
+            %li.categoryTree--item
+              = link_to "ドルチェ＆ガッバーナ"
+            %li.categoryTree--item
+              = link_to "クロエ"
+            %li.categoryTree--item
+              = link_to "Supreme"
+            %li.categoryTree--item
+              = link_to "Northface"
     %ul.right
       - if user_signed_in?
         = link_to "マイページ", "/users/#{current_user.id}", class: "header__right--btn"
