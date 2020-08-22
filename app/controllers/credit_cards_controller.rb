@@ -1,14 +1,15 @@
 class CreditCardsController < ApplicationController
   require "payjp"
+  before_action :set_card, only: [:new, :index, :destroy]
+  before_action :set_key, only: [:create, :destroy]
+
   def new
-    @card = CreditCard.where(user_id: current_user.id).first
-      if @card.present?
-        redirect_to action:"index"
-      end
+    if @card.present?
+      redirect_to action:"index"
+    end
   end
 
   def create
-    Payjp.api_key = Rails.application.credentials[:payjp][:secret_key]
     if params[:card_token].blank?
       redirect_to action: "new"
     else
@@ -31,7 +32,6 @@ class CreditCardsController < ApplicationController
   end
 
   def index
-    @card = CreditCard.where(user_id: current_user.id).first
     if @card.present?
       Payjp.api_key = Rails.application.credentials[:payjp][:secret_key]
       customer = Payjp::Customer.retrieve(@card.customer_id)
@@ -39,7 +39,6 @@ class CreditCardsController < ApplicationController
       @brand = @default_card_info.brand
       @exp_month = @default_card_info.exp_month.to_s
       @exp_year = @default_card_info.exp_year.to_s.slice(2,3)
-
       case @brand
       when "Visa"
         @card_image = "visa.svg"
@@ -58,11 +57,19 @@ class CreditCardsController < ApplicationController
   end
 
   def destroy
-    @card = CreditCard.where(user_id: current_user.id).first
-    Payjp.api_key = Rails.application.credentials[:payjp][:secret_key]
     customer = Payjp::Customer.retrieve(@card.customer_id)
     customer.delete
     @card.destroy
     redirect_to action: "index"
+  end
+
+  private
+
+  def set_card
+    @card = CreditCard.find_by(user_id: current_user.id)
+  end
+
+  def set_key
+    Payjp.api_key = Rails.application.credentials[:payjp][:secret_key]
   end
 end
