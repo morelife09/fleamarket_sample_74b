@@ -1,8 +1,8 @@
 = render "posts/header"
 
-.wrapper
-  .wrapper__content
-    .wrapper__content__sidetab
+.okay
+  .okay__content
+    .okay__content__sidetab
       %h4
         = link_to "マイページ", "/users/#{current_user.id}", class: "tab"
       %h4 出品する
@@ -18,16 +18,16 @@
       %h4
         = link_to "ログアウト", "/users/#{current_user.id}/logout"
 
-    .wrapper__content__maintab
-      .wrapper__content__maintab__user
-        .wrapper__content__maintab__user__top
-          .wrapper__content__maintab__user__top__icon
+    .okay__content__maintab
+      .okay__content__maintab__user
+        .okay__content__maintab__user__top
+          .okay__content__maintab__user__top__icon
             = image_tag 'member_photo_noimage_thumb2.png', size: "60x60", class: 'icon'
-          .wrapper__content__maintab__user__top__name
-            .wrapper__content__maintab__user__top__name__nametab
+          .okay__content__maintab__user__top__name
+            .okay__content__maintab__user__top__name__nametab
             = link_to current_user.nickname, "/users/#{current_user.id}", class: "name-btn"
-      .wrapper__content__maintab__bottons
-        .wrapper__content__maintab__bottons__credit-btn
+      .okay__content__maintab__bottons
+        .okay__content__maintab__bottons__credit-btn
         = link_to "クレジットカード登録/変更", user_session_path, method: :post, class: "credit-btn"
 
 = render "posts/footer"
