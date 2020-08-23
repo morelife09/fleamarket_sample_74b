@@ -51,6 +51,5 @@ class ItemsController < ApplicationController
   
   def set_items
     @item = Item.includes(:seller,:category).find(params[:id])
-    @image= Image.find(params[:id])
   end
 end
