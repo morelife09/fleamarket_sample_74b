@@ -9,7 +9,12 @@ Rails.application.routes.draw do
     post 'delivery_informations', to: 'users/registrations#create_delivery_information'
   end
 
-  root to: 'items#index' 
+  resources :users, only: :show do
+    get 'credit', to: 'users#credit'
+    get 'logout', to: 'users#logout'
+  end
+
+  root to: 'items#index'
   resources :items, only: [:index, :new, :create, :show] do
     member do
       get 'purchase'
@@ -18,4 +23,6 @@ Rails.application.routes.draw do
       get 'get_category', defaults: { format: 'json' }
     end
   end
+
+  resources :credit_cards, only: [:new, :create, :index, :destroy]
 end

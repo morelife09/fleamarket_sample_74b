@@ -1,7 +1,8 @@
 .headerTop_inner
   .headerTop_main
     %h1.icon
-      = link_to image_tag'logo.png', size: "140x40"
+      =link_to root_path do
+        =image_tag'logo.png', size: "140x40"
     .box
       = form_with url: root_path do |f| 
         .box_search 

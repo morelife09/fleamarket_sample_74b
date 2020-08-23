@@ -192,6 +192,12 @@ body {
       .right {
         margin-left: auto;
         display: flex;
+        margin-right: 5px;
+        
+        .header__right--btn {
+          margin-right: 20px;
+        }
+
         &item-c {
           padding: 0 0 0 16px;
           line-height: 38px;
@@ -359,7 +365,7 @@ body {
   }
   .middle {
     background-image: image-url("bg-topMiddleDl-pict.jpg");
-    height: 400%;
+    height: 400px;
     background-size: cover;
     align-items: center;
     display: flex;

@@ -1,89 +1,198 @@
-h2{
-  font-size: 20px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-
-}
-
-h3{
-  font-size: 10px;
-  color: #888;
-}
-
-.field{
-  color: #333;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  font-size: 12px;
-  font-weight: bold;
-  text-align: center;
+.okay {
+  height: 100vh;
+  width: 100vw;
+  border-top: solid 1px black;
+  background-color: #f5f5f5;
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
   font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
-  &__input{
-    font-size: 10px;
-    height: 30px;
-    width: 200px;
-    border-radius: 5px;
+
+
+  a{
+    text-decoration: none;
+    text-align: center;
+    color: #333;
   }
-  &__name{
-    font-size: 10px;
-    height: 30px;
-    width: 95px;
-    border-radius: 5px;
+  
+  a:link { /*アクセスしたことのないリンク*/
+  }
+  
+  a:visited { /*アクセスしたことのあるリンク*/
+  }
+  a:hover {/*マウスが上に乗っている状態*/
+    color: #f5b557;
+  }
+  
+  a:active {/*クリック中*/
+  }
+
+  &__content {
+    height: 100%;
+    width: 1020px;
+    display: flex;
+    clear: both;
+    position: relative;
+    margin-top: 64px;
+
+    &__sidetab {
+      height: 100%;
+      width: 280px;
+      background-color: #f5f5f5;
+      float: left;
+      position: absolute;
+      overflow: hidden;
+
+      h4 {
+        line-height: 48px;
+        width: 280px;
+        font-size: 14px;
+        padding: 0px 16px;
+        margin-bottom: 1px;
+        background-color: #ffffff;
+        cursor: pointer;
+        text-decoration: inherit;
+      }
+
+      h4:active {
+        animation: flash 1s;
+      }
+
+      @keyframes flash {
+        0% { background: #fafafa; }
+        10% { background: #f5f5f5; }
+        100% { background: #eee; }
+      }
+
+      h4:hover {
+        background-color: #fafafa;
+      }
+
+
+      h5 {
+        width: 100%;
+        margin-top: 40px;
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+    }
+
+    &__maintab {
+      height: 100%;
+      width: 700px;
+      position: absolute;
+      left: 32%;
+      float: right;
+
+      &__user {
+        height: 200px;
+        width: 100%; 
+        background-image: image-url("3810005_s.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        position: relative;
+
+        &__top {
+          height: 111px;
+          width: 100%;
+          position: absolute;
+          top: 45px;
+
+          &__icon {
+            display: flex;
+            justify-content: center;
+          }
+
+          .icon {
+            border-radius: 50%;
+            height: 60px;
+            width: 60px;
+          }
+
+          &__name {
+            font-size: 14px;
+            color: #333;
+            height: 19px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 8px;
+
+            .name-btn {
+              align-items: center;
+              justify-content: center;
+            }
+          }
+        }
+      }
+
+      &__headline {
+        height: 100%;
+        width: 100%;
+        margin-top: 50px;
+
+        &__title {
+          line-height: 72px;
+          width: 100%;
+          background-color: #fafafa;
+          border-bottom: solid 1px;
+          box-sizing: border-box;
+          padding: 0px 16px;
+          font-size: 16px;
+          font-weight: bold;
+          color: #333;
+          text-align: center;
+        }
+
+        &__item-list {
+          height: 500px;
+          width: 100%;
+          background: image-url("logo-white.png") no-repeat;
+          background-color:#fafafa;
+          background-size: 50% auto;
+          background-position: 170px 100px;
+          overflow: scroll;
+        }
+      }
+
+      &__bottons {
+        height: 179px;
+        width: 100%;
+        background-color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+
+      .logout-btn {
+        font-size: 15px;
+        font-weight: bold;
+        color: #fff;
+        background-color: #3CCACE;
+        height: 50px;
+        width: 320px;
+        border-radius: 10px;
+        line-height: 50px;
+        justify-content: center;
+        cursor: pointer;
+      }
+
+      .credit-btn {
+        font-size: 15px;
+        font-weight: bold;
+        color: #fff;
+        background-color: #3CCACE;
+        height: 50px;
+        width: 320px;
+        border-radius: 10px;
+        line-height: 50px;
+        justify-content: center;
+        cursor: pointer;
+      }
+      }
+    }
   }
 }
-
-.birthdate{
-  font-size: 10px;
-  height: 30px;
-  width: calc(200px / 3);
-  border-radius: 5px;
-}
-
-.pref{
-  font-size: 10px;
-  height: 30px;
-  width: 200px;
-  border-radius: 5px; 
-}
-
-.form-group_require{
-  background-color: #ea3525;
-  margin: 0 0 0 8px;
-  padding: 2px 4px;
-  color: #ffffff;
-  font-size: 12px;
-  border-radius: 1px;
-  vertical-align: top;
-}
-
-.actions{
-  text-align: center;
-  &__submit_btn{
-    background-color: #3ccace;
-    color: #ffffff;
-    font-weight: bold;
-    height: 30px;
-    width: 200px;
-    border-radius: 5px;
-    font-size: 12px;
-  }
-}
-
-.forgot{
-  font-size: 12px;
-  color: blue;
-  display: block;
-}
-
-a{
-  text-decoration: none;
-  text-align: center;
-}
-
-.header__right--btn{
-  font-size: 14px;
-  color: #333;
-  margin-left: 10px;
-}
-
-
