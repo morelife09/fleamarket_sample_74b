@@ -28,6 +28,6 @@
             = link_to current_user.nickname, "/users/#{current_user.id}", class: "name-btn"
       .okay__content__maintab__bottons
         .okay__content__maintab__bottons__credit-btn
-        = link_to "クレジットカード登録/変更", user_session_path, method: :post, class: "credit-btn"
+        = link_to "クレジットカード登録/変更", new_credit_card_path, method: :get, class: "credit-btn"
 
 = render "items/footer"
