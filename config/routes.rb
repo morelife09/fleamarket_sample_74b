@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     get 'logout', to: 'users#logout'
   end
 
-  root to: 'posts#index'
+  root to: 'items#index'
   resources :items, only: [:index, :new, :create, :show] do
     member do
       get 'purchase'
