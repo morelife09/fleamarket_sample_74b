@@ -1,0 +1,94 @@
+.index-card {
+  background-color: $light_gray;
+  min-height: 100vh;
+  width: 100%;
+  &__info {
+    height: auto;
+    width: 700px;
+    margin: 0 auto;
+    background-color: $white;
+    &__box {
+      height: 100%;
+      width: 100%;
+      &__title {
+        font-size: 24px;
+        padding: 32px 16px;
+        border-bottom: 1px solid #f5f5f5;
+        text-align: center;
+        font-weight: bold;
+        margin: 0;
+      }
+    }
+    &__main {
+      max-width: 375px;
+      margin: 0 auto;
+      &__container {
+        padding: 32px 0;
+        &__title {
+          font-size: 15px;
+          line-height: 21px;
+          color: #000000;
+          font-weight: 600;
+        }
+        &__regist {
+          margin-top: 32px;
+          height: 100%;
+          width: 100%;
+          &__btn {
+            display: block;
+            margin: 36px 0 0;
+            font-size: 18px;
+            height: 48px;
+            background: #3ccace;
+            border: 1px solid #3ccace;
+            color: #fff;
+            width: 100%;
+            border-radius: 4px;
+            line-height: 48px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            &:hover {
+              filter: brightness(95%);
+            }
+          }
+        }
+        &__contents {
+          margin-top: 32px;
+          display: flex;
+          &__left {
+            width: 50%;
+            &__img {
+              margin-bottom: 8px;
+            }
+            &__number {
+              margin-bottom: 8px;
+              font-size: 16px;
+            }
+            &__exp {
+              font-size: 16px;
+            }
+          }
+          &__right {
+            width: 50%;
+            @include flex;
+            &__btn {
+              padding: 0.3em 0.3em;
+              font-size: 16px;
+              font-weight: bold;
+              color: #ff4d4d;
+              background: #fff;
+              border: solid 1px #ff4d4d;
+              border-radius: 4px;
+              text-decoration: none;
+              cursor: pointer;
+              &:hover {
+                opacity: 0.7;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
