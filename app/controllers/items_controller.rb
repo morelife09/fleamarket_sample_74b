@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   def index
-    render "items/item"
+    @items = Item.all
   end
 
   def new
