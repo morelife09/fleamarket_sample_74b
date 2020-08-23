@@ -52,15 +52,27 @@
             %li.categoryTree--item
               = link_to "グッチ"
             %li.categoryTree--item
-              = link_to "Tiffany＆Co"
-            %li.categoryTree--item
               = link_to "ドルチェ＆ガッバーナ"
             %li.categoryTree--item
-              = link_to "クロエ"
+              = link_to "インテリア・住まい・小物"
             %li.categoryTree--item
-              = link_to "Supreme"
+              = link_to "本・音楽・ゲーム"
             %li.categoryTree--item
-              = link_to "Northface"
+              = link_to "おもちゃ・ホビー・グッズ"
+            %li.categoryTree--item
+              = link_to "コスメ・香水・美容"
+            %li.categoryTree--item
+              = link_to "家電・スマホ・カメラ"
+            %li.categoryTree--item
+              = link_to "スポーツ・レジャー"
+            %li.categoryTree--item
+              = link_to "ハンドメイド"
+            %li.categoryTree--item
+              = link_to "チケット"
+            %li.categoryTree--item
+              = link_to "自動車・オートバイ"
+            %li.categoryTree--item
+              = link_to "その他"
     %ul.right
       - if user_signed_in?
         = link_to "マイページ", "/users/#{current_user.id}", class: "header__right--btn"
