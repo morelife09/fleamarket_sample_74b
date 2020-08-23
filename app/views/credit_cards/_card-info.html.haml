@@ -6,6 +6,7 @@
     %section.index-card__info__main__container
       %h3.index-card__info__main__container__title
         クレジットカード
+      = render partial: "layouts/flash"
       - if @card.present?
         .index-card__info__main__container__contents
           .index-card__info__main__container__contents__left

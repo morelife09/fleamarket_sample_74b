@@ -59,8 +59,11 @@ class CreditCardsController < ApplicationController
   def destroy
     customer = Payjp::Customer.retrieve(@card.customer_id)
     customer.delete
-    @card.destroy
-    redirect_to action: "index"
+    if @card.destroy
+      redirect_to({action: "index"}, notice: "削除しました")
+    else
+      redirect_to({action: "index"}, alert: "削除できませんでした")
+    end
   end
 
   private
