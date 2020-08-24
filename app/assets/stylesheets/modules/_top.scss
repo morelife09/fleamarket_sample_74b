@@ -86,6 +86,11 @@ a:hover{
           &:hover{
             .category{
               height: 800px;
+              &__search{
+                &:hover{
+                  color:#f5b557;
+                }
+              }
               &__parent{
                 display: block;
                 position: absolute;
@@ -189,12 +194,6 @@ a:hover{
               color:#f5b557
             }
           }
-        }
-        .displayNone{
-          display: none;
-        }
-        .leftitem:hover .displayNone{
-          display: block;
         }
       }
       .right {
