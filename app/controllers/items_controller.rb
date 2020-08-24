@@ -1,22 +1,30 @@
 class ItemsController < ApplicationController
+  before_action :set_items, only: [:show]
+
   def index
     @items = Item.all
     @images = Image.all
+    @parents = Category.where(ancestry: nil)
   end
 
   def new
     @item = Item.new
     @item.images.build
-    @parents = Category.roots
+    @parents = Category.where(ancestry: nil)
   end
 
   def create
+    @parents = Category.where(ancestry: nil)
     @item = Item.new(item_params)
     if  @item.save
        redirect_to items_path
     else
        render :new
     end
+  end
+
+  def show
+    @parents = Category.where(ancestry: nil)
   end
 
   def purchase
@@ -42,8 +50,8 @@ class ItemsController < ApplicationController
      :delivery_days_id, :brand_id,
      images_attributes: [:src, :_destroy, :id]).merge(seller_id: current_user.id)
   end
-
-
-
-
+  
+  def set_items
+    @item = Item.includes(:seller,:category).find(params[:id])
+  end
 end

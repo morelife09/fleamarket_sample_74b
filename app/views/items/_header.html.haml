@@ -1,7 +1,8 @@
 .headerTop_inner
   .headerTop_main
     %h1.icon
-      = link_to image_tag'logo.png', size: "140x40"
+      = link_to root_path do
+        =image_tag'logo.png', size: "140x40"
     .box
       = form_with url: root_path do |f| 
         .box_search 
@@ -9,45 +10,56 @@
           %button{type: "submit", class:'box_search-icon'}
             .box_search-icon
               = link_to image_tag'icon-search 1.png', size: "19x19"
-              
   .headerTop_bottom
     %ul.left
       %li.leftitem
-        = link_to "カテゴリー"
-        .tree.displayNone
-          %ul.categoryTree
-            %li.categoryTree--item
-              = link_to "レディース"
-            %li.categoryTree--item
-              = link_to "メンズ"
-            %li.categoryTree--item
-              = link_to "ベビー・キッズ"
-            %li.categoryTree--item
-              = link_to "インテリア・住まい・小物"
-            %li.categoryTree--item
-              = link_to "本・音楽・ゲーム"
-            %li.categoryTree--item
-              = link_to "おもちゃ・ホビー・グッズ"
-            %li.categoryTree--item
-              = link_to "コスメ・香水・美容"
-            %li.categoryTree--item
-              = link_to "家電・スマホ・カメラ"
-            %li.categoryTree--item
-              = link_to "スポーツ・レジャー"
-            %li.categoryTree--item
-              = link_to "ハンドメイド"
-            %li.categoryTree--item
-              = link_to "チケット"
-            %li.categoryTree--item
-              = link_to "自動車・オートバイ"
-            %li.categoryTree--item
-              = link_to "その他"
-      %li.leftitem-b
-        = link_to "ブランド"
-        %ul.brandsPulldown.displayNone
+        = link_to  "#", class: "category__search search__btn" do
+          カテゴリー
+        .tree
+          %ul.category__parent.category
+            - @parents.each do |parent|
+              %li
+                = link_to "#", class: "category__parent--name" do
+                  = parent.name
+                %ul.category__child.category
+                  - parent.children.each do |child|
+                    %li
+                      = link_to "#", class: "category__child--name" do
+                        = child.name
+                      %ul.category__grandchild.category
+                        - child.children.each do |grandchild|
+                          %li
+                            = link_to "#", class: " category__grandchild--name" do
+                              = grandchild.name 
+        %li.leftitem
+          = link_to  "#", class: "category__search search__btn" do
+            ブランド
+          .tree
+            %ul.category__parent.category
+              %li.category__parent--name
+                = link_to  "#", class: "category__search" do
+                  シャネル
+              %li.category__parent--name
+                = link_to  "#", class: "category__search" do
+                  グッチ
+              %li.category__parent--name
+                = link_to  "#", class: "category__search" do
+                  Tiffany＆Co
+              %li.category__parent--name
+                = link_to  "#", class: "category__search" do
+                  ドルチェ＆ガッバーナ
+              %li.category__parent--name
+                = link_to  "#", class: "category__search" do
+                  クロエ
+              %li.category__parent--name
+                = link_to  "#", class: "category__search" do
+                  Supreme
+              %li.category__parent--name
+                = link_to  "#", class: "category__search" do
+                  Northface
     %ul.right
       - if user_signed_in?
-        = link_to "マイページ", "", class: "header__right--btn"
+        = link_to "マイページ", "/users/#{current_user.id}", class: "header__right--btn"
         = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__right--btn"
       - else
         = link_to "ログイン", new_user_session_path, class: "header__right--btn"

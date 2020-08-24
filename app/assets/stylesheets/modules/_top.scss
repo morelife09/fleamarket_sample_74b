@@ -4,6 +4,19 @@
 body {
   font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
 }
+
+a {
+  text-decoration: none;
+  color: #333333;
+}
+a:hover{
+  color:#f5b557
+}
+
+.category__child, .category__parent, .category__grandchild{
+  display: none;
+}
+
 .headerTop {
   padding: 0 60px;
   &_inner {
@@ -64,64 +77,134 @@ body {
         &item {
           text-decoration: none;
           padding: 0;
-          a {
-            text-decoration: none;
-            color: #333;
-            line-height: 32px;
-            padding-right: 30px;
-            background-position: center right;
-            background-repeat: no-repeat;
-            background-size: 18px;
-          }
-          a:hover{
-            color:#f5b557
-          }
-        &-b {
-          display: flex;
-          padding: 0 0 0 16px;
-          line-height: 38px;
-          a {
-            text-decoration: none;
-            color: #333;
-            line-height: 32px;
-            padding-right: 30px;
-            background-position: center right;
-            background-repeat: no-repeat;
-            background-size: 18px;
-          }
-          a:hover{
-            color:#f5b557
-          }
-        }
-        }
-        .tree{
-          z-index: 2;
-          position: absolute;
-          background-color: #fff;
-          width: 240px;
-          top: 30px;
-          .categoryTree{
+          .tree{
+            z-index: 2;
+            position: absolute;
             background-color: #fff;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            &--item{
-              line-height: 40px;
-              padding-left: 5px;
-              border-bottom: solid 0.5px #eeeeee;
+            top: 30px;
+          }
+          &:hover{
+            .category{
+              height: 800px;
+              &__search{
+                &:hover{
+                  color:#f5b557;
+                }
+              }
+              &__parent{
+                display: block;
+                position: absolute;
+                width: 240px;
+                background-color: white;
+                &--name{
+                  width: 100%;
+                  color: black;
+                  display: inline-block;
+                  padding: 5px;
+                  font-size: 13px;
+                  letter-spacing: 2px;
+                  background-color: white;
+                  text-align: left;
+                  border-bottom:solid 1px #eee;
+                  &:hover{
+                    color:#f5b557
+                  }    
+                }
+                li {
+                  &:hover{
+                    .category__child{
+                      display: block;
+                      width: 240px;
+                      top: 0;
+                      left: 240px;
+                      background-color: white;
+                      position: absolute;
+                      &--name{
+                        display: inline-block;
+                        width: 100%;
+                        color: black;
+                        padding: 5px;
+                        font-size: 13px;
+                        letter-spacing: 2px;
+                        background-color: white;
+                        text-align: left;
+                        border-bottom:solid 1px #eee;
+                        &:hover{
+                          color:#f5b557
+                        }          
+                      }
+                      li {
+                        &:hover{
+                          .category__grandchild{
+                            width: 300px;
+                            display: block;
+                            top: 0;
+                            left: 240px;
+                            background-color: white;
+                            position: absolute;
+                            &--name{
+                              width: 100%;
+                              color: black;
+                              display: inline-block;
+                              padding: 5px;
+                              font-size: 13px;
+                              letter-spacing: 2px;
+                              background-color: white;
+                              text-align: left;
+                              border-bottom:solid 1px #eee;
+                              &:hover{
+                                color:#f5b557
+                              }                
+                            }     
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
             }
-          }  
-        }
-        .displayNone{
-          display: none;
-        }
-        .leftitem:hover .displayNone{
-          display: block;
+          } 
+          a {
+            text-decoration: none;
+            color: #333;
+            line-height: 32px;
+            padding-right: 30px;
+            background-position: center right;
+            background-repeat: no-repeat;
+            background-size: 18px;
+          }
+          a :hover{
+            color:#f5b557
+          }
+          &-b {
+            display: flex;
+            padding: 0 0 0 16px;
+            line-height: 38px;
+            a {
+              text-decoration: none;
+              color: #333;
+              line-height: 32px;
+              padding-right: 30px;
+              background-position: center right;
+              background-repeat: no-repeat;
+              background-size: 18px;
+            }
+            a:hover{
+              color:#f5b557
+            }
+          }
         }
       }
       .right {
         margin-left: auto;
         display: flex;
+        margin-right: 5px;
+        
+        .header__right--btn {
+          margin-right: 20px;
+        }
+
         &item-c {
           padding: 0 0 0 16px;
           line-height: 38px;
@@ -289,7 +372,7 @@ body {
   }
   .middle {
     background-image: image-url("bg-topMiddleDl-pict.jpg");
-    height: 400%;
+    height: 400px;
     background-size: cover;
     align-items: center;
     display: flex;
@@ -550,3 +633,5 @@ body {
       }
     }
   }
+
+
