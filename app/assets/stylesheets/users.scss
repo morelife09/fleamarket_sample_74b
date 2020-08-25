@@ -147,7 +147,7 @@
           text-align: center;
         }
 
-        &__item-list {
+        &__owner {
           height: 500px;
           width: 100%;
           background: image-url("logo-white.png") no-repeat;
@@ -155,6 +155,18 @@
           background-size: 50% auto;
           background-position: 170px 100px;
           overflow: scroll;
+          text-align: center;
+
+          p {
+            font-weight: bold;
+            margin-top: 85px;
+            cursor: text;
+          }
+
+          &__fullname{
+            display: flex;
+            justify-content: center;
+          }
         }
       }
 

@@ -11,9 +11,11 @@
       %h4 購入した商品-取引中
       %h4 購入した商品-過去の取引
       %h5 設定
-      %h4 本人情報
-      %h4 メール/パスワード
-      %h4 
+      %h4
+        = link_to "本人情報", "/users/#{current_user.id}/owner"
+      %h4
+        = link_to "メール/パスワード", "/users/#{current_user.id}/email"
+      %h4
         = link_to "クレジットカード登録/変更", "/users/#{current_user.id}/credit"
       %h4
         = link_to "ログアウト", "/users/#{current_user.id}/logout"
@@ -25,10 +27,12 @@
             = image_tag 'member_photo_noimage_thumb2.png', size: "60x60", class: 'icon'
           .okay__content__maintab__user__top__name
             .okay__content__maintab__user__top__name__nametab
-            = link_to current_user.nickname, "/users/#{current_user.id}", class: "name-btn"
+            = link_to current_user.nickname, "/users/#{current_user.id}/owner", class: "name-btn"
       .okay__content__maintab__headline
         .okay__content__maintab__headline__title
           マイページ
-        .okay__content__maintab__headline__item-list
+        .okay__content__maintab__headline__owner
+          %p 登録日
+          %p= link_to current_user.created_at, "/users/#{current_user.id}"
 
 = render "items/footer"

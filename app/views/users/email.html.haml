@@ -15,7 +15,7 @@
         = link_to "本人情報", "/users/#{current_user.id}/owner"
       %h4
         = link_to "メール/パスワード", "/users/#{current_user.id}/email"
-      %h4
+      %h4 
         = link_to "クレジットカード登録/変更", "/users/#{current_user.id}/credit"
       %h4
         = link_to "ログアウト", "/users/#{current_user.id}/logout"
@@ -28,8 +28,10 @@
           .okay__content__maintab__user__top__name
             .okay__content__maintab__user__top__name__nametab
             = link_to current_user.nickname, "/users/#{current_user.id}/owner", class: "name-btn"
-      .okay__content__maintab__bottons
-        .okay__content__maintab__bottons__logout-btn
-        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout-btn"
+      .okay__content__maintab__headline
+        .okay__content__maintab__headline__title
+          メール/パスワード
+        .okay__content__maintab__headline__owner
+          %p= current_user.email
 
 = render "items/footer"

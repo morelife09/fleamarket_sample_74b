@@ -10,8 +10,10 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: :show do
-    get 'credit', to: 'users#credit'
-    get 'logout', to: 'users#logout'
+    get 'credit', to: 'users/credit'
+    get 'logout', to: 'users/logout'
+    get 'email', to: 'users/email'
+    get 'owner', to: 'users/owner'
   end
 
   root to: 'items#index'
