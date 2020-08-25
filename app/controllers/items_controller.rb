@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     render "items/item"
   end
@@ -17,6 +19,11 @@ class ItemsController < ApplicationController
     else
        render :new
     end
+  end
+
+  def destroy
+    @item.destroy
+    redirect_to items_path
   end
 
   def purchase
