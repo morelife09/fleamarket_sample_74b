@@ -31,9 +31,11 @@
       .okay__content__maintab__headline
         .okay__content__maintab__headline__title
           本人情報
-        .okay__content__maintab__headline__item-list
-          %p= link_to current_user.family_name
-          %p= link_to current_user.first_name
-          %p= link_to current_user.birth_date
+        .okay__content__maintab__headline__owner
+          .okay__content__maintab__headline__owner__fullname
+            %p= current_user.family_name
+            %p= current_user.first_name
+          .okay__content__maintab__headline__owner__birth
+            %p= current_user.birth_date
 
 = render "items/footer"
