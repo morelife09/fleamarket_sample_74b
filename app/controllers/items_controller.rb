@@ -1,19 +1,16 @@
 class ItemsController < ApplicationController
   before_action :set_items, only: [:show, :destroy]
   before_action :set_categories, only: [:index, :new, :create, :show]
-
+  
   def index
-    @parents = Category.where(ancestry: nil)
   end
 
   def new
     @item = Item.new
     @item.images.build
-    @parents = Category.where(ancestry: nil)
   end
 
   def create
-    @parents = Category.where(ancestry: nil)
     @item = Item.new(item_params)
     if  @item.save
        redirect_to items_path
@@ -23,7 +20,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @parents = Category.where(ancestry: nil)
   end
 
   def purchase
@@ -58,5 +54,9 @@ class ItemsController < ApplicationController
   
   def set_items
     @item = Item.includes(:seller,:category).find(params[:id])
+  end
+
+  def set_categories
+    @parents = Category.where(ancestry: nil)
   end
 end
