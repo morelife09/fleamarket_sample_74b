@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_items, only: [:show, :destroy]
+  before_action :set_categories, only: [:index, :new, :create, :show]
 
   def index
     @parents = Category.where(ancestry: nil)
