@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_items, only: [:show, :destry]
+  before_action :set_items, only: [:show, :destroy]
 
   def index
     @parents = Category.where(ancestry: nil)
@@ -38,6 +38,12 @@ class ItemsController < ApplicationController
     respond_to do |format|
       format.html
       format.json
+    end
+  end
+
+  def destroy
+    if @item.seller_id == current_user.id
+      @item.destroy #destroyメソッドを使用し対象のitemsを削除する。
     end
   end
 
