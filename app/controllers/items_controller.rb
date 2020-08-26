@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_items, only: [:show]
+  before_action :set_items, only: [:show, :destry]
 
   def index
     @parents = Category.where(ancestry: nil)
