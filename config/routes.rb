@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   root to: 'items#index'
   resources :items, only: [:new, :create, :show, :destroy] do
-    delete  'items/:id', to: 'items#destroy'
+    delete  'destroy/:id', to: 'items#destroy'
     member do
       get 'purchase'
     end

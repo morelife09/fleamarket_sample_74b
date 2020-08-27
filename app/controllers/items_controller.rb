@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_items, only: [:show, :destroy]
+  before_action :set_items, only: [:show]
   before_action :set_categories, only: [:index, :new, :create, :show]
   
   def index
@@ -39,8 +39,11 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    if @item.seller_id == current_user.id
-      @item.destroy #destroyメソッドを使用し対象のitemsを削除する。
+    item = Item.includes(:seller,:category).find(params[:id])
+    if item.seller_id == current_user.id && item.destroy #ログイン中はdestroyメソッドを使用し対象のitemsを削除する。
+      render("items/destroy")
+    else
+      redirect_to @user, alert: "削除が失敗しました"
     end
   end
 
