@@ -103,7 +103,9 @@
             align-items: center;
             opacity: 1;
             text-decoration: none;
-
+            &:hover {
+              color: #0095ee;
+            }
             &__icon {
               width: 16px;
               height: 16px;
@@ -135,6 +137,7 @@
               display: inline-flex;
               text-decoration: none;
               &:hover {
+                color: #0095ee;
                 text-decoration: underline;
                 opacity: 0.7;
               }

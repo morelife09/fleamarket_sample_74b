@@ -22,5 +22,5 @@ class UsersController < ApplicationController
   def set_categories
   @parents = Category.where(ancestry: nil)
   end
-  
+
 end
