@@ -79,7 +79,7 @@
                 コメントする
             - if user_signed_in? && current_user.id ==@item.seller_id
               %button.commentBtn
-                = link_to "削除する", item_path, method: :delete, class: "commentBtn"
+                = link_to "削除する", item_path(@item), method: :delete, class: "commentBtn"
               %button.commentBtn
                 = link_to "#",class:"commentBtn" do
                   編集する
