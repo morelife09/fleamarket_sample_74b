@@ -1,0 +1,10 @@
+.complete
+  = render "shared/subheader"
+  .complete__body
+    .complete__body__content
+      %h2.complete__body__content__title
+        購入が完了しました
+      .complete__body__content__img
+        = image_tag @item.images[0].src.url, class: "complete__body__content__img__inner"
+
+  = render "shared/subfooter"

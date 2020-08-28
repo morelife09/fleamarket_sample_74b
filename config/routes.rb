@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   resources :items, only: [:new, :create, :show] do
     member do
       get 'purchase'
+      post 'pay'
+      get 'complete'
     end
     collection do
       get 'get_category', defaults: { format: 'json' }
