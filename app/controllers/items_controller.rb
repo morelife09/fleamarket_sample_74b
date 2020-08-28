@@ -2,6 +2,8 @@ class ItemsController < ApplicationController
   before_action :set_items, only: [:show, :purchase]
   before_action :set_categories, only: [:index, :new, :create, :show]
 
+  require "payjp"
+
   def index
   end
 
