@@ -18,7 +18,16 @@ a:hover{
 }
 
 .headerTop {
+  &__notifications {
+    color: white;
+    text-align: center;
+
+    .alert {
+      background-color: orange;
+    }
+  }
   padding: 0 60px;
+
   &_inner {
     padding: 15px 0 0;
     width: 100%;

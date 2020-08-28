@@ -61,6 +61,15 @@ class ItemsController < ApplicationController
     end
   end
 
+  def destroy
+    item = Item.includes(:seller,:category).find(params[:id])
+    if item.seller_id == current_user.id && item.destroy #ログイン中はdestroyメソッドを使用し対象のitemsを削除する。
+      render("items/destroy")
+    else
+      redirect_to root_path, alert: "削除が失敗しました"
+    end
+  end
+
   private
   def item_params
     params.require(:item).permit(:name, :price, :description, :prefecture_id, :seller_id,
