@@ -57,7 +57,10 @@
             %ul
               %li#likeBtn.optionalBtn.likeBtn
                 %i.fa.fa-star
-                お気に入り 0
+              - if !Favorite.exists?(user_id:current_user.id, item_id:item.id)
+                = link_to "お気に入り 0",item_add_path(item),method: :post
+              - else
+                = link_to "お気に入り解除",item_add_path(item),method: :delete
             %ul.optional
               %li.optionalBtn
                 = link_to "" do

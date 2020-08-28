@@ -24,6 +24,8 @@ Rails.application.routes.draw do
     collection do
       get 'get_category', defaults: { format: 'json' }
     end
+    post 'add' => 'favorites#create'
+    delete '/add' => 'favorites#destroy'
   end
 
   resources :credit_cards, only: [:new, :create, :index, :destroy]

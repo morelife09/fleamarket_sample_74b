@@ -2,21 +2,21 @@ class FavoritesController < ApplicationController
 
   def create
     user=current_user
-    post=Post.find(params[:post_id])
-    if Favorite.create(user_id: user.id,post_id:post.id)
-    redirect_to post
+    item=Item.find(params[:item_id])
+    if Favorite.create(user_id: user.id, item_id: item.id)
+    redirect_to Item
     else
-      redirect_to root_url
+      redirect_to root_path
     end
 
   end
 
   def destroy
     user=current_user
-    post=Post.find(params[:post_id])
-    if favorite=Favorite.find_by(user_id: user.id,post_id:post.id)
+    item=Item.find(params[:item_id])
+    if favorite=Favorite.find_by(user_id: user.id, item_id: item.id)
       favorite.delete
       redirect_to users_path(current_user)
     else
-      redirect_to root_url
+      redirect_to root_path
     end
