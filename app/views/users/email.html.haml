@@ -16,7 +16,7 @@
       %h4
         = link_to "本人情報", "/users/#{current_user.id}/owner"
       %h4
-        = link_to "メール/パスワード", "/users/#{current_user.id}/email"
+        = link_to "メールアドレス", "/users/#{current_user.id}/email"
       %h4 
         = link_to "クレジットカード登録/変更", "/users/#{current_user.id}/credit"
       %h4
@@ -32,7 +32,7 @@
             = link_to current_user.nickname, "/users/#{current_user.id}/owner", class: "name-btn"
       .okay__content__maintab__headline
         .okay__content__maintab__headline__title
-          メール/パスワード
+          メールアドレス
         .okay__content__maintab__headline__owner
           %p= current_user.email
 
