@@ -1,9 +1,12 @@
 class FavoritesController < ApplicationController
 
+  def index
+    @favorite = Favorite.all
+  end
+
   def create
     @item = Item.find(params[:id])
     @favorite = Favorite.new(user_id: current_user.id, item_id: @item.id)
-
     if @favorite.save
       redirect_to item_path(@item)
     end
