@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_items, only: [:show]
+  before_action :set_items, only: [:show, :edit, :update]
 
   def index
     @parents = Category.where(ancestry: nil)
@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
     @parents = Category.where(ancestry: nil)
     @item = Item.new(item_params)
     if  @item.save
-       redirect_to items_path
+       redirect_to root_path
     else
        render :new
     end
@@ -23,6 +23,36 @@ class ItemsController < ApplicationController
 
   def show
     @parents = Category.where(ancestry: nil)
+  end
+
+  def edit
+    grandchild_category = @item.category
+    child_category = grandchild_category.parent
+
+
+    @category_parent_array = []
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent
+    end
+    
+
+    @category_children_array = []
+    Category.where(ancestry: child_category.ancestry).each do |children|
+      @category_children_array << children
+    end
+
+    @category_grandchildren_array = []
+    Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
+      @category_grandchildren_array << grandchildren
+    end
+  end
+
+  def update
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   def purchase
@@ -52,4 +82,5 @@ class ItemsController < ApplicationController
   def set_items
     @item = Item.includes(:seller,:category).find(params[:id])
   end
+
 end

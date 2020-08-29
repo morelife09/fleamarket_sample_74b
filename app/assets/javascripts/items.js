@@ -1,5 +1,5 @@
 $(document).on("turbolinks:load", function () {
-  let fileIndex = 1;
+  // let fileIndex = 1;
   const buildFileField = (num) => {
     const html = `<div class="js-file_group" data-index="${num}">
                     <input class="js-file" type="file"
@@ -17,7 +17,11 @@ $(document).on("turbolinks:load", function () {
     return html;
   };
 
+  let fileIndex = [1,2,3,4,5,6,7,8,9,10];
+  lastIndex = $('.js-file_group:last').data('index');
+  fileIndex.splice(0, lastIndex);
   $(".hidden-destroy").hide();
+  
 
   $("#image-box").on("change", ".js-file", function (e) {
     const targetIndex = $(this).parent().data("index");
