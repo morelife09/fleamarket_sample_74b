@@ -2,9 +2,26 @@
   = render "shared/subheader"
   .complete__body
     .complete__body__content
-      %h2.complete__body__content__title
-        購入が完了しました
-      .complete__body__content__img
-        = image_tag @item.images[0].src.url, class: "complete__body__content__img__inner"
+      .complete__body__content__attention
+        = icon("far", "clock", class: "complete__body__content__attention__icon")
+        %p.complete__body__content__attention__text
+          発送をお待ちください
+      .complete__body__content__title
+        %h2.complete__body__content__title__inner
+          購入が完了しました
+      .complete__body__content__item
+        .complete__body__content__item__img
+          = image_tag @item.images[0].src.url, class: "complete__body__content__item__img__inner"
+        %p.complete__body__content__item__name
+          = @item.name
+      .complete__body__content__price
+        .complete__body__content__price__inner
+          %span.complete__body__content__price__inner__count
+            = "¥#{@item.price}"
+          %span.complete__body__content__price__inner__fee
+            送料込み(税込)
+      .complete__body__content__bottom
+        = link_to "トップページ", root_path, class: "complete__body__content__bottom__link"
+
 
   = render "shared/subfooter"
