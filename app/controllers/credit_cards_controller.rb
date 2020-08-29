@@ -1,5 +1,6 @@
 class CreditCardsController < ApplicationController
   require "payjp"
+  before_action :authenticate_user!
   before_action :set_card, only: [:new, :index, :destroy]
   before_action :set_key, only: [:create, :destroy]
 

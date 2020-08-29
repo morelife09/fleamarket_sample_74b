@@ -103,7 +103,7 @@ h2{
       &__user {
         height: 200px;
         width: 100%; 
-        background-image: image-url("3810005_s.jpg");
+        background-image: image-url("warm-pattern.jpg");
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center center;
@@ -139,6 +139,9 @@ h2{
             .name-btn {
               align-items: center;
               justify-content: center;
+              background-color: white;
+              padding: 2px 5px 2px 5px;
+              border-radius: 10px;
             }
           }
         }
@@ -162,7 +165,7 @@ h2{
           text-align: center;
         }
 
-        &__item-list {
+        &__owner {
           height: 500px;
           width: 100%;
           background: image-url("logo-white.png") no-repeat;
@@ -170,6 +173,18 @@ h2{
           background-size: 50% auto;
           background-position: 170px 100px;
           overflow: scroll;
+          text-align: center;
+
+          p {
+            font-weight: bold;
+            margin-top: 85px;
+            cursor: text;
+          }
+
+          &__fullname{
+            display: flex;
+            justify-content: center;
+          }
         }
       }
 

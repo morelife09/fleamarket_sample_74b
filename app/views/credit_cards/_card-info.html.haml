@@ -10,7 +10,7 @@
       - if @card.present?
         .index-card__info__main__container__contents
           .index-card__info__main__container__contents__left
-            = image_tag @card_image, alt: 'no image', height: '20', width: '34', class:  'index-card__info__main__container__contents__left__img'
+            = image_tag @card_image, alt: 'no image', height: '20', width: '34', class:'index-card__info__main__container__contents__left__img'
             %p.index-card__info__main__container__contents__left__number
               = "**** **** **** " + @default_card_info.last4
             %p.index-card__info__main__container__contents__left__exp

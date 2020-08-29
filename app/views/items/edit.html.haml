@@ -1,0 +1,79 @@
+.products
+  = form_for(@item) do |f|
+    .products__posts
+      商品名
+      %span.form-group_require 必須
+      %br
+      = f.text_field :name, class: 'products__name', placeholder: '40文字まで'
+    .products__explain
+      商品説明
+      %span.form-group_require 必須
+      %br
+      = f.text_field :description, class: 'products__exp', placeholder: '商品を説明してください'
+    .price
+      販売価格
+      %span.form-group_require 必須
+      %br
+      = f.number_field :price, class: 'products__p', placeholder: '300円〜999,999円'
+    #image-box
+      出品画像
+      %span.form-group_require 必須
+      %br
+      .previews
+        - if @item.persisted?
+          - @item.images.each_with_index do |image, i|
+            = image_tag image.src.url, data: { index: i}, width: "100", height: '100'
+      = f.fields_for :images do |image|
+        .js-file_group{"data-index" => "#{image.index}"}
+          = image.file_field :src, class: 'js-file'
+          %span.js-remove 削除
+        - if @item.persisted?
+          = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+      - if @item.persisted?
+        .js-file_group{"data-index" => "#{@item.images.count}"}
+          = file_field_tag :src, name: "item[images_attributes][#{@item.images.count}][src]", class: 'js-file'
+          .js-remove 削除
+    .category
+      カテゴリー
+      %span.form-group_require 必須
+      %br
+      .category__form
+        .category__form__box
+          = f.select :category_id, options_for_select(@category_parent_array.map{|b| [b.name, b.id, {data:{parent_category: b.id}}]}, {prompt: "指定なし", selected: @item.category.parent.parent.id}),{}, {class: "products__condition", id: 'parents_category'}
+      .category__form#children_wrapper
+        .category__form__box
+          = f.select :category_id, options_for_select(@category_children_array.map{|b| [b.name, b.id, {data:{child_category: b.id}}]}, {prompt: "指定なし", selected: @item.category.parent.id}),{}, {class: "products__condition", id: 'children_category'}
+      .category__form#grandchildren_wrapper
+        .category__form__box
+          = f.select :category_id, options_for_select(@category_grandchildren_array.map{|b| [b.name, b.id, {data:{grandchild_category: b.id}}]}, {prompt: "指定なし", selected: @item.category.id}),{}, {class: "products__condition", id: 'grandchildren_category'}
+      
+    .brand
+      ブランド
+      %br
+        = f.collection_select :brand_id, Brand.all, :id, :name, {prompt:"選択してください"}, {class:"products__brandname"}
+    .size
+      サイズ
+      %br
+      = f.collection_select :size_id, Size.all, :id, :name, {prompt:"選択してください"}, {class:"products__size"}
+    .status
+      商品の状態
+      %span.form-group_require 必須
+      %br
+      = f.collection_select :condition_id, Condition.all, :id, :name, {prompt:"選択してください"}, {class:"products__condition"}
+    .fee
+      配送料の負担
+      %span.form-group_require 必須
+      %br
+      = f.collection_select :shipping_fee_id, ShippingFee.all, :id, :name, {prompt:"選択してください"}, {class:"products__fee"}
+    .region
+      発送元の地域
+      %span.form-group_require 必須
+      %br
+      = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt:"選択してください"}, {class:"products__pref"}
+    .date
+      発送までの日数
+      %span.form-group_require 必須
+      %br
+      = f.collection_select :delivery_days_id, DeliveryDays.all, :id, :name, {prompt:"選択してください"}, {class:"products__date"}
+    .submit
+      = f.submit '更新する', class: 'form__submit'

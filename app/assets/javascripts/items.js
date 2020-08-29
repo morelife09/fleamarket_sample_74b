@@ -1,10 +1,10 @@
 $(document).on("turbolinks:load", function () {
-  let fileIndex = 1;
+  // let fileIndex = 1;
   const buildFileField = (num) => {
-    const html = `<div class="js-file_group" data-index="${num}">
+    const html = `<div class="js-file_group" data-index="${num + 1}">
                     <input class="js-file" type="file"
-                    name="item[images_attributes][${num}][src]"
-                    id="item_images_attributes_${num}_image">
+                    name="item[images_attributes][${num + 1}][src]"
+                    id="item_images_attributes_${num + 1}_image">
                     <span class="js-remove">削除</span>
                   </div>`;
 
@@ -13,11 +13,15 @@ $(document).on("turbolinks:load", function () {
   };
 
   const buildImg = (index, url) => {
-    const html = `<img data-index="${index}" src="${url}" width="300px" height="300px">`;
+    const html = `<img data-index="${index}" src="${url}" width="100px" height="100px">`;
     return html;
   };
 
+  let fileIndex = [1,2,3,4,5,6,7,8,9,10];
+  lastIndex = $('.js-file_group:last').data('index');
+  fileIndex.splice(0, lastIndex);
   $(".hidden-destroy").hide();
+  
 
   $("#image-box").on("change", ".js-file", function (e) {
     const targetIndex = $(this).parent().data("index");
@@ -41,7 +45,7 @@ $(document).on("turbolinks:load", function () {
       if ($(".js-file_group").length >= 10) {
         return false;
       } else {
-        $("#image-box").append(buildFileField(fileIndex));
+        $("#image-box").append(buildFileField(limitFileField));
       }
     }
   });

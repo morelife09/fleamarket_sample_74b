@@ -30,8 +30,14 @@
           .okay__content__maintab__user__top__name
             .okay__content__maintab__user__top__name__nametab
             = link_to current_user.nickname, "/users/#{current_user.id}/owner", class: "name-btn"
-      .okay__content__maintab__bottons
-        .okay__content__maintab__bottons__logout-btn
-        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout-btn"
+      .okay__content__maintab__headline
+        .okay__content__maintab__headline__title
+          本人情報
+        .okay__content__maintab__headline__owner
+          .okay__content__maintab__headline__owner__fullname
+            %p= current_user.family_name
+            %p= current_user.first_name
+          .okay__content__maintab__headline__owner__birth
+            %p= current_user.birth_date
 
 = render "items/footer"

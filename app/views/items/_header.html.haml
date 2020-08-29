@@ -1,4 +1,7 @@
 .headerTop_inner
+  .notifications
+    - flash.each do |key, value|
+      = content_tag(:div, value, class: key)
   .headerTop_main
     %h1.icon
       = link_to root_path do

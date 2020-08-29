@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
   belongs_to :seller, class_name: "User"
   has_one :buyer, class_name: "User"
-  has_many :images
+  has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
   belongs_to :category
   extend ActiveHash::Associations::ActiveRecordExtensions
@@ -14,5 +14,5 @@ class Item < ApplicationRecord
   validates_associated :images
   validates :images, :name, :description, :price, :seller_id, :category_id, :condition_id, :prefecture_id,
   :shipping_fee_id, :delivery_days_id, :brand_id, presence: true
-  validates :price,numericality: { only_integer: true,greater_than: 300, less_than: 999999}
+  validates :price,numericality: { only_integer: true,greater_than: 299, less_than: 1000000}
 end
