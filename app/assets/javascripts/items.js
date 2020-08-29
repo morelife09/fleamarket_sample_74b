@@ -45,8 +45,6 @@ $(document).on("turbolinks:load", function () {
       if ($(".js-file_group").length >= 10) {
         return false;
       } else {
-        console.log(limitFileField)
-        console.log(lastIndex)
         $("#image-box").append(buildFileField(limitFileField));
       }
     }
