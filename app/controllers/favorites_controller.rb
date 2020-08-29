@@ -1,14 +1,12 @@
 class FavoritesController < ApplicationController
 
   def create
-    @user = current_user.id
-    @item = Item.find(params[:item_id])
-    @favorite = Favorite.new(@user_id: user.id, @item_id: item.id)
+    @item = Item.find(params[:id])
+    @favorite = Favorite.new(user_id: current_user.id, item_id: @item.id)
 
     if @favorite.save
-      redirect_to item_path(current_user)
+      redirect_to item_path(@item)
     end
-
   end
 
   def destroy
@@ -16,3 +14,6 @@ class FavoritesController < ApplicationController
       if @favorite.delete
       redirect_to users_path(current_user)
     end
+  end
+
+end
