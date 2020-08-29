@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_items, only: [:show, :purchase, :pay, :complete]
+  before_action :set_items, only: [:show, :purchase, :pay, :complete, :edit, :update]
   before_action :set_categories, only: [:index, :new, :create, :show]
   before_action :set_card, only: [:purchase, :pay]
 
@@ -23,6 +23,24 @@ class ItemsController < ApplicationController
   end
 
   def show
+  end
+
+  def edit
+    grandchild_category = @item.category
+    child_category = grandchild_category.parent
+
+    @category_parent_array = Category.where(ancestry: nil)
+    @category_children_array = Category.where(ancestry: child_category.ancestry)
+    @category_grandchildren_array = Category.where(ancestry: grandchild_category.ancestry)
+
+  end
+
+  def update
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   def purchase
