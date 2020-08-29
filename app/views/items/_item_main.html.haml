@@ -8,7 +8,12 @@
           .itemBox__body
             %ul
               %li
-                =image_tag(@item.images[0].src.url)
+                .itemBox__body__img
+                  =image_tag(@item.images[0].src.url)
+                    - if @item.buyer_id.present?
+                    .itemBox__body__img__badge
+                      .itemBox__body__img__badge__inner
+                        SOLD
                 %ul
                   - @item.images.each_with_index do |image, i|
                     %li
