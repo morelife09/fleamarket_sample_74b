@@ -88,7 +88,7 @@
       &__user {
         height: 200px;
         width: 100%; 
-        background-image: image-url("3810005_s.jpg");
+        background-image: image-url("warm-pattern.jpg");
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center center;
@@ -124,6 +124,9 @@
             .name-btn {
               align-items: center;
               justify-content: center;
+              background-color: white;
+              padding: 2px 5px 2px 5px;
+              border-radius: 10px;
             }
           }
         }
