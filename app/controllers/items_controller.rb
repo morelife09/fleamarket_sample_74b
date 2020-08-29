@@ -2,8 +2,7 @@ class ItemsController < ApplicationController
   before_action :set_items, only: [:show]
 
   def index
-    @items = Item.all
-    @images = Image.all
+    @items = Item.all.order("id DESC").limit(4)
     @parents = Category.where(ancestry: nil)
   end
 
@@ -50,7 +49,7 @@ class ItemsController < ApplicationController
      :delivery_days_id, :brand_id,
      images_attributes: [:src, :_destroy, :id]).merge(seller_id: current_user.id)
   end
-  
+
   def set_items
     @item = Item.includes(:seller,:category).find(params[:id])
   end
