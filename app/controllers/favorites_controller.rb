@@ -1,20 +1,20 @@
 class FavoritesController < ApplicationController
 
   def index
-    @favorite = Favorite.all
+    @favorites = Favorite.all
   end
 
   def create
     @item = Item.find(params[:id])
-    @favorite = Favorite.new(user_id: current_user.id, item_id: @item.id)
+    @favorites = Favorite.new(user_id: current_user.id, item_id: @item.id)
     if @favorite.save
       redirect_to item_path(@item)
     end
   end
 
   def destroy
-    @favotrite = Favorite.find(params[:item_id])
-      if @favorite.delete
+    @favorites = Favorite.find(params[:item_id])
+      if @favorites.delete
       redirect_to users_path(current_user)
     end
   end

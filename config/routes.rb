@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     post 'delivery_informations', to: 'users/registrations#create_delivery_information'
   end
 
-  resources :users, only: [:index, :show] do
+  resources :users, only: [:show] do
     get 'credit', to: 'users/credit'
     get 'logout', to: 'users/logout'
     get 'email', to: 'users/email'

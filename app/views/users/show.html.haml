@@ -7,7 +7,7 @@
         = link_to "マイページ", "/users/#{current_user.id}", class: "tab"
       %h4 出品する
       %h4
-        = link_to "お気に入り一覧", favorites_path(@favorite), method: :get
+        = link_to "お気に入り一覧", favorites_path, method: :get
       %h4 出品した商品
       %h4 購入した商品
       %h5 設定
