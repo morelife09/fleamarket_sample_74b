@@ -1,6 +1,9 @@
 class ItemsController < ApplicationController
-  before_action :set_items, only: [:show, :purchase, :edit, :update]
+  before_action :set_items, only: [:show, :purchase, :pay, :complete, :edit, :update]
   before_action :set_categories, only: [:index, :new, :create, :show]
+  before_action :set_card, only: [:purchase, :pay]
+
+  require "payjp"
 
   def index
   end
@@ -13,7 +16,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if  @item.save
-       redirect_to root_path
+       redirect_to @item
     else
        render :new
     end
@@ -54,7 +57,6 @@ class ItemsController < ApplicationController
 
   def purchase
     @d_info = DeliveryInformation.find(current_user.id)
-    @card = CreditCard.find_by(user_id: current_user.id)
     if @card.present?
       Payjp.api_key = Rails.application.credentials[:payjp][:secret_key]
       customer = Payjp::Customer.retrieve(@card.customer_id)
@@ -91,6 +93,32 @@ class ItemsController < ApplicationController
     end
   end
 
+
+  def pay
+    if @item.buyer_id.present?
+      redirect_back(fallback_location: root_path)
+    elsif @card.blank?
+      redirect_to({controller: "credit_cards", action: "index"}, alert: "購入にはクレジットカードが必要です")
+    else
+      Payjp.api_key = Rails.application.credentials[:payjp][:secret_key]
+      Payjp::Charge.create(
+        amount: @item.price,
+        customer: @card.customer_id,
+        currency: 'jpy'
+      )
+      if @item.update(buyer_id: current_user.id)
+        redirect_to action: "complete"
+      else
+        redirect_to @item
+      end
+    end
+  end
+
+  def complete
+
+  end
+
+
   def destroy
     item = Item.includes(:seller,:category).find(params[:id])
     if item.seller_id == current_user.id && item.destroy #ログイン中はdestroyメソッドを使用し対象のitemsを削除する。
@@ -99,6 +127,7 @@ class ItemsController < ApplicationController
       redirect_to root_path, alert: "削除が失敗しました"
     end
   end
+
 
   private
   def item_params
@@ -114,5 +143,9 @@ class ItemsController < ApplicationController
 
   def set_categories
     @parents = Category.where(ancestry: nil)
+  end
+
+  def set_card
+    @card = CreditCard.find_by(user_id: current_user.id)
   end
 end

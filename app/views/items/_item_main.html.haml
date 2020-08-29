@@ -8,7 +8,12 @@
           .itemBox__body
             %ul
               %li
-                =image_tag(@item.images[0].src.url)
+                .itemBox__body__img
+                  =image_tag(@item.images[0].src.url)
+                    - if @item.buyer_id.present?
+                    .itemBox__body__img__badge
+                      .itemBox__body__img__badge__inner
+                        SOLD
                 %ul
                   - @item.images.each_with_index do |image, i|
                     %li
@@ -20,6 +25,15 @@
                 (税込)
               %span
                 送料込み
+          - if @item.buyer_id.present?
+            = link_to "売り切れました", "#", class: "itemBox__buy-btn-disable"
+          - elsif user_signed_in?
+            - if current_user.id == @item.seller_id
+              = link_to "自分の商品です", "#", class: "itemBox__buy-btn-disable"
+            - elsif @item.buyer_id.blank?
+              = link_to "購入画面に進む", purchase_item_path(@item), class: "itemBox__buy-btn-able"
+          - else
+            = link_to "購入画面に進む", new_user_session_path, class: "itemBox__buy-btn-able"
           .itemDetail= @item.description
           .table
             %table

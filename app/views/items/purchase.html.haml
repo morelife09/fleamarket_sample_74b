@@ -72,7 +72,7 @@
               支払い方法の入力を完了してください。
           .purchase__body__box__content-sixth__title__btn
             - if @card.present?
-              = button_to "購入する", "#", class: "purchase__body__box__content-sixth__title__btn--able"
+              = button_to "購入する", pay_item_path(@item), class: "purchase__body__box__content-sixth__title__btn--able"
             - else
               = button_to "購入する", "#", disabled: true, class: "purchase__body__box__content-sixth__title__btn--disable"
 
