@@ -63,6 +63,7 @@ class ItemsController < ApplicationController
     end
   end
 
+
   def pay
     if @item.buyer_id.present?
       redirect_back(fallback_location: root_path)
@@ -86,6 +87,17 @@ class ItemsController < ApplicationController
   def complete
 
   end
+
+
+  def destroy
+    item = Item.includes(:seller,:category).find(params[:id])
+    if item.seller_id == current_user.id && item.destroy #ログイン中はdestroyメソッドを使用し対象のitemsを削除する。
+      render("items/destroy")
+    else
+      redirect_to root_path, alert: "削除が失敗しました"
+    end
+  end
+
 
   private
   def item_params
