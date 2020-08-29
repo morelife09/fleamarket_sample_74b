@@ -10,12 +10,14 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: :show do
-    get 'credit', to: 'users#credit'
-    get 'logout', to: 'users#logout'
+    get 'credit', to: 'users/credit'
+    get 'logout', to: 'users/logout'
+    get 'email', to: 'users/email'
+    get 'owner', to: 'users/owner'
   end
 
   root to: 'items#index'
-  resources :items, only: [:new, :create, :show, :edit, :update] do
+  resources :items, only: [:new, :create, :show, :destroy, :edit, :update] do
     member do
       get 'purchase'
     end

@@ -18,7 +18,16 @@ a:hover{
 }
 
 .headerTop {
+  &__notifications {
+    color: white;
+    text-align: center;
+
+    .alert {
+      background-color: orange;
+    }
+  }
   padding: 0 60px;
+
   &_inner {
     padding: 15px 0 0;
     width: 100%;
@@ -86,6 +95,11 @@ a:hover{
           &:hover{
             .category{
               height: 800px;
+              &__search{
+                &:hover{
+                  color:#f5b557;
+                }
+              }
               &__parent{
                 display: block;
                 position: absolute;
@@ -189,12 +203,6 @@ a:hover{
               color:#f5b557
             }
           }
-        }
-        .displayNone{
-          display: none;
-        }
-        .leftitem:hover .displayNone{
-          display: block;
         }
       }
       .right {

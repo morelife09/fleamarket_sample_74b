@@ -76,13 +76,14 @@
             %br/
             %button.commentBtn{name: "button", type: "submit"}
               %i.fa.fa-comment
-              コメントする
+                コメントする
             - if user_signed_in? && current_user.id ==@item.seller_id
               %button.commentBtn
-                = link_to "削除する"
+                = link_to "削除する", item_path(@item), method: :delete, class: "commentBtn"
             - if user_signed_in? && current_user.id ==@item.seller_id
               %button.commentBtn
                 = link_to "編集する", "/items/#{@item.id}/edit", method: :get
+
       %ul.links
         %li
           = link_to "" do
