@@ -57,10 +57,10 @@
             %ul
               %li#likeBtn.optionalBtn.likeBtn
                 %i.fa.fa-star
-              - if user_signed_in? && current_user.id
-                = link_to "お気に入り",add_item_path(@item),method: :post
-              - else
-                = link_to "お気に入り解除",add_item_path(@item),method: :delete
+                - if user_signed_in? && current_user.id
+                  = link_to "お気に入り", add_item_path(@item),method: :post
+                - else
+                  = link_to "お気に入り解除", add_item_path(@item),method: :delete
             %ul.optional
               %li.optionalBtn
                 = link_to "" do
