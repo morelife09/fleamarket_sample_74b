@@ -22,7 +22,8 @@ Rails.application.routes.draw do
       get 'purchase'
       post 'add', to: 'favorites#create'
     end
-    resources :favorites, only: [:destroy]
+
+  resources :favorites, only: [:index, :destroy]
 
     collection do
       get 'get_category', defaults: { format: 'json' }
