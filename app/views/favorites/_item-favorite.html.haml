@@ -14,3 +14,16 @@
                 %i.fa.fa-star.likeIcon
                 0
             %p (税込)
+
+
+-# .messages{data: {message: {id: message.id}}}
+-#   .main__chats__message
+-#     .main__chats__message__poster
+-#       = message.user.name
+-#     .main__chats__message__date
+-#       = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+-#   .main__chats__comment
+-#     - if message.content.present?
+-#       %p.main__chats__comment__content
+-#         = message.content
+-#     = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
