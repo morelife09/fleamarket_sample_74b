@@ -7,4 +7,54 @@
   overflow: scroll;
   justify-content: center;
   font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+
+  .productLists{
+    .productList{
+      margin: 0 0 10px;
+      float: left;
+      width: calc(100% / 3);
+      a{
+        display: block;
+        margin: 24px 0 8px;
+        color: #3CCACE;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 22px;
+        position: relative;
+      }
+      &__img{
+        width: 220px;
+        height: 150px;
+        position: relative;
+        overflow: hidden;
+        margin: 0;
+        z-index: auto;
+        background-color: #fff;
+      }
+      &__body{
+        background-color: white;
+        color: #333;
+        padding: 16px;
+        .name{
+          color: #333;
+          overflow: hidden;
+          line-height: 1.5;
+          font-size: 16px;
+          text-align: left;
+        }
+        .details{
+          font-size: 16px;
+          ul{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+          }
+          p{
+            font-size: 10px;
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
 }

@@ -1,2 +1,16 @@
 .rep
-  = @favorite
+  -# - @favorites.each do |favorite|
+  .productLists
+    .productList
+      = link_to "" do
+        %figure.productList--img
+          = image_tag 'a007.png'
+        .productList--body
+          %h3.name product3
+          .details
+            %ul
+              %li 30000円
+              %li
+                %i.fa.fa-star.likeIcon
+                0
+            %p (税込)
