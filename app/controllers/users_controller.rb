@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   end
 
   def owner
+    @d_info = DeliveryInformation.find(current_user.id)
   end
 
   def email
@@ -22,5 +23,5 @@ class UsersController < ApplicationController
   def set_categories
   @parents = Category.where(ancestry: nil)
   end
-  
+
 end

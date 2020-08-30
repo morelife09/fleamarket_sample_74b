@@ -32,10 +32,15 @@
         .okay__content__maintab__headline__title
           本人情報
         .okay__content__maintab__headline__owner
-          .okay__content__maintab__headline__owner__fullname
-            %p= current_user.family_name
-            %p= current_user.first_name
+          %p.okay__content__maintab__headline__owner__fullname
+            = current_user.family_name
+            = current_user.first_name
           .okay__content__maintab__headline__owner__birth
-            %p= current_user.birth_date
+            %p= current_user.birth_date.strftime("%Y年%m月%d日")
+            %br
+            = @d_info.prefecture.name
+            = @d_info.city
+            = @d_info.address
+            = @d_info.building_room_number
 
 = render "items/footer"
