@@ -3,16 +3,27 @@
   width: 100vw;
   border-top: solid 1px black;
   background-color: #f5f5f5;
-  display: flex;
   overflow: scroll;
-  justify-content: center;
   font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
 
+  h2 {
+    font-size: 20px;
+    font-weight: bolder;
+    text-align: center;
+    line-height: 150px;
+  }
+
   .productLists {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+
     .productList {
-      margin: 0 0 10px;
-      float: left;
-      width: calc(100% / 3);
+      // margin: 0 0 10px;
+      height: 250px;
+      width: 200px;
       a {
         display: block;
         margin: 24px 0 8px;

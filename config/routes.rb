@@ -23,8 +23,8 @@ Rails.application.routes.draw do
       get 'purchase'
       post 'pay'
       get 'complete'
-      post 'add', to: 'favorites#create'
       delete 'add', to: 'favorites#destroy'
+      post 'add', to: 'favorites#create'
     end
 
     collection do
@@ -34,6 +34,6 @@ Rails.application.routes.draw do
 
   resources :credit_cards, only: [:new, :create, :index, :destroy]
 
-  resources :favorites, only: [:index]
+  resources :favorites, only: [:index, :show]
 
 end

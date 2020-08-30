@@ -1,0 +1,44 @@
+.rep
+  %h2 <<  お気に入り一覧 >>
+  .productLists
+  - current_user.favorites.each do |favorite|
+    .productList
+      = link_to "" do
+        %figure.productList--img
+          = image_tag 'a007.png'
+        .productList--body
+          %h3.name
+            -# = @user.name
+          .details
+            %ul
+              %li 30000円
+              %li
+                %i.fa.fa-star.likeIcon
+                0
+            %p (税込)
+    -# - current_user.@favorites.each do |favorite|
+
+
+-# .messages{data: {message: {id: message.id}}}
+-#   .main__chats__message
+-#     .main__chats__message__poster
+-#       = message.user.name
+-#     .main__chats__message__date
+-#       = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+-#   .main__chats__comment
+-#     - if message.content.present?
+-#       %p.main__chats__comment__content
+-#         = message.content
+-#     = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
+
+-# %h2 参加中のイベント
+-#   - @clips.each do |clip|
+-#     = event = Event.find(clip.event_id)
+-#     %class="name3"><%= link_to event.event_name, event_path(event)
+-#     %class="name2"><%= link_to "参加中のイベントから削除",clip_path(clip), method: :delete
+-#       %class="name2"
+-#       %event.event_date.strftime("%Y-%m-%d %H:%M:%S")
+        
+-#             <div class="name2">
+-#             <%= event.event_location %>
+-#             </div>
