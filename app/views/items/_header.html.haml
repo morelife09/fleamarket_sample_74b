@@ -20,7 +20,7 @@
           カテゴリー
         .tree
           %ul.category__parent.category
-            -# - @parents.each do |parent|
+            - @parents.each do |parent|
               %li
                 = link_to "#", class: "category__parent--name" do
                   = parent.name

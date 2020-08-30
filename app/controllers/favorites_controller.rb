@@ -1,6 +1,7 @@
 class FavoritesController < ApplicationController
 
   def index
+    @parents = Category.where(ancestry: nil)
     @favorites = Favorite.all
   end
 
