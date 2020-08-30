@@ -8,30 +8,39 @@
           購入内容の確認
       %section.purchase__body__box__content-second
         .purchase__body__box__content-second__left-block
-          = image_tag 'product.jpg', class: "purchase__body__box__content-second__left-block__img", alt:"商品画像"
+          = image_tag @item.images[0].src.url, class: "purchase__body__box__content-second__left-block__img", alt:"商品画像"
         .purchase__body__box__content-second__right-block
           %p.purchase__body__box__content-second__right-block__item-name
-            product
+            = @item.name
           %p.purchase__body__box__content-second__right-block__price-title
             %span.purchase__body__box__content-second__right-block__price-title__postage-included
               送料込み (税込)
             %span.purchase__body__box__content-second__right-block__price-title__item-price
-              ¥5.000
+              = "¥#{@item.price}"
       %section.purchase__body__box__content-third
         .purchase__body__box__content-third__payment-title
           %span
             支払い金額
           %span.purchase__body__box__content-third__payment-title__price
-            ¥5.000
+            = "¥#{@item.price}"
       %section.purchase__body__box__content-fourth
         .purchase__body__box__content-fourth__register-title
           .purchase__body__box__content-fourth__register-title__upper
             %h3.purchase__body__box__content-fourth__register-title__upper__text
               支払い方法
-          = link_to credit_cards_path, class: "purchase__body__box__content-fourth__register-title__link" do
-            = icon("fas", "plus-circle", class: "purchase__body__box__content-fourth__register-title__link__icon")
-            %span.purchase__body__box__content-fourth__register-title__link__text
-              登録してください
+          - if @card.present?
+            .index-card__info__main__container__contents
+              .index-card__info__main__container__contents__left
+                = image_tag @card_image, alt: 'no image', height: '20', width: '34', class: 'index-card__info__main__container__contents__left__img'
+                %p.index-card__info__main__container__contents__left__number
+                  = "**** **** **** " + @default_card_info.last4
+                %p.index-card__info__main__container__contents__left__exp
+                  = @exp_month + " / " + @exp_year
+          - else
+            = link_to credit_cards_path, class: "purchase__body__box__content-fourth__register-title__link" do
+              = icon("fas", "plus-circle", class: "purchase__body__box__content-fourth__register-title__link__icon")
+              %span.purchase__body__box__content-fourth__register-title__link__text
+                登録してください
       %section.purchase__body__box__content-fifth
         .purchase__body__box__content-fifth__delivery-title
           .purchase__body__box__content-fifth__delivery-title__upper
@@ -58,12 +67,14 @@
             %b.purchase__body__box__content-sixth__title__upper__bold
               取引画面
             から受取場所を変更をすることが可能です。出品者が発送作業を開始した後は受取場所の変更ができませんので、早めに変更を行ってください。
-          %p.purchase__body__box__content-sixth__title__notice
-            支払い方法の入力を完了してください。
+          - if @card.blank?
+            %p.purchase__body__box__content-sixth__title__notice
+              支払い方法の入力を完了してください。
           .purchase__body__box__content-sixth__title__btn
-            = button_to "購入する", "#", class: "purchase__body__box__content-sixth__title__btn--able"
-            -# = button_to "購入する", "#", disabled: true, class: "purchase__body__box__content-sixth__title__btn--disable"
-            -# 購入機能実装時に条件分岐を追加
+            - if @card.present?
+              = button_to "購入する", pay_item_path(@item), class: "purchase__body__box__content-sixth__title__btn--able"
+            - else
+              = button_to "購入する", "#", disabled: true, class: "purchase__body__box__content-sixth__title__btn--disable"
 
 
   = render "shared/subfooter"

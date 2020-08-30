@@ -1,0 +1,107 @@
+.complete {
+  margin: 0;
+  padding: 0;
+  background-color: $light_gray;
+  min-height: 100vh;
+  width: 100%;
+  &__body {
+    height: auto;
+    width: 700px;
+    margin: 0 auto;
+    &__content {
+      height: 100%;
+      width: 100%;
+      background-color: $white;
+      &__attention {
+        @include flex;
+        background-color: #fff6df;
+        height: 120px;
+        font-weight: bold;
+        color: $main-color-green;
+        &__icon {
+          font-size: 30px;
+          margin-right: 8px;
+        }
+        &__text {
+          font-size: 16px;
+        }
+      }
+      &__title {
+        height: 120px;
+        border-bottom: solid 1px $light_gray;
+        @include flex;
+        &__inner {
+          text-align: center;
+          font-weight: bold;
+          font-size: 24px;
+        }
+      }
+      &__item {
+        margin: 0 auto;
+        width: 100%;
+        margin-top: 30px;
+        padding-bottom: 50px;
+        border-bottom: solid 1px $light_gray;
+        &__img {
+          @include flex;
+          &__inner {
+            width: 240px;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 4px;
+          }
+        }
+        &__name {
+          margin: 10px auto;
+          width: 375px;
+          text-align: center;
+          font-size: 16px;
+          font-weight: bold;
+        }
+      }
+      &__price {
+        height: 100px;
+        width: 375px;
+        margin: 0 auto;
+        border-bottom: solid 1px $light_gray;
+        &__inner {
+          height: 100%;
+          @include flex;
+          &__count {
+            font-weight: bold;
+            font-size: 30px;
+            margin-right: 10px;
+          }
+          &__fee {
+            font-size: 16px;
+          }
+        }
+      }
+      &__bottom {
+        width: 375px;
+        margin-top: 30px;
+        margin-right: auto;
+        margin-left: auto;
+        padding-bottom: 60px;
+        &__link {
+          color: $white;
+          background-color: $main_color_green;
+          font-size: 18px;
+          height: 48px;
+          width: 100%;
+          border-radius: 100px;
+          border: 1px solid transparent;
+          display: inline-block;
+          line-height: 48px;
+          text-align: center;
+          text-decoration: none;
+          cursor: pointer;
+          &:hover {
+            color: $white;
+            filter: brightness(95%);
+          }
+        }
+      }
+    }
+  }
+}

@@ -18,9 +18,11 @@ Rails.application.routes.draw do
   end
 
   root to: 'items#index'
-  resources :items, only: [:new, :create, :show] do
+  resources :items, only: [:new, :create, :show, :destroy, :edit, :update] do
     member do
       get 'purchase'
+      post 'pay'
+      get 'complete'
       post 'add', to: 'favorites#create'
       delete 'add', to: 'favorites#destroy'
     end

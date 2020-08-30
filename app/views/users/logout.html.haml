@@ -5,7 +5,8 @@
     .okay__content__sidetab
       %h4
         = link_to "マイページ", "/users/#{current_user.id}", class: "tab"
-      %h4 出品する
+      %h4 
+        = link_to "出品する", new_item_path
       %h4
         = link_to "お気に入り一覧", favorites_path, method: :get
       %h4 出品した商品
@@ -14,7 +15,7 @@
       %h4
         = link_to "本人情報", "/users/#{current_user.id}/owner"
       %h4
-        = link_to "メール/パスワード", "/users/#{current_user.id}/email"
+        = link_to "メールアドレス", "/users/#{current_user.id}/email"
       %h4
         = link_to "クレジットカード登録/変更", "/users/#{current_user.id}/credit"
       %h4
