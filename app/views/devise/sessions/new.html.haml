@@ -1,4 +1,5 @@
-%h2 ログイン
+= render "shared/subheader"
+%h6 ログイン
 = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
   .field
     = f.label :メールアドレス
@@ -15,3 +16,4 @@
   .actions
     = f.submit "ログイン", class:"actions__submit_btn"
 = render "devise/shared/links"
+= render "shared/subfooter"
