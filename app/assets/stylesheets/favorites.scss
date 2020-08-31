@@ -8,11 +8,10 @@
   &__title {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 50px;
 
     &__name {
       line-height: 50px;
-      width: 100%;
       border-radius: 50px;
       width: 300px;
       font-size: 20px;
@@ -27,6 +26,8 @@
     display: flex;
     overflow-x: scroll;
     justify-content: center;
+    margin-top: 50px;
+
 
 
     .productList {
@@ -44,13 +45,25 @@
         position: relative;
       }
       &__img {
-        width: 220px;
-        height: 150px;
-        position: relative;
-        overflow: hidden;
-        margin: 0;
-        z-index: auto;
-        background-color: #fff;
+        .pList_img {
+          width: 220px;
+          height: 150px;
+          position: relative;
+          overflow: hidden;
+          margin: 0;
+          z-index: auto;
+          img {
+            position: absolute;
+            height: 150px;
+            object-fit: cover;
+            z-index: auto;
+            top: 0;
+            left: 0;
+            width: 100%;
+            right: 0;
+            bottom: 0;
+          }
+        }
       }
       &__body {
         background-color: white;
