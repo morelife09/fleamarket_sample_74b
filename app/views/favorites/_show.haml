@@ -21,5 +21,6 @@
                   %i.fa.fa-star.likeIcon
                   0
               %p (税込)
-              
--# <%= link_to '詳細', "/tweets/#{tweet.id}", method: :get %>
+
+-# = link_to '詳細', "/tweets/#{tweet.id}", method: :get
+-# = link_to item_path(@item), "/favorites/items/#{item.id}", method: :get do
