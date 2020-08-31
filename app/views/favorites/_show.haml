@@ -1,19 +1,24 @@
 .rep
-  %h2 お気に入り一覧
+  .rep__title
+    .rep__title__name
+      お気に入り一覧
+
   .productLists
     - current_user.favorites.each do |favorite|
       .productList
         = link_to "#" do
           %figure.productList--img
-            = image_tag 'a007.png'
-            -# = image_tag asset_path(item.images[0].content)
+            = image_tag(favorite.item.images[0].src.url)
           .productList--body
             %h3.name
               = favorite.item.name
             .details
               %ul
                 %li= favorite.item.price
+                円
                 %li
                   %i.fa.fa-star.likeIcon
                   0
               %p (税込)
+              
+-# <%= link_to '詳細', "/tweets/#{tweet.id}", method: :get %>
