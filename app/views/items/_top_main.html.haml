@@ -82,30 +82,26 @@
           %h3.title 新規投稿商品
       .pLists
         -@items.each do |item|
-          -# -if item.id.present? 
-          -#   .items-box_photo_sold
-          -#     .items-box_photo_sold_inner
-          -#       SOLD
-          .pList
-            -if item.id.present? 
-              .items-box_photo_sold
-                .items-box_photo_sold_inner
-                  SOLD
-            = link_to "#" do
+          = link_to "#" do
+            .pList
+              -if item.buyer_id != nil
+                .items-box_photo_sold
+                  .items-box_photo_sold_inner
+                    SOLD
               %figure.pList_img
                 = image_tag item.images.first.src.url
               .pList_body
                 %h3.name
                   = item.name
-                .data 
-                  %ul
-                    %li 
-                      = item.price
-                      = "円"
-                    %li
-                      = icon('fas', 'star')
-                      0
-                  %p (税込)
+                  .data
+                    %ul
+                      %li
+                        = item.price
+                        = "円"
+                      %li
+                        = icon('fas', 'star')
+                        0
+                    %p (税込)
 
   %section.pickup
     %h2.head ピックアップブランド

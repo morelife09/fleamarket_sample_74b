@@ -499,6 +499,7 @@ a:hover{
         width: 780px;
         justify-content: space-around;
         margin: 26px auto;
+        position: relative;
         .pList {
           width: 220px;
           display: inline-block;
@@ -510,8 +511,7 @@ a:hover{
             border-bottom: 60px solid transparent;
             border-left: 60px solid #ea352d ;
             z-index:100;
-            position: relative;
-            top:120px;
+            position: absolute;
             &_inner {
               transform: rotate(-45deg);
               font-size: 28px;
@@ -519,31 +519,32 @@ a:hover{
               color: #fff;
               letter-spacing: 2px;
               font-weight: 600;
+              top: 0px;
             }
-          }
           a {
             background-color: #fff;
             text-decoration: none;
             display: inline-block;
             position: relative;
-            .pList_img {
-              width: 220px;
+          }
+        }
+          .pList_img {
+            width: 220px;
+            height: 150px;
+            position: relative;
+            overflow: hidden;
+            margin: 0;
+            z-index: auto;
+            img {
+              position: absolute;
               height: 150px;
-              position: relative;
-              overflow: hidden;
-              margin: 0;
+              object-fit: cover;
               z-index: auto;
-              img {
-                position: absolute;
-                height: 150px;
-                object-fit: cover;
-                z-index: auto;
-                top: 0;
-                left: 0;
-                width: 100%;
-                right: 0;
-                bottom: 0;
-              }
+              top: 0;
+              left: 0;
+              width: 100%;
+              right: 0;
+              bottom: 0;
             }
           }
             &_body {
