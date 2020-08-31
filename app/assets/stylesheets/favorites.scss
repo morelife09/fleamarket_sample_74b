@@ -10,7 +10,16 @@
     font-size: 20px;
     font-weight: bolder;
     text-align: center;
-    line-height: 150px;
+    line-height: 50px;
+    // position: relative;
+    color: #fff;
+    background-color: #3CCACE;
+    // height: 150px;
+    width: 100%;
+    border-radius: 50px;
+    justify-items: center;
+    justify-content: center;
+    
   }
 
   .productLists {
@@ -18,12 +27,13 @@
     width: 100%;
     display: flex;
     justify-content: center;
-
+    // position: absolute;
 
     .productList {
-      // margin: 0 0 10px;
       height: 250px;
       width: 200px;
+      margin-right: 20px;
+
       a {
         display: block;
         margin: 24px 0 8px;
