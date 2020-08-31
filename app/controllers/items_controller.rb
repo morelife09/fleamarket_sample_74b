@@ -6,6 +6,8 @@ class ItemsController < ApplicationController
   require "payjp"
 
   def index
+    @items = Item.all.order("id DESC").limit(4)
+    @parents = Category.where(ancestry: nil)
   end
 
   def new
