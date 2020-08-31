@@ -6,6 +6,8 @@ class ItemsController < ApplicationController
   require "payjp"
 
   def index
+    @items = Item.all.order("id DESC").limit(4)
+    @parents = Category.where(ancestry: nil)
   end
 
   def new
@@ -37,9 +39,9 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-      redirect_to root_path
+      redirect_to @item
     else
-      render :edit
+      redirect_to edit_item_path
     end
   end
 

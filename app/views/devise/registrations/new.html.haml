@@ -1,4 +1,5 @@
-%h2 新規会員登録
+= render "shared/subheader"
+%h6 新規会員登録
 
 = form_for(@user, url: user_registration_path) do |f|
   = render "devise/shared/error_messages", resource: @user
@@ -51,3 +52,4 @@
     = f.submit "次へ進む", class:"actions__submit_btn"
     
 = render "devise/shared/links"
+= render "shared/subfooter"
