@@ -6,9 +6,6 @@ class FavoritesController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    @item = @user.items
-    @favorite_items = @user.favorite_items
   end
 
   def create
