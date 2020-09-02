@@ -12,9 +12,14 @@ crumb :new_item do |item|
   parent :user
 end
 
+crumb :item do |item|
+  link "商品の詳細", item_path
+  parent :user
+end
+
 crumb :edit_item do |item|
   link "商品を編集する", edit_item_path
-  parent :user
+  parent :item
 end
 
 
