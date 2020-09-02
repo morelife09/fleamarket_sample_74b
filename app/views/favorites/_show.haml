@@ -5,7 +5,6 @@
 
   .productLists
     - current_user.favorites.each do |favorite|
-      -# - binding.pry (binding.pry使用方法)
       .productList
         = link_to item_path(favorite.item.id) do
           %figure.productList--img
