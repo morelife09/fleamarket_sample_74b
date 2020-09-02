@@ -496,7 +496,8 @@ a:hover{
     }
       .pLists {
         display: flex;
-        width: 780px;
+        overflow-x: scroll;
+        width: 900px;
         justify-content: space-around;
         margin: 26px auto;
         position: relative;
