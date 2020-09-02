@@ -1,4 +1,5 @@
 class FavoritesController < ApplicationController
+  before_action :set_items, only: [:show, :create, :destroy]
 
   def index
     @parents = Category.where(ancestry: nil)
@@ -9,7 +10,6 @@ class FavoritesController < ApplicationController
   end
 
   def create
-    @item = Item.find(params[:id])
     @favorites = Favorite.new(user_id: current_user.id, item_id: @item.id)
     if @favorites.save
       redirect_to item_path(@item)
@@ -17,11 +17,15 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-    @item = Item.find(params[:id])
     @favorites = Favorite.find_by(user_id: current_user.id, item_id: @item.id)
     if @favorites.delete
       redirect_to item_path(@item)
     end
+  end
+
+  private
+  def set_items
+    @item = Item.includes(:seller,:category).find(params[:id])
   end
 
 end

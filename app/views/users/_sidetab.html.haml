@@ -1,6 +1,6 @@
 .okay__content__sidetab
   %h4
-    = link_to "マイページ", "/users/#{current_user.id}", class: "tab"
+    = link_to "マイページ", user_owner_path(current_user), class: "tab"
   %h4
     = link_to "出品する", new_item_path
   %h4
@@ -9,10 +9,10 @@
   %h4 購入した商品
   %h5 設定
   %h4
-    = link_to "本人情報", "/users/#{current_user.id}/owner"
+    = link_to "本人情報", user_owner_path(current_user)
   %h4
-    = link_to "メールアドレス", "/users/#{current_user.id}/email"
+    = link_to "メールアドレス", user_email_path(current_user)
   %h4
-    = link_to "クレジットカード登録/変更", "/users/#{current_user.id}/credit"
+    = link_to "クレジットカード登録/変更", user_logout_path(current_user)
   %h4
-    = link_to "ログアウト", "/users/#{current_user.id}/logout"
+    = link_to "ログアウト", user_logout_path(current_user)
