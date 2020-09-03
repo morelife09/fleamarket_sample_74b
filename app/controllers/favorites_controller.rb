@@ -13,12 +13,16 @@ class FavoritesController < ApplicationController
     @favorites = Favorite.new(user_id: current_user.id, item_id: @item.id)
     if @favorites.save
       redirect_to item_path(@item)
+    else
+      redirect_to item_path(@item)
     end
   end
 
   def destroy
     @favorites = Favorite.find_by(user_id: current_user.id, item_id: @item.id)
     if @favorites.delete
+      redirect_to item_path(@item)
+    else
       redirect_to item_path(@item)
     end
   end
