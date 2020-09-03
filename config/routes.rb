@@ -22,6 +22,7 @@ Rails.application.routes.draw do
       get 'purchase'
       post 'pay'
       get 'complete'
+      get 'search'
     end
     collection do
       get 'get_category', defaults: { format: 'json' }

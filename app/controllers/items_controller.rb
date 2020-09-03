@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :set_items, only: [:show, :purchase, :pay, :complete, :edit, :update]
   before_action :set_categories, only: [:index, :new, :create, :show]
   before_action :set_card, only: [:purchase, :pay]
+  before_action :move_to_index, except: [:index, :show, :search]
 
   require "payjp"
 
@@ -25,6 +26,10 @@ class ItemsController < ApplicationController
   end
 
   def show
+  end
+
+  def search
+    @items= Item.search(params[:keyword])
   end
 
   def edit
