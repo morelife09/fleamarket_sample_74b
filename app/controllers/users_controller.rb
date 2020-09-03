@@ -3,7 +3,8 @@ class UsersController < ApplicationController
   before_action :set_categories, only: [:show, :credit, :owner, :email, :logout]
 
   def show
-    @nickname = current_user.id
+    user = User.find(params[:id])
+    @nickname = current_user.nickname
   end
 
   def credit
