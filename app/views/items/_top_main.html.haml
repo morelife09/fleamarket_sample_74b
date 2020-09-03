@@ -82,7 +82,7 @@
           %h3.title 新規投稿商品
       .pLists
         -@items.each do |item|
-          = link_to "#" do
+          = link_to item_path(item) do
             .pList
               -if item.buyer_id != nil
                 .items-box_photo_sold
