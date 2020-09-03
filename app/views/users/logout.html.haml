@@ -1,26 +1,9 @@
 = render "items/header"
 
 .okay
+
   .okay__content
-    .okay__content__sidetab
-      %h4
-        = link_to "マイページ", "/users/#{current_user.id}", class: "tab"
-      %h4 
-        = link_to "出品する", new_item_path
-      %h4 お気に入り一覧
-      %h4 出品した商品-出品中
-      %h4 出品した商品-売却済み
-      %h4 購入した商品-取引中
-      %h4 購入した商品-過去の取引
-      %h5 設定
-      %h4
-        = link_to "本人情報", "/users/#{current_user.id}/owner"
-      %h4
-        = link_to "メールアドレス", "/users/#{current_user.id}/email"
-      %h4
-        = link_to "クレジットカード登録/変更", "/users/#{current_user.id}/credit"
-      %h4
-        = link_to "ログアウト", "/users/#{current_user.id}/logout"
+    = render "sidetab"
 
     .okay__content__maintab
       .okay__content__maintab__user

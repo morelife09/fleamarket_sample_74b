@@ -180,9 +180,17 @@ h2{
             cursor: text;
           }
 
-          &__fullname{
+          &__fullname {
             display: flex;
             justify-content: center;
+            margin-top: 85px;
+          }
+
+          &__birth {
+            font-weight: bold;
+            margin-top: 85px;
+
+            cursor: text;
           }
         }
       }
