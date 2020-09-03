@@ -1,3 +1,6 @@
+- breadcrumb :new_item, @item
+= breadcrumbs separator: " &rsaquo; ", class: "breadcrumbs"
+= render "shared/subheader"
 .products
   = form_for(@item) do |f|
     .products__posts
@@ -70,3 +73,4 @@
       = f.collection_select :delivery_days_id, DeliveryDays.all, :id, :name, {prompt:"選択してください"}, {class:"products__date"}
     .submit
       = f.submit '出品する', class: 'form__submit'
+= render "shared/subfooter"
