@@ -10,8 +10,8 @@
       = form_with url: search_items_path, local: true, method: :get do |f| 
         .box_search 
           = f.text_field :name, class: 'box_search', placeholder: 'キーワードから探す'
-          .box_search-icon
-            = button_tag type: 'submit', class:"box_search-icon" do
+          .box_search_icon
+            = button_tag type: 'submit', class:"box_search_icon" do
               = image_tag 'icon-search 1.png', size: "19x19"
   .headerTop_bottom
     %ul.left

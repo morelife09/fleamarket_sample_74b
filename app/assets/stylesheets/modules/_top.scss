@@ -67,10 +67,15 @@ a:hover{
             display: flex;
             height: 36px;
             padding: 0 0 0 5px;
-            &-icon {
+            &_icon {
               background-color: #3CCACE;
+              height: 36px;
               border: 0;
               cursor: pointer;
+              display: flex;
+              // justify-content: center;
+              align-items: center;
+
 
             }
           }
