@@ -195,6 +195,32 @@
         }
       }
     }
+    .comments{
+      font-size: 14px;
+      padding: 24px;
+      background-color: #fff;
+      margin: 10px 0;
+      
+      &__title{
+        text-align: center;
+        font-size: 18px;
+        color: #3ccace;
+        font-weight: bold;
+      }
+    }
+    .comments_member_list{
+      padding: 8px;
+      font-size: 14px;
+      background-color: #f8f8f8;
+      margin: 10px 0;
+      text-align: left;
+    }
+    .comments_member_list_time{
+      font-size: 5px;
+      width: 100%;
+      margin-left: auto;
+      color: #888888;
+    }
     .commentBox {
       padding: 24px;
       background-color: #fff;
