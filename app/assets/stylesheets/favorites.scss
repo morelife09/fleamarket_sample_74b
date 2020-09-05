@@ -1,0 +1,108 @@
+.breadcrumbs{
+  font-size: 14px;
+  color: #333;
+}
+
+.rep {
+  height: 800px;
+  width: 100vw;
+  border-top: solid 1px black;
+  background-color: #f5f5f5;
+  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+  padding-left: 30px;
+  padding-right: 30px;
+
+  &__title {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+
+    &__name {
+      line-height: 50px;
+      border-radius: 50px;
+      width: 300px;
+      font-size: 20px;
+      font-weight: bolder;
+      text-align: center;
+      color: #fff;
+      background-color: #3CCACE;
+    }
+  }
+
+  .productLists {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    overflow-x: scroll;
+    margin-top: 50px;
+
+    .productList {
+      height: 50px;
+      width: 100%;
+      margin-right: 30px;
+    //   animation: scrollAnime 30s linear infinite; （アニメーション機能）
+
+    // .productList div {display: inline-block;}
+    // @keyframes scrollAnime{
+    // 0% {transform: translateX(0)}
+    // 100% {transform: translateX(-100%)}
+    // }                                             ←（ここまで）
+
+      a {
+        width: 370px;
+        display: block;
+        margin: 24px 0 8px;
+        color: #3ccace;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 22px;
+        position: relative;
+      }
+      .productList--img {
+        height: 300px;
+        width: 370px;
+        position: relative;
+        overflow: hidden;
+        margin: 0;
+        z-index: auto;
+
+        img {
+          position: absolute;
+          height: 300px;
+          object-fit: cover;
+          z-index: auto;
+          top: 0;
+          left: 0;
+          width: 100%;
+          right: 0;
+          bottom: 0;
+        }
+      }
+    }
+    &__body {
+      background-color: white;
+      color: #333;
+      padding: 16px;
+
+      .name {
+        color: #333;
+        overflow: hidden;
+        line-height: 1.5;
+        font-size: 16px;
+        text-align: left;
+      }
+      .details {
+        font-size: 16px;
+        ul {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+        p {
+          font-size: 10px;
+          text-align: left;
+        }
+      }
+    }
+  }
+}

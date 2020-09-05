@@ -9,11 +9,12 @@ Rails.application.routes.draw do
     post 'delivery_informations', to: 'users/registrations#create_delivery_information'
   end
 
-  resources :users, only: :show do
+  resources :users, only: [:show] do
     get 'credit', to: 'users/credit'
     get 'logout', to: 'users/logout'
     get 'email', to: 'users/email'
     get 'owner', to: 'users/owner'
+    
   end
 
   root to: 'items#index'
@@ -22,11 +23,17 @@ Rails.application.routes.draw do
       get 'purchase'
       post 'pay'
       get 'complete'
+      delete 'add', to: 'favorites#destroy'
+      post 'add', to: 'favorites#create'
     end
+
     collection do
       get 'get_category', defaults: { format: 'json' }
     end
     resources :comments, only: [:create, :destroy]
   end
   resources :credit_cards, only: [:new, :create, :index, :destroy]
+
+  resources :favorites, only: [:index, :show]
+
 end

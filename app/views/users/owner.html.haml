@@ -1,26 +1,11 @@
+- breadcrumb :user_owner, @user
+= breadcrumbs separator: " &rsaquo; ", class: "breadcrumbs"
 = render "items/header"
 
 .okay
+
   .okay__content
-    .okay__content__sidetab
-      %h4
-        = link_to "マイページ", "/users/#{current_user.id}", class: "tab"
-      %h4 
-        = link_to "出品する", new_item_path
-      %h4 お気に入り一覧
-      %h4 出品した商品-出品中
-      %h4 出品した商品-売却済み
-      %h4 購入した商品-取引中
-      %h4 購入した商品-過去の取引
-      %h5 設定
-      %h4
-        = link_to "本人情報", "/users/#{current_user.id}/owner"
-      %h4
-        = link_to "メールアドレス", "/users/#{current_user.id}/email"
-      %h4
-        = link_to "クレジットカード登録/変更", "/users/#{current_user.id}/credit"
-      %h4
-        = link_to "ログアウト", "/users/#{current_user.id}/logout"
+    = render "sidetab"
 
     .okay__content__maintab
       .okay__content__maintab__user
@@ -34,10 +19,15 @@
         .okay__content__maintab__headline__title
           本人情報
         .okay__content__maintab__headline__owner
-          .okay__content__maintab__headline__owner__fullname
-            %p= current_user.family_name
-            %p= current_user.first_name
+          %p.okay__content__maintab__headline__owner__fullname
+            = current_user.family_name
+            = current_user.first_name
           .okay__content__maintab__headline__owner__birth
-            %p= current_user.birth_date
+            %p= current_user.birth_date.strftime("%Y年%m月%d日")
+            %br
+            = @d_info.prefecture.name
+            = @d_info.city
+            = @d_info.address
+            = @d_info.building_room_number
 
 = render "items/footer"
