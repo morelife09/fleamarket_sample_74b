@@ -15,4 +15,5 @@ class Item < ApplicationRecord
   validates :images, :name, :description, :price, :seller_id, :category_id, :condition_id, :prefecture_id,
   :shipping_fee_id, :delivery_days_id, :brand_id, presence: true
   validates :price,numericality: { only_integer: true,greater_than: 299, less_than: 1000000}
+  has_many :comments
 end

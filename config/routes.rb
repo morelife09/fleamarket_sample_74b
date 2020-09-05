@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     collection do
       get 'get_category', defaults: { format: 'json' }
     end
+    resources :comments, only: [:create, :destroy]
   end
-
   resources :credit_cards, only: [:new, :create, :index, :destroy]
 end

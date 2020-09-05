@@ -77,20 +77,38 @@
                 = link_to "" do
                   %i.fa.fa-flag
                   不適切な商品の通報
+        .comments
+          .comments__title コメント一覧
+          - if @comments
+            .comments_member
+            - @comments.each do |comment|
+              .comments_member_list
+                = comment.user.nickname
+                %strong :
+                = comment.text
+                .comments_member_list_time
+                  = comment.created_at.strftime("%Y年%m月%d日 %H時%M分")
+              - if user_signed_in? && current_user.id ==@item.seller_id
+                .comment_member_list_delete
+                %button.commentBtn
+                  = link_to "削除する", "/items/#{@item.id}/comments/#{comment.id}" , method: :delete
+                  
         .commentBox
           %ul.commentContents
-          %form#new_comment.new_comment{ "accept-charset": "UTF-8", action: "#", method: "post"}
-            %input{name: "utf8", type: "hidden", value: "✓"}/
-            %input{name: "authenticity_token", type: "hidden", value: "dzgtOn5XbsgDkpl/yKnG5CcdM6/4LZlSRSlKC0c5vfos/DqBMnEenOpzKTN0rVjqc5bNE72/2rENEYsHrFBEAw=="}/
-            %textarea#comment_body{name: "comment[body]", required: "required"}
+          = form_with(model: [@item, @comment] ,class:"new_comment", local: true) do |f|
+            = f.text_area :text,id: "comment_body",wrap: "soft"
+            = f.hidden_field :item_id, value: @item.id
             %p.noticeMsg
+              コメントするにはユーザー登録及びログインが必要になります。
+              %br/
               相手のことを考え丁寧なコメントを心がけましょう。
               %br/
               不快な言葉遣いなどは利用制限や退会処分となることがあります。
             %br/
-            %button.commentBtn{name: "button", type: "submit"}
-              %i.fa.fa-comment
-                コメントする
+            - if user_signed_in?
+              %button.commentBtn{name: "button", type: "submit"}
+                %i.fa.fa-comment
+                  コメントする
             - if user_signed_in? && current_user.id ==@item.seller_id
               %button.commentBtn
                 = link_to "削除する", item_path(@item), method: :delete, class: "commentBtn"
