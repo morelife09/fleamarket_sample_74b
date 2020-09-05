@@ -1,0 +1,18 @@
+.okay__content__sidetab
+  %h4
+    = link_to "マイページ", user_path(current_user)
+  %h4
+    = link_to "出品する", new_item_path
+  %h4
+    = link_to "お気に入り一覧", favorites_path
+  %h4 出品した商品
+  %h4 購入した商品
+  %h5 設定
+  %h4
+    = link_to "本人情報", user_owner_path(current_user)
+  %h4
+    = link_to "メールアドレス", user_email_path(current_user)
+  %h4
+    = link_to "クレジットカード登録/変更", user_credit_path(current_user)
+  %h4
+    = link_to "ログアウト", user_logout_path(current_user)

@@ -1,0 +1,24 @@
+.rep
+  .rep__title
+    .rep__title__name
+      お気に入り一覧
+
+  .productLists
+    - current_user.favorites.each do |favorite|
+      .productList
+        = link_to item_path(favorite.item.id) do
+          %figure.productList--img
+            -# = image_tag(favorite.item.images[0].src.url) →この記述でも画像を引き出せる
+            = image_tag favorite.item.images.first.src.url
+          .productList--body
+            %h3.name
+              = favorite.item.name
+            .details
+              %ul
+                %li
+                  = favorite.item.price
+                  = "円"
+                %li
+                  %i.fa.fa-star.likeIcon
+                  0
+              %p (税込)

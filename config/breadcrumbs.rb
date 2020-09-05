@@ -3,8 +3,33 @@ crumb :root do
 end
 
 crumb :user do
-  link "マイページ", user_path(:id)
+  link "マイページ", user_path(current_user)
   parent :root
+end
+
+crumb :favorites do
+  link "お気に入り一覧", favorites_path
+  parent :user
+end
+
+crumb :user_owner do
+  link "本人情報", user_owner_path(current_user)
+  parent :user
+end
+
+crumb :user_email do
+  link "メールアドレス", user_email_path(current_user)
+  parent :user
+end
+
+crumb :user_credit do
+  link "クレジットカード登録/変更", user_credit_path(current_user)
+  parent :user
+end
+
+crumb :user_logout do
+  link "ログアウト", user_logout_path(current_user)
+  parent :user
 end
 
 crumb :new_item do |item|
