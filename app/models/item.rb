@@ -16,11 +16,11 @@ class Item < ApplicationRecord
   :shipping_fee_id, :delivery_days_id, :brand_id, presence: true
   validates :price,numericality: { only_integer: true,greater_than: 300, less_than: 999999}
   validates :price,numericality: { only_integer: true,greater_than: 299, less_than: 1000000}
+  has_many :comments
   has_many :favorites
   has_many :users, through: :favorites
 
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
-
 end
