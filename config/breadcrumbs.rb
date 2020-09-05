@@ -2,6 +2,11 @@ crumb :root do
   link "トップページ", root_path
 end
 
+crumb :search_items do
+  link "検索一覧", search_items_path
+  parent :root
+end
+
 crumb :user do
   link "マイページ", user_path(current_user)
   parent :root

@@ -29,6 +29,7 @@ class ItemsController < ApplicationController
   end
 
   def search
+    @parents = Category.where(ancestry: nil)
     @items = Item.search(params[:keyword])
   end
 
