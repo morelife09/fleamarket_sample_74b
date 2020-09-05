@@ -91,7 +91,7 @@
               - if user_signed_in? && current_user.id ==@item.seller_id
                 .comment_member_list_delete
                 %button.commentBtn
-                  = link_to "削除する", "/items/#{@item.id}/comments/#{comment.id}" , method: :delete
+                  = link_to "削除する", item_comment_path(@item.id, comment.id), method: :delete
                   
         .commentBox
           %ul.commentContents
