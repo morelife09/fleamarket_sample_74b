@@ -7,7 +7,6 @@ class FavoritesController < ApplicationController
   end
 
   def show
-    @likes_count = Like.where(item_id: @item.id).count
   end
 
   def create
