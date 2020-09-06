@@ -10,7 +10,7 @@
       検索一覧
 
   .productLists
-    - current_user.items.each do |item|
+    - @items.each do |item|
       .productList
         = link_to item_path(item.id) do
           %figure.productList--img

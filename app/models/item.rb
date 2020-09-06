@@ -25,8 +25,15 @@ class Item < ApplicationRecord
   end
 
   def self.search(search)
-    return Item.all unless search
-    Item.where('text LIKE(?)', "%#{search}%")
+    if search
+      @items = Item.where('name LIKE(?)', "%#{search}%")
+    else
+      @items = Item.none
+    end
   end
+  # def self.search(search)         →この記述でも上の記述と同様の意味を持つ
+  #   return Item.all unless search         →この場合は検索から外れた場合、全アイテムを取得する。
+  #   Item.where('text LIKE(?)', "%#{search}%")
+  # end
 
 end

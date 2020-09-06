@@ -32,7 +32,7 @@ class ItemsController < ApplicationController
 
   def search
     @parents = Category.where(ancestry: nil)
-    @items = Item.search(params[:keyword])
+    @items = Item.search(params[:name])
   end
 
   def edit
