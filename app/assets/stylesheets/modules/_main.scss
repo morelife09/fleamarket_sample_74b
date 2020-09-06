@@ -196,10 +196,12 @@
       }
     }
     .comments{
+      height: 500px;
       font-size: 14px;
       padding: 24px;
       background-color: #fff;
       margin: 10px 0;
+      overflow: scroll;
       
       &__title{
         text-align: center;
