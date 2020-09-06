@@ -18,22 +18,22 @@
       %li.leftitem
         = link_to  "#", class: "category__search search__btn" do
           カテゴリー
-        .tree
-          %ul.category__parent.category
-            - @parents.each do |parent|
-              %li
-                = link_to "#", class: "category__parent--name" do
-                  = parent.name
-                %ul.category__child.category
-                  - parent.children.each do |child|
-                    %li
-                      = link_to "#", class: "category__child--name" do
-                        = child.name
-                      %ul.category__grandchild.category
-                        - child.children.each do |grandchild|
-                          %li
-                            = link_to "#", class: " category__grandchild--name" do
-                              = grandchild.name 
+        -# .tree
+        -#   %ul.category__parent.category
+        -#     - @parents.each do |parent|
+        -#       %li
+        -#         = link_to "#", class: "category__parent--name" do
+        -#           = parent.name
+        -#         %ul.category__child.category
+        -#           - parent.children.each do |child|
+        -#             %li
+        -#               = link_to "#", class: "category__child--name" do
+        -#                 = child.name
+        -#               %ul.category__grandchild.category
+        -#                 - child.children.each do |grandchild|
+        -#                   %li
+        -#                     = link_to "#", class: " category__grandchild--name" do
+        -#                       = grandchild.name 
         %li.leftitem
           = link_to  "#", class: "category__search search__btn" do
             ブランド
