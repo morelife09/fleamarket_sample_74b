@@ -497,12 +497,13 @@ a:hover{
       .pLists {
         display: flex;
         overflow-x: scroll;
-        width: 900px;
-        justify-content: space-around;
+        width: 910px;
         margin: 26px auto;
         position: relative;
         .pList {
           width: 220px;
+          margin-right: 10px;
+          border: 1px solid;
           display: inline-block;
           .items-box_photo_sold {
             width: 0;
@@ -530,8 +531,8 @@ a:hover{
           }
         }
           .pList_img {
-            width: 220px;
-            height: 150px;
+            width: 218px;
+            height: 145px;
             position: relative;
             overflow: hidden;
             margin: 0;

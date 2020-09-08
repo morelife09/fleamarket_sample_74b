@@ -195,34 +195,43 @@
         }
       }
     }
-    .comments{
-      height: 500px;
-      font-size: 14px;
-      padding: 24px;
+    details {
       background-color: #fff;
-      margin: 10px 0;
-      overflow: scroll;
-      
-      &__title{
+      margin-top: 10px;
+      padding: 10px;
+      cursor: pointer;
+      list-style: none;
+    }
+
+      summary {
         text-align: center;
-        font-size: 18px;
+        font-size: 20px;
         color: #3ccace;
         font-weight: bold;
+        padding: 10px;
+        list-style: none;
       }
-    }
-    .comments_member_list{
-      padding: 8px;
-      font-size: 14px;
-      background-color: #f8f8f8;
-      margin: 10px 0;
-      text-align: left;
-    }
-    .comments_member_list_time{
-      font-size: 5px;
-      width: 100%;
-      margin-left: auto;
-      color: #888888;
-    }
+
+      .comments{
+        height: 500px;
+        font-size: 14px;
+        padding: 14px;
+        overflow: scroll;
+      }
+      .comments_member_list{
+        padding: 8px;
+        font-size: 14px;
+        background-color: #f8f8f8;
+        margin: 10px 0;
+        text-align: left;
+      }
+      .comments_member_list_time{
+        font-size: 5px;
+        width: 100%;
+        margin-left: auto;
+        color: #888888;
+      }
+
     .commentBox {
       padding: 24px;
       background-color: #fff;
