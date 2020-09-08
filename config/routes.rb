@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   root to: 'items#index'
   resources :items, only: [:new, :create, :show, :destroy, :edit, :update] do
+    resources :likes, only: [:create, :destroy]
     member do
       get 'purchase'
       post 'pay'

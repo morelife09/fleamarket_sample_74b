@@ -1,0 +1,1 @@
+$("#like-buttons").haml("= j(render partial: 'like', locals: { items: @items, likes: @likes, like: @like})")
