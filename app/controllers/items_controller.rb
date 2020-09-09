@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :set_items, only: [:show, :purchase, :pay, :complete, :edit, :update]
   before_action :set_categories, only: [:index, :new, :create, :show]
   before_action :set_card, only: [:purchase, :pay]
+  before_action :move_to_index, except: [:index, :show, :search]
 
   require "payjp"
 
@@ -27,6 +28,11 @@ class ItemsController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @item.comments.includes(:user).order(created_at: :desc)
+  end
+
+  def search
+    @parents = Category.where(ancestry: nil)
+    @items = Item.search(params[:name])
   end
 
   def edit
@@ -140,4 +146,9 @@ class ItemsController < ApplicationController
   def set_card
     @card = CreditCard.find_by(user_id: current_user.id)
   end
+
+  def move_to_index
+    redirect_to action: :index unless user_signed_in?
+  end
+
 end

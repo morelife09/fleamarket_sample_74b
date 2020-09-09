@@ -1,0 +1,31 @@
+
+- breadcrumb :search_items, @user
+= breadcrumbs separator: " &rsaquo; ", class: "breadcrumbs"
+
+= render "header"
+
+.rap
+  .rap__title
+    .rap__title__name
+      検索一覧
+
+  .productLists
+    - @items.each do |item|
+      .productList
+        = link_to item_path(item.id) do
+          %figure.productList--img
+            = image_tag item.images.first.src.url
+          .productList--body
+            %h3.name
+              = item.name
+            .details
+              %ul
+                %li
+                  = item.price
+                  = "円"
+                %li
+                  %i.fa.fa-star.likeIcon
+                  0
+              %p (税込)
+
+= render "footer"

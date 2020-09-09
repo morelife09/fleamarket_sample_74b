@@ -23,4 +23,12 @@ class Item < ApplicationRecord
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
+
+  def self.search(search)
+    if search
+      @items = Item.where('name LIKE(?)', "%#{search}%")
+    else
+      redirect_to root_path
+    end
+  end
 end

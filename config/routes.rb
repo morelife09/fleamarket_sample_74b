@@ -28,6 +28,10 @@ Rails.application.routes.draw do
     end
 
     collection do
+      get 'search'
+    end
+
+    collection do
       get 'get_category', defaults: { format: 'json' }
     end
     resources :comments, only: [:create, :destroy]
