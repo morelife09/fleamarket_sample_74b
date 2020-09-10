@@ -32,7 +32,7 @@ class ItemsController < ApplicationController
 
   def search
     @parents = Category.where(ancestry: nil)
-    @items = Item.search(params[:name])
+    @items = Item.search(params[:name]).order('created_at DESC')
   end
 
   def edit

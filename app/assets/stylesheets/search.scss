@@ -1,99 +1,184 @@
-.breadcrumbs{
-  font-size: 14px;
-  color: #333;
-}
-
-.rap {
-  height: 800px;
-  width: 100vw;
-  border-top: solid 1px black;
+.search {
+  width: 100%;
+  min-height: 100vh;
   background-color: #f5f5f5;
-  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
-  padding-left: 30px;
-  padding-right: 30px;
-
-  &__title {
-    display: flex;
-    justify-content: center;
-    margin-top: 50px;
-
-    &__name {
-      line-height: 50px;
-      border-radius: 50px;
-      width: 300px;
-      font-size: 20px;
-      font-weight: bolder;
-      text-align: center;
-      color: #fff;
-      background-color: #3CCACE;
-    }
+  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic",
+    "メイリオ", "Meiryo", sans-serif;
+  .breadcrumbs {
+    font-size: 14px;
+    color: #333;
+    background-color: $white;
   }
+  &__header {
+    z-index: 5;
+    background-color: $white;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.16);
+  }
+  &__content {
+    flex: 1;
+    margin: 40px auto 0;
+    width: 1020px;
+    height: auto;
+    // height: 800px;
+    // width: 700px;
+    // border-top: solid 1px black;
+    background-color: #f5f5f5;
 
-  .productLists {
-    height: 100%;
-    width: 100%;
+    // padding-left: 30px;
+    // padding-right: 30px;
+    position: relative;
     display: flex;
-    overflow-x: scroll;
-    margin-top: 50px;
-
-    .productList {
-      height: 50px;
-      width: 100%;
-      margin-right: 30px;
-
-      a {
-        width: 370px;
-        display: block;
-        margin: 24px 0 8px;
-        color: #3ccace;
-        text-decoration: none;
-        font-weight: bold;
-        font-size: 22px;
-        position: relative;
-      }
-      .productList--img {
-        height: 300px;
-        width: 370px;
-        position: relative;
-        overflow: hidden;
-        margin: 0;
-        z-index: auto;
-
-        img {
-          position: absolute;
-          height: 300px;
-          object-fit: cover;
-          z-index: auto;
-          top: 0;
-          left: 0;
-          width: 100%;
-          right: 0;
-          bottom: 0;
+    // margin-bottom: 777px;
+    // padding-bottom: 20px;
+    &__right {
+      width: 700px;
+      height: 100%;
+      &__title {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+        &__name {
+          line-height: 50px;
+          border-radius: 50px;
+          width: 300px;
+          font-size: 20px;
+          font-weight: bolder;
+          text-align: center;
+          color: #fff;
+          background-color: #3ccace;
         }
       }
-    }
-    &__body {
-      background-color: white;
-      color: #333;
-      padding: 16px;
-
-      .name {
-        color: #333;
-        overflow: hidden;
-        line-height: 1.5;
-        font-size: 16px;
-        text-align: left;
-      }
-      .details {
-        font-size: 16px;
-        ul {
+      .search-items {
+        &__content {
+          // height: 100%;
+          // width: 100%;
+          // display: flex;
+          // overflow-x: scroll;
+          // margin-top: 50px;
           display: flex;
-          align-items: center;
-          justify-content: space-between;
-        }
-        p {
-          font-size: 10px;
-          text-align: left;
+          justify-content: space-around;
+          flex-wrap: wrap;
+          // &:after {
+          //   content: "";
+          //   display: block;
+          //   width: 160px;
+          //   margin: 0 25px 25px 0;
+          // }
+          width: auto;
+          margin: 40px auto;
+          &:before {
+            content: "";
+            display: block;
+            width: 160px;
+            margin-bottom: 25px;
+            order: 1;
+          }
+          &:after {
+            content: "";
+            display: block;
+            width: 160px;
+            margin-bottom: 25px;
+          }
+          .item-boxes {
+            // height: 50px;
+            // width: 100%;
+            // margin-right: 30px;
+            background-color: $white;
+            width: 160px;
+            margin: 0 0 25px 0;
+            &__img {
+              // width: 370px;
+              // display: block;
+              // margin: 24px 0 8px;
+              // color: #3ccace;
+              // text-decoration: none;
+              // font-weight: bold;
+              // font-size: 22px;
+              display: block;
+              position: relative;
+              width: 160px;
+              height: 160px;
+              overflow: hidden;
+              &__badge {
+                width: 0;
+                height: 0;
+                border-width: 80px 80px 0 0;
+                border-color: $main-color-green transparent transparent
+                  transparent;
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 2;
+                border-style: solid;
+                &__inner {
+                  top: -60px;
+                  font-size: 20px;
+                  position: absolute;
+                  left: 0;
+                  z-index: 3;
+                  color: #fff;
+                  transform: rotate(-45deg);
+                  letter-spacing: 2px;
+                  font-weight: 400;
+                }
+              }
+              &__photo {
+                // height: 300px;
+                // width: 370px;
+                // position: relative;
+                // overflow: hidden;
+                // margin: 0;
+                // z-index: auto;
+                position: absolute;
+                object-fit: cover;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                z-index: 1;
+                // width: 100%;
+                width: 160px;
+                height: 160px;
+                // img {
+                //   position: absolute;
+                //   height: 300px;
+                //   object-fit: cover;
+                //   z-index: auto;
+                //   top: 0;
+                //   left: 0;
+                //   width: 100%;
+                //   right: 0;
+                //   bottom: 0;
+                // }
+              }
+            }
+            &__body {
+              background-color: white;
+              color: #333;
+              height: 67px;
+              padding: 8px 12px;
+              &__name {
+                color: #333;
+                overflow: hidden;
+                line-height: 1.5;
+                font-size: 14px;
+                text-align: left;
+              }
+              &__details {
+                font-size: 14px;
+                ul {
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                }
+                p {
+                  font-size: 10px;
+                  text-align: left;
+                }
+              }
+            }
+          }
         }
       }
     }
