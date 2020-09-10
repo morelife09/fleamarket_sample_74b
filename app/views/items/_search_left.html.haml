@@ -1,0 +1,41 @@
+.search-left
+  .search-left__box
+    = search_form_for @q, class: "search-left__box__form", url: search_items_path do |f|
+      .search-left__box__form__upper
+        = f.select( :sorts, { '並び替え': 'updated_at desc' , '価格の安い順': 'price asc', '価格の高い順': 'price desc', '出品の古い順': 'updated_at asc', '出品の新しい順': 'updated_at desc' }, { selected: params[:q][:sorts]}, { class: "search-left__box__form__upper__sort", onchange: 'this.form.submit()'} )
+        = icon("fas", "chevron-down", class: "search-left__box__form__upper__icon")
+      .search-left__box__form__extend
+        %h3.search-left__box__form__extend__title
+          詳細検索
+        .search-left__box__form__extend__group
+          .search-left__box__form__extend__group__label
+            = icon("fas", "plus", class: "search-left__box__form__extend__group__label__icon")
+            %span.search-left__box__form__extend__group__label__title
+              キーワードを追加する
+          .search-left__box__form__extend__group__box
+            = f.search_field :name_or_description_cont, class: "search-left__box__form__extend__group__box__input", placeholder: "例） 値下げ"
+        .search-left__box__form__extend__group--second
+          .search-left__box__form__extend__group__label
+            = image_tag("icon_brand.png", class: "search-left__box__form__extend__group__label__brand")
+            %span.search-left__box__form__extend__group__label__title
+              ブランドを選択する
+          .search-left__box__form__extend__group__box
+            = f.collection_select :brand_id_in, Brand.all, :id, :name, {include_blank: "---", selected:"" }, {class: "search-left__box__form__extend__group__box__input"}
+            = icon("fas", "chevron-down", class: "search-left__box__form__extend__group__box__arrow")
+        .search-left__box__form__extend__group--price
+          .search-left__box__form__extend__group__label
+            = icon("fas", "coins", class: "search-left__box__form__extend__group__label__icon")
+            %span.search-left__box__form__extend__group__label__title
+              価格
+          .search-left__box__form__extend__group__box
+            = select_tag :price_range, options_from_collection_for_select(PriceRange.all, :id, :name),{ include_blank: "---", selected: "" , class: "search-left__box__form__extend__group__box__input" }
+            = icon("fas", "chevron-down", class: "search-left__box__form__extend__group__box__arrow")
+          .search-left__box__form__extend__group__range
+            = f.number_field :price_gteq, placeholder: "¥ Min", class: "search-left__box__form__extend__group__range__half"
+            %span ~
+            = f.number_field :price_lteq, placeholder: "¥ Max", class: "search-left__box__form__extend__group__range__half"
+        .search-left__box__form__extend__group__btns
+          .search-left__box__form__extend__group__btns__gray
+            = link_to "クリア", "#", class: "search-left__box__form__extend__group__btns__gray__inner"
+          .search-left__box__form__extend__group__btns__green
+            = f.submit "完了", class: "search-left__box__form__extend__group__btns__green__inner"

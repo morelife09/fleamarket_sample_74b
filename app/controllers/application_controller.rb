@@ -1,8 +1,14 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :basic_auth, if: :production?
+  # before_action :set_search
 
   def index
+  end
+
+  def set_search
+    @q = Item.ransack(params[:q])
+    @items = @q.result(distinct: true)
   end
 
   private
@@ -18,8 +24,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # def search_params
+  #   params.require(:q).permit(:sorts, :name_cont, :category_id, :price_gteq,
+  #     :price_lteq,)
+  # end
+
   protected
-  
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :first_name, :family_name, :first_name_furigana, :family_name_furigana, :birth_date])
   end

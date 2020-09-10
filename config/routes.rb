@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     get 'logout', to: 'users/logout'
     get 'email', to: 'users/email'
     get 'owner', to: 'users/owner'
-    
+
   end
 
   root to: 'items#index'

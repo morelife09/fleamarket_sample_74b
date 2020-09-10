@@ -658,6 +658,7 @@ a:hover {
   bottom: 32px;
   position: fixed;
   padding: 15px;
+  z-index: 10;
   &_text {
     color: #fff;
     font-size: 18px;

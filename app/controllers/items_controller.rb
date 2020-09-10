@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   before_action :set_categories, only: [:index, :new, :create, :show]
   before_action :set_card, only: [:purchase, :pay]
   before_action :move_to_index, except: [:index, :show, :search]
+  before_action :set_search, only: [:index, :show]
 
   require "payjp"
 
@@ -32,7 +33,22 @@ class ItemsController < ApplicationController
 
   def search
     @parents = Category.where(ancestry: nil)
-    @items = Item.search(params[:name]).order('created_at DESC')
+    # @items = Item.search(params[:name]).order('updated_at DESC')
+    if params[:q].present?
+      @q = Item.ransack(search_params)
+      @items = @q.result(distinct: true)
+    else
+      params[:q] = { sorts: 'updated_at DESC' }
+      @q = Item.ransack()
+      @items = Item.all
+    end
+    # if params[:id]
+    #   @price_range = PriceRange.find(params[:id])
+    #     respond_to do |format|
+    #       format.json { render json: {id: @price_range.id, min: @price_range.min, max: @price_range.max}}
+
+    #     end
+
   end
 
   def edit
@@ -149,6 +165,10 @@ class ItemsController < ApplicationController
 
   def move_to_index
     redirect_to action: :index unless user_signed_in?
+  end
+
+  def search_params
+    params.require(:q).permit(:sorts, :name_or_description_cont, :brand_id_in, :price_gteq, :price_lteq)
   end
 
 end

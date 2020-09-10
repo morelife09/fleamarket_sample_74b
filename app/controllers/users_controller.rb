@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_categories, only: [:show, :credit, :owner, :email, :logout]
+  before_action :set_search
 
   def show
     user = User.find(params[:id])
@@ -24,5 +25,5 @@ class UsersController < ApplicationController
   def set_categories
   @parents = Category.where(ancestry: nil)
   end
-  
+
 end
