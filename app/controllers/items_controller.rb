@@ -37,16 +37,19 @@ class ItemsController < ApplicationController
     if params[:q].present?
       @q = Item.ransack(search_params)
       @items = @q.result(distinct: true)
+      if params[:q][:name_or_description_cont].present?
+        @title = @q.name_or_description_cont
+      end
+      if params[:q][:brand_id_in].present?
+        brand = Brand.find(params[:q][:brand_id_in])
+        @brand = brand.name
+      end
     else
       params[:q] = { sorts: 'updated_at DESC' }
       @q = Item.ransack()
       @items = Item.all
     end
-    @title = @q.name_or_description_cont
-      if params[:q][:brand_id_in].present?
-        brand = Brand.find(params[:q][:brand_id_in])
-        @brand = brand.name
-      end
+
 
     if params[:id]
       @price_range = PriceRange.find(params[:id])
@@ -54,13 +57,6 @@ class ItemsController < ApplicationController
           format.json { render json: {id: @price_range.id, min: @price_range.min, max: @price_range.max}}
         end
     end
-    # if params[:id]
-    #   @price_range = PriceRange.find(params[:id])
-    #     respond_to do |format|
-    #       format.json { render json: {id: @price_range.id, min: @price_range.min, max: @price_range.max}}
-
-    #     end
-
   end
 
   def edit
