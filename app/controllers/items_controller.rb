@@ -42,6 +42,11 @@ class ItemsController < ApplicationController
       @q = Item.ransack()
       @items = Item.all
     end
+    @title = @q.name_or_description_cont
+      if params[:q][:brand_id_in].present?
+        brand = Brand.find(params[:q][:brand_id_in])
+        @brand = brand.name
+      end
 
     if params[:id]
       @price_range = PriceRange.find(params[:id])

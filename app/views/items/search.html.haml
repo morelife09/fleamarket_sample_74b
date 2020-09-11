@@ -12,6 +12,17 @@
       .search__content__right__title
         .search__content__right__title__name
           検索一覧
+      %h3.search__content__right__title__head
+        - if @title.present?
+          = @title
+        - if @brand.present?
+          = @brand
+          %span.search__content__right__title__head__text
+            の検索結果
+        - else
+          検索結果
+      .search__content__right__title__head__number
+        ="1-#{@items.count}件表示"
 
       .search-items
         .search-items__content
