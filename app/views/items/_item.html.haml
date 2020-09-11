@@ -10,11 +10,10 @@
       %h3.item-boxes__body__name
         = item.name
       .item-boxes__body__details
-        %ul
-          %li
-            = item.price
-            = "円"
-          %li
-            %i.fa.fa-star.likeIcon
+        .item-boxes__body__details__price
+          = item.price
+          = "円"
+        .item-boxes__body__details__icon
+          %i.fa.fa-star.likeIcon
+          %span
             0
-        %p (税込)

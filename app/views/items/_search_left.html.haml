@@ -2,7 +2,7 @@
   .search-left__box
     = search_form_for @q, class: "search-left__box__form", url: search_items_path do |f|
       .search-left__box__form__upper
-        = f.select( :sorts, { '並び替え': 'updated_at desc' , '価格の安い順': 'price asc', '価格の高い順': 'price desc', '出品の古い順': 'updated_at asc', '出品の新しい順': 'updated_at desc' }, { selected: params[:q][:sorts]}, { class: "search-left__box__form__upper__sort", onchange: 'this.form.submit()'} )
+        = f.select( :sorts, { '並び替え': 'id desc' , '価格の安い順': 'price asc', '価格の高い順': 'price desc', '出品の古い順': 'updated_at asc', '出品の新しい順': 'updated_at desc', 'お気に入りの多い順': 'favorites_count desc' }, { selected: params[:q][:sorts]}, { class: "search-left__box__form__upper__sort", onchange: 'this.form.submit()'} )
         = icon("fas", "chevron-down", class: "search-left__box__form__upper__icon")
       .search-left__box__form__extend
         %h3.search-left__box__form__extend__title
@@ -20,7 +20,7 @@
             %span.search-left__box__form__extend__group__label__title
               ブランドを選択する
           .search-left__box__form__extend__group__box
-            = f.collection_select :brand_id_in, Brand.all, :id, :name, {include_blank: "---", selected:"" }, {class: "search-left__box__form__extend__group__box__input"}
+            = f.collection_select :brand_id_in, Brand.all, :id, :name, {include_blank: "選択して下さい" }, {class: "search-left__box__form__extend__group__box__input"}
             = icon("fas", "chevron-down", class: "search-left__box__form__extend__group__box__arrow")
         .search-left__box__form__extend__group--price
           .search-left__box__form__extend__group__label
@@ -28,14 +28,25 @@
             %span.search-left__box__form__extend__group__label__title
               価格
           .search-left__box__form__extend__group__box
-            = select_tag :price_range, options_from_collection_for_select(PriceRange.all, :id, :name),{ include_blank: "---", selected: "" , class: "search-left__box__form__extend__group__box__input" }
+            = select_tag :price_range, options_from_collection_for_select(PriceRange.all, :id, :name),{ include_blank: "選択してください", class: "search-left__box__form__extend__group__box__input" }
             = icon("fas", "chevron-down", class: "search-left__box__form__extend__group__box__arrow")
           .search-left__box__form__extend__group__range
             = f.number_field :price_gteq, placeholder: "¥ Min", class: "search-left__box__form__extend__group__range__half"
             %span ~
             = f.number_field :price_lteq, placeholder: "¥ Max", class: "search-left__box__form__extend__group__range__half"
-        .search-left__box__form__extend__group__btns
-          .search-left__box__form__extend__group__btns__gray
-            = link_to "クリア", "#", class: "search-left__box__form__extend__group__btns__gray__inner"
-          .search-left__box__form__extend__group__btns__green
-            = f.submit "完了", class: "search-left__box__form__extend__group__btns__green__inner"
+        .search-left__box__form__extend__group--ckb
+          .search-left__box__form__extend__group__label
+            = icon("fa", "star", class: "search-left__box__form__extend__group__label__icon")
+            %span.search-left__box__form__extend__group__label__title
+              商品の状態
+          = f.collection_check_boxes :condition_id_in, Condition.all, :id, :name, include_hidden: false do |b|
+            .search-left__box__form__extend__group--ckb__inner
+              .search-left__box__form__extend__group--ckb__inner__btn.js_search_checkbox
+                = b.check_box
+              .search-left__box__form__extend__group--ckb__inner__label
+                = b.label { b.text}
+          .search-left__box__form__extend__group__btns
+            .search-left__box__form__extend__group__btns__gray
+              = f.button "クリア", type: :reset, class: "search-left__box__form__extend__group__btns__gray__inner", id: "search_clear", remote: true
+            .search-left__box__form__extend__group__btns__green
+              = f.submit "完了", class: "search-left__box__form__extend__group__btns__green__inner"

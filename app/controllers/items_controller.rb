@@ -42,6 +42,13 @@ class ItemsController < ApplicationController
       @q = Item.ransack()
       @items = Item.all
     end
+
+    if params[:id]
+      @price_range = PriceRange.find(params[:id])
+        respond_to do |format|
+          format.json { render json: {id: @price_range.id, min: @price_range.min, max: @price_range.max}}
+        end
+    end
     # if params[:id]
     #   @price_range = PriceRange.find(params[:id])
     #     respond_to do |format|
@@ -168,7 +175,7 @@ class ItemsController < ApplicationController
   end
 
   def search_params
-    params.require(:q).permit(:sorts, :name_or_description_cont, :brand_id_in, :price_gteq, :price_lteq)
+    params.require(:q).permit(:sorts, :name_or_description_cont, :brand_id_in, :price_gteq, :price_lteq, condition_id_in: [])
   end
 
 end

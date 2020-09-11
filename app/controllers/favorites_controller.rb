@@ -1,5 +1,6 @@
 class FavoritesController < ApplicationController
   before_action :set_items, only: [:show, :create, :destroy]
+  before_action :set_search, only: [:index, :show]
 
   def index
     @parents = Category.where(ancestry: nil)

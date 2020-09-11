@@ -24,6 +24,11 @@ class Item < ApplicationRecord
     favorites.where(user_id: user.id).exists?
   end
 
+  ransacker :favorites_count do
+    query = '(SELECT COUNT(favorites.item_id) FROM favorites where favorites.item_id = items.id GROUP BY favorites.item_id)'
+    Arel.sql(query)
+  end
+
   # def self.search(search)
   #   if search
   #     Item.where('name LIKE(?)', "%#{search}%")
