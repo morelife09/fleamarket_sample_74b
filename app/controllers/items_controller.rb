@@ -38,10 +38,15 @@ class ItemsController < ApplicationController
       @items = @q.result(distinct: true)
       if params[:q][:name_or_description_cont].present?
         @title = @q.name_or_description_cont
+        @keyword = @title
       end
       if params[:q][:brand_id_in].present?
         brand = Brand.find(params[:q][:brand_id_in])
         @brand = brand.name
+        @keyword = @brand
+      end
+      if @title.present? && @brand.present?
+        @keyword = @title + " " + @brand
       end
     else
       params[:q] = { sorts: 'updated_at DESC' }
