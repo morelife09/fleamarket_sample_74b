@@ -1,0 +1,19 @@
+.item-boxes
+  = link_to item_path(item.id) do
+    .item-boxes__img
+      = image_tag item.images.first.src.url, class: "item-boxes__img__photo"
+        - if item.buyer_id.present?
+        .item-boxes__img__badge
+          .item-boxes__img__badge__inner
+            SOLD
+    .item-boxes__body
+      %h3.item-boxes__body__name
+        = item.name
+      .item-boxes__body__details
+        .item-boxes__body__details__price
+          = item.price
+          = "円"
+        .item-boxes__body__details__icon
+          %i.fa.fa-star.likeIcon
+          %span
+            0

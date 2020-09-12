@@ -5,6 +5,11 @@ class ApplicationController < ActionController::Base
   def index
   end
 
+  def set_search
+    @q = Item.ransack(params[:q])
+    @items = @q.result(distinct: true)
+  end
+
   private
 
   def production?
@@ -18,8 +23,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
+
   protected
-  
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :first_name, :family_name, :first_name_furigana, :family_name_furigana, :birth_date])
   end

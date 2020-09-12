@@ -1,31 +1,33 @@
 
-- breadcrumb :search_items, @user
-= breadcrumbs separator: " &rsaquo; ", class: "breadcrumbs"
+.search
+  - breadcrumb :search_items, @user
+  = breadcrumbs separator: " &rsaquo; ", class: "breadcrumbs"
 
-= render "header"
+  .search__header
+    = render "header"
 
-.rap
-  .rap__title
-    .rap__title__name
-      検索一覧
+  .search__content
+    = render "search_left"
+    .search__content__right
+      .search__content__right__title
+        .search__content__right__title__name
+          検索一覧
+      %h3.search__content__right__title__head
+        - if @title.present?
+          = @title
+        - if @brand.present?
+          = @brand
+          %span.search__content__right__title__head__text
+            の検索結果
+        - else
+          検索結果
+      .search__content__right__title__head__number
+        ="1-#{@items.count}件表示"
 
-  .productLists
-    - @items.each do |item|
-      .productList
-        = link_to item_path(item.id) do
-          %figure.productList--img
-            = image_tag item.images.first.src.url
-          .productList--body
-            %h3.name
-              = item.name
-            .details
-              %ul
-                %li
-                  = item.price
-                  = "円"
-                %li
-                  %i.fa.fa-star.likeIcon
-                  0
-              %p (税込)
+      .search-items
+        .search-items__content
+          = render @items
 
-= render "footer"
+
+  .search__footer
+    = render "footer"
