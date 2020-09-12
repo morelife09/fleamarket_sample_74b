@@ -121,9 +121,6 @@
               width: 48%;
               vertical-align: middle;
               position: relative;
-              // input[type="checkbox"] {
-              //   display: none;
-              // }
               input {
                 position: absolute;
                 margin: 0 4px 0 0;
@@ -131,20 +128,7 @@
                 left: 0;
                 z-index: 3;
                 cursor: pointer;
-                //   width: 20px;
-                //   height: 20px;
-                //   border-radius: 2px;
-                //   background: #fff;
-                //   border: 1px solid #ccc;
-                //   font-size: 10px;
-                //   line-height: 17px;
                 text-align: center;
-                //   color: #fff;
-                //   vertical-align: middle;
-                //   -webkit-transition: all ease-out 0.3s;
-                //   transition: all ease-out 0.3s;
-                //   -webkit-transform: translate(0, -50%);
-                //   transform: translate(0, -50%);
               }
               &__label {
                 position: relative;
@@ -153,7 +137,6 @@
                 font-size: 14px;
                 font-weight: 400;
                 vertical-align: middle;
-                // cursor: pointer;
               }
             }
           }
