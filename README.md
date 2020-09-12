@@ -88,29 +88,10 @@
 
 ### Association
 
-<!-- - belongs_to :items_purchase -->
-
 - belongs_to :seller, class_name: "User"
 - belongs_to :buyer, class_name: "User"
 - has_many :images , dependent: :destroy
 - belongs_to :category
-<!-- - has_many :brands -->
-
-## items_purchases テーブル
-
-| Column                          | Type       | Options                         |
-| ------------------------------- | ---------- | ------------------------------- |
-| id                              | string     | null: false                     |
-| item_id                         | references | null: false , foreign_key: true |
-| user_id                         | references | null: false , foreign_key: true |
-| purchase_status_id(active_hash) | integer    |                                 |
-| created_at                      | timestanp  | null: false                     |
-| updated_at                      | timestanp  |                                 |
-
-### Association
-
-- belongs_to :user
-- belongs_to :item
 
 ## images テーブル
 
@@ -118,7 +99,7 @@
 | ---------- | ---------- | ------------------------------- |
 | id         | string     | null: false                     |
 | item_id    | references | null: false , foreign_key: true |
-| src 　     | string     | null: false                     |
+| src        | string     | null: false                     |
 | created_at | timestanp  | null: false                     |
 | updated_at | timestanp  |                                 |
 
@@ -139,28 +120,4 @@
 ### Association
 
 - has_many :items
-
-## brands テーブル
-
-| Column     | Type      | Options     |
-| ---------- | --------- | ----------- |
-| id         | string    | null: false |
-| name       | string    | null: false |
-| created_at | timestanp | null: false |
-| updated_at | timestanp |             |
-
-### Association
-
-- has_many :items
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-<!-- こっち -->
+- has_ancestry
