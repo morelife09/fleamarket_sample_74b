@@ -33,7 +33,6 @@ class ItemsController < ApplicationController
 
   def search
     @parents = Category.where(ancestry: nil)
-    # @items = Item.search(params[:name]).order('updated_at DESC')
     if params[:q].present?
       @q = Item.ransack(search_params)
       @items = @q.result(distinct: true)

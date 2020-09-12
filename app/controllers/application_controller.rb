@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :basic_auth, if: :production?
-  # before_action :set_search
 
   def index
   end
@@ -24,10 +23,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  # def search_params
-  #   params.require(:q).permit(:sorts, :name_cont, :category_id, :price_gteq,
-  #     :price_lteq,)
-  # end
 
   protected
 
