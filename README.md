@@ -121,3 +121,18 @@
 
 - has_many :items
 - has_ancestry
+
+## favorites テーブル
+
+| Column     | Type       | Options                         |
+| ---------- | ---------- | ------------------------------- |
+| id         | string     | null: false                     |
+| user_id    | references | null: false , foreign_key: true |
+| item_id    | references | null: false , foreign_key: true |
+| created_at | timestanp  | null: false                     |
+| updated_at | timestanp  |                                 |
+
+### Association
+
+- has_many :user
+- has_many :item
