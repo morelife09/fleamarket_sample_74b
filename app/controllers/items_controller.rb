@@ -3,13 +3,13 @@ class ItemsController < ApplicationController
   before_action :set_categories, only: [:index, :new, :create, :show]
   before_action :set_card, only: [:purchase, :pay]
   before_action :move_to_index, except: [:index, :show, :search]
-  before_action :set_search, only: [:index, :show]
 
   require "payjp"
 
   def index
     @items = Item.all.order("id DESC").limit(4)
     @parents = Category.where(ancestry: nil)
+    @favorites = Favorite.all
   end
 
   def new
@@ -33,34 +33,7 @@ class ItemsController < ApplicationController
 
   def search
     @parents = Category.where(ancestry: nil)
-    if params[:q].present?
-      @q = Item.ransack(search_params)
-      @items = @q.result(distinct: true)
-      if params[:q][:name_or_description_cont].present?
-        @title = @q.name_or_description_cont
-        @keyword = @title
-      end
-      if params[:q][:brand_id_in].present?
-        brand = Brand.find(params[:q][:brand_id_in])
-        @brand = brand.name
-        @keyword = @brand
-      end
-      if @title.present? && @brand.present?
-        @keyword = @title + " " + @brand
-      end
-    else
-      params[:q] = { sorts: 'updated_at DESC' }
-      @q = Item.ransack()
-      @items = Item.all
-    end
-
-
-    if params[:id]
-      @price_range = PriceRange.find(params[:id])
-        respond_to do |format|
-          format.json { render json: {id: @price_range.id, min: @price_range.min, max: @price_range.max}}
-        end
-    end
+    @items = Item.search(params[:name])
   end
 
   def edit
@@ -177,10 +150,6 @@ class ItemsController < ApplicationController
 
   def move_to_index
     redirect_to action: :index unless user_signed_in?
-  end
-
-  def search_params
-    params.require(:q).permit(:sorts, :name_or_description_cont, :brand_id_in, :price_gteq, :price_lteq, condition_id_in: [])
   end
 
 end
