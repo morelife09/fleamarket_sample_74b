@@ -8,7 +8,6 @@
       .productList
         = link_to item_path(favorite.item.id) do
           %figure.productList--img
-            -# = image_tag(favorite.item.images[0].src.url) →この記述でも画像を引き出せる
             = image_tag favorite.item.images.first.src.url
           .productList--body
             %h3.name
