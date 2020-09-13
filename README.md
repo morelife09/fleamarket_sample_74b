@@ -79,10 +79,10 @@
 | condition_id(acitve_hash)     | integer    | null: false                     |
 | shipping_fee_id(acitve_hash)  | integer    | null: false                     |
 | delivery_days_id(acitve_hash) | integer    | null: false                     |
+| brand_id(acitve_hash)         | integer    | null: false                     |
 | name                          | string     | null: false                     |
 | price                         | integer    | null: false                     |
 | description                   | text       | null: false                     |
-| brand_id                      | references | foreign_key: true               |
 | created_at                    | timestanp  | null: false                     |
 | updated_at                    | timestanp  |                                 |
 
