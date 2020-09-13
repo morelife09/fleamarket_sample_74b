@@ -28,36 +28,6 @@ class FavoritesController < ApplicationController
     end
   end
 
-  def search
-    @parents = Category.where(ancestry: nil)
-    if params[:q].present?
-      @q = Item.ransack(search_params)
-      @items = @q.result(distinct: true)
-      if params[:q][:name_or_description_cont].present?
-        @title = @q.name_or_description_cont
-        @keyword = @title
-      end
-      if params[:q][:brand_id_in].present?
-        brand = Brand.find(params[:q][:brand_id_in])
-        @brand = brand.name
-        @keyword = @brand
-      end
-      if @title.present? && @brand.present?
-        @keyword = @title + " " + @brand
-      end
-    else
-      params[:q] = { sorts: 'updated_at DESC' }
-      @q = Item.ransack()
-      @items = Item.all
-    end
-
-    if params[:id]
-      @price_range = PriceRange.find(params[:id])
-        respond_to do |format|
-          format.json { render json: {id: @price_range.id, min: @price_range.min, max: @price_range.max}}
-        end
-    end
-  end
 
   private
   def set_items
