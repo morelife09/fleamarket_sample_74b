@@ -134,5 +134,14 @@
 
 ### Association
 
-- has_many :user
-- has_many :item
+- has_many :users
+- has_many :items
+
+## SNS_Credentials テーブル
+
+| Column     | Type       | Options           |
+| ---------- | ---------- | ----------------- |
+| user       | references | foreign_key: true |
+| provider   | string     |                   |
+| uid        | string     |                   |
+| created_at | timestanp  |                   |
