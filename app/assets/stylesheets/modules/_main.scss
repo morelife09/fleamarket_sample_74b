@@ -23,7 +23,7 @@
             &__badge {
               width: 0;
               height: 0;
-              border-width: 120px 120px 0 0;
+              border-width: 150px 150px 0 0;
               border-color: $main-color-green transparent transparent
                 transparent;
               display: block;
@@ -33,10 +33,10 @@
               z-index: 1;
               border-style: solid;
               &__inner {
-                top: -90px;
-                font-size: 30px;
+                top: -119px;
+                font-size: 33px;
                 position: absolute;
-                left: 0;
+                left: 2px;
                 z-index: 2;
                 color: #fff;
                 transform: rotate(-45deg);
