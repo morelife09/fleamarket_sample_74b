@@ -37,9 +37,10 @@
     margin-top: 50px;
 
     .productList {
-      height: 50px;
-      width: 370px;
+      height: 421px;
+      width: 372px;
       margin-right: 30px;
+      display: inline-block;
     //   animation: scrollAnime 30s linear infinite; （アニメーション機能）
 
     // .productList div {display: inline-block;}
@@ -47,17 +48,16 @@
     // 0% {transform: translateX(0)}
     // 100% {transform: translateX(-100%)}
     // }                                             ←（ここまで）
-
       a {
         width: 370px;
         display: block;
         margin: 24px 0 8px;
-        color: #3ccace;
         text-decoration: none;
         font-weight: bold;
         font-size: 22px;
         position: relative;
       }
+
       .productList--img {
         height: 300px;
         width: 370px;
@@ -66,11 +66,31 @@
         margin: 0;
         z-index: auto;
 
-        img {
+        .productList--badge {
+          width: 0;
+          height: 0;
+          border-top: 50px solid $main-color-green;
+          border-right: 50px solid transparent;
+          border-bottom: 50px solid transparent;
+          border-left: 50px solid $main-color-green;
+          z-index: 100;
           position: absolute;
+
+          &__SOLD {
+            transform: rotate(-45deg);
+            font-size: 24px;
+            margin: -25px -30px 0px -55px;
+            color: #fff;
+            letter-spacing: 2px;
+            font-weight: 400;
+            top: 0px;
+          }
+        }
+
+        img {
           height: 300px;
           object-fit: cover;
-          z-index: auto;
+          z-index: 1;
           top: 0;
           left: 0;
           width: 100%;
@@ -78,6 +98,7 @@
           bottom: 0;
         }
       }
+
     }
     &__body {
       background-color: white;

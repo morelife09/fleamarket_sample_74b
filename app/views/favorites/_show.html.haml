@@ -8,6 +8,10 @@
       .productList
         = link_to item_path(favorite.item.id) do
           %figure.productList--img
+            - if favorite.item.buyer_id.present?
+              .productList--badge
+                .productList--badge__SOLD
+                  SOLD
             = image_tag favorite.item.images.first.src.url
           .productList--body
             %h3.name

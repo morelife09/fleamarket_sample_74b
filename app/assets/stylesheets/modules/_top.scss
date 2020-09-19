@@ -514,19 +514,19 @@ a:hover {
     .items-box_photo_sold {
       width: 0;
       height: 0;
-      border-top: 60px solid #ea352d;
-      border-right: 60px solid transparent;
-      border-bottom: 60px solid transparent;
-      border-left: 60px solid #ea352d;
+      border-top: 50px solid $main-color-green;
+      border-right: 50px solid transparent;
+      border-bottom: 50px solid transparent;
+      border-left: 50px solid $main-color-green;
       z-index: 100;
       position: absolute;
       &_inner {
         transform: rotate(-45deg);
-        font-size: 28px;
-        margin: -35px 0px 0px -55px;
+        font-size: 24px;
+        margin: -25px -30px 0px -55px;
         color: #fff;
         letter-spacing: 2px;
-        font-weight: 600;
+        font-weight: 400;
         top: 0px;
       }
       a {
